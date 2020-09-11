@@ -16,6 +16,8 @@ using DevExpress.Xpo.DB;
 using DevExpress.Data.Filtering;
 using Lime.Xpo.orcl;
 using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraEditors.Controls;
+using Lime.Misc;
 
 namespace Lime.BusinessObject
 {
@@ -24,29 +26,10 @@ namespace Lime.BusinessObject
 		public Roles()
 		{
 			InitializeComponent();
+			gridView1.CustomDrawRowIndicator += MiscAction.DrawGridLineNo;
 		}
 		 
-		/// <summary>
-		/// 绘制行号
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
-		{
-			e.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-			if (e.Info.IsRowIndicator)
-			{
-				if (e.RowHandle >= 0)
-				{
-					e.Info.DisplayText = (e.RowHandle + 1).ToString();
-				}
-				else if (e.RowHandle < 0 && e.RowHandle > -1000)
-				{
-					e.Info.Appearance.BackColor = System.Drawing.Color.AntiqueWhite;
-					e.Info.DisplayText = "G" + e.RowHandle.ToString();
-				}
-			}
-		}
+		 
 		/// <summary>
 		/// 新增
 		/// </summary>
@@ -88,6 +71,11 @@ namespace Lime.BusinessObject
 		{
 			if (gridView1.FocusedRowHandle >= 0)
 			{
+				if(gridView1.GetFocusedRowCellValue("RO001").ToString() == App_Const.ADMIN_GROUP_ID)
+				{
+					XtraMessageBox.Show("内置角色,不能删除!","提示",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+					return;
+				}
 				if (XtraMessageBox.Show("确认要删除当前的记录吗", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
 				{
 					return;
@@ -104,14 +92,21 @@ namespace Lime.BusinessObject
 		/// <param name="e"></param>
 		private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
+			if (!gridView1.PostEditor()) return;
+			if (!gridView1.UpdateCurrentRow()) return;
+			if (!this.CheckValidBeforeSave()) return;
+
 			try
 			{
-				SqlHelper.ExecuteNonQuery("deletee from ro01 where ro001 = '002'");
+				unitOfWork1.CommitChanges();
+				XtraMessageBox.Show("保存成功!","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
 			}
 			catch (Exception ee)
 			{
-				MessageBox.Show(ee.ToString(),"调试错误");
+				LogUtils.Error(ee.ToString());
+				XtraMessageBox.Show(ee.ToString(),"错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
 			}
+
 		}
 		/// <summary>
 		/// 刷新
@@ -162,6 +157,45 @@ namespace Lime.BusinessObject
 						}
 					}
 				}
+			}
+		}
+		 
+		 
+		/// <summary>
+		/// 保存前检查
+		/// </summary>
+		/// <returns></returns>
+		private bool CheckValidBeforeSave()
+		{
+			foreach(RO01 r in xpCollection1)
+			{
+				if(r.RO003 == null || string.IsNullOrEmpty(r.RO003))
+				{
+					int rowHandle = gridView1.GetRowHandle(xpCollection1.IndexOf(r));
+					gridView1.FocusedRowHandle = rowHandle;
+					gridView1.FocusedColumn = gridView1.Columns["RO003"];
+					XtraMessageBox.Show("【角色名】必须输入!","提示",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+					gridView1.ShowEditor();
+					return false;
+				}
+			}
+			return true;
+		}
+
+		private void xpCollection1_CollectionChanged(object sender, XPCollectionChangedEventArgs e)
+		{
+			
+		}
+		/// <summary>
+		/// 内置角色 禁止编辑
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
+		{
+			if (gridView1.GetFocusedRowCellValue("RO001") != null && gridView1.GetFocusedRowCellValue("RO001").ToString() == App_Const.ADMIN_GROUP_ID)
+			{
+				e.Cancel = true;
 			}
 		}
 	}

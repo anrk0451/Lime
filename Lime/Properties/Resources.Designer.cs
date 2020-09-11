@@ -69,5 +69,105 @@ namespace Lime.Properties {
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_addcircled1 {
+            get {
+                object obj = ResourceManager.GetObject("actions_addcircled1", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_deletecircled {
+            get {
+                object obj = ResourceManager.GetObject("actions_deletecircled", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage bo_contract {
+            get {
+                object obj = ResourceManager.GetObject("bo_contract", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage bo_contract1 {
+            get {
+                object obj = ResourceManager.GetObject("bo_contract1", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage bo_contract2 {
+            get {
+                object obj = ResourceManager.GetObject("bo_contract2", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage bo_contract3 {
+            get {
+                object obj = ResourceManager.GetObject("bo_contract3", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage changeview {
+            get {
+                object obj = ResourceManager.GetObject("changeview", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage delete {
+            get {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage editnames {
+            get {
+                object obj = ResourceManager.GetObject("editnames", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage save {
+            get {
+                object obj = ResourceManager.GetObject("save", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
     }
 }

@@ -20,7 +20,10 @@ namespace Lime.Xpo.orcl
 		static Type[] persistentTypes = new Type[] {
 			typeof(RO01),
 			typeof(UC01),
-			typeof(BO01)
+			typeof(BO01),
+			typeof(UR_MAPPER),
+			typeof(V_UC01),
+			typeof(ST01)
 		};
 		public static Type[] GetPersistentTypes()
 		{

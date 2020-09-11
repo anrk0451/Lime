@@ -53,20 +53,6 @@ namespace Lime.Xpo.orcl
 			get { return fSTATUS; }
 			set { SetPropertyValue<char>(nameof(STATUS), ref fSTATUS, value); }
 		}
-		string fUC007;
-		[Size(20)]
-		public string UC007
-		{
-			get { return fUC007; }
-			set { SetPropertyValue<string>(nameof(UC007), ref fUC007, value); }
-		}
-		string fUC008;
-		[Size(50)]
-		public string UC008
-		{
-			get { return fUC008; }
-			set { SetPropertyValue<string>(nameof(UC008), ref fUC008, value); }
-		}
 	}
 
 }

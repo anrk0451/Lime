@@ -16,6 +16,7 @@ using DevExpress.XtraEditors;
 using Lime.BaseObject;
 using DevExpress.Xpo;
 using Lime.Misc;
+using DevExpress.XtraTab.ViewInfo;
 
 namespace Lime
 {
@@ -138,7 +139,37 @@ namespace Lime
 
 			MessageBox.Show(session1.Connection.ConnectionString, "记录数");
 		}
+		/// <summary>
+		/// 关闭标签页
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
+		{
+			ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
+			XtraTabPage curPage = (XtraTabPage)arg.Page;
+			///////// 清除页面追踪 ////////
+			openedTabPage.Remove(curPage.Tag.ToString());
+			curPage.Dispose();
+		}
+		/// <summary>
+		/// 用户管理
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("Operator");
+		}
 
-		
+		/// <summary>
+		/// 数据项维护
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("DataDict");
+		}
 	}
 }

@@ -16,28 +16,34 @@ using System.Reflection;
 namespace Lime.Xpo.orcl
 {
 
-	public partial class RO01 : XPLiteObject
+	public partial class ST01 : XPLiteObject
 	{
-		string fRO001;
+		string fST001;
 		[Key]
 		[Size(10)]
-		public string RO001
+		public string ST001
 		{
-			get { return fRO001; }
-			set { SetPropertyValue<string>(nameof(RO001), ref fRO001, value); }
+			get { return fST001; }
+			set { SetPropertyValue<string>(nameof(ST001), ref fST001, value); }
 		}
-		string fRO003;
-		[Size(50)]
-		public string RO003
+		string fST002;
+		[Size(15)]
+		public string ST002
 		{
-			get { return fRO003; }
-			set { SetPropertyValue<string>(nameof(RO003), ref fRO003, value); }
+			get { return fST002; }
+			set { SetPropertyValue<string>(nameof(ST002), ref fST002, value); }
 		}
-		string fRO004;
-		public string RO004
+		string fST003;
+		public string ST003
 		{
-			get { return fRO004; }
-			set { SetPropertyValue<string>(nameof(RO004), ref fRO004, value); }
+			get { return fST003; }
+			set { SetPropertyValue<string>(nameof(ST003), ref fST003, value); }
+		}
+		int fSORTID;
+		public int SORTID
+		{
+			get { return fSORTID; }
+			set { SetPropertyValue<int>(nameof(SORTID), ref fSORTID, value); }
 		}
 		string fSTATUS;
 		[Size(3)]

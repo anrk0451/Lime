@@ -16,35 +16,45 @@ using System.Reflection;
 namespace Lime.Xpo.orcl
 {
 
-	public partial class RO01 : XPLiteObject
+	public partial class V_UC01 : XPLiteObject
 	{
-		string fRO001;
+		string fUC001;
 		[Key]
-		[Size(10)]
-		public string RO001
+		public string UC001
 		{
-			get { return fRO001; }
-			set { SetPropertyValue<string>(nameof(RO001), ref fRO001, value); }
+			get { return fUC001; }
+			set { SetPropertyValue<string>(nameof(UC001), ref fUC001, value); }
 		}
-		string fRO003;
-		[Size(50)]
-		public string RO003
+		string fUC002;
+		public string UC002
 		{
-			get { return fRO003; }
-			set { SetPropertyValue<string>(nameof(RO003), ref fRO003, value); }
+			get { return fUC002; }
+			set { SetPropertyValue<string>(nameof(UC002), ref fUC002, value); }
 		}
-		string fRO004;
-		public string RO004
+		string fUC003;
+		public string UC003
 		{
-			get { return fRO004; }
-			set { SetPropertyValue<string>(nameof(RO004), ref fRO004, value); }
+			get { return fUC003; }
+			set { SetPropertyValue<string>(nameof(UC003), ref fUC003, value); }
+		}
+		string fUC004;
+		public string UC004
+		{
+			get { return fUC004; }
+			set { SetPropertyValue<string>(nameof(UC004), ref fUC004, value); }
 		}
 		string fSTATUS;
-		[Size(3)]
 		public string STATUS
 		{
 			get { return fSTATUS; }
 			set { SetPropertyValue<string>(nameof(STATUS), ref fSTATUS, value); }
+		}
+		[Persistent(@"ROLESLIST")]
+		string fROLESLIST;
+		[PersistentAlias("fROLESLIST")]
+		public string ROLESLIST
+		{
+			get { return fROLESLIST; }
 		}
 	}
 

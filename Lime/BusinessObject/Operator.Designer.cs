@@ -1,6 +1,6 @@
 ﻿namespace Lime.BusinessObject
 {
-	partial class Roles
+	partial class Operator
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Roles));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Operator));
 			this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
 			this.bar1 = new DevExpress.XtraBars.Bar();
 			this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -40,19 +40,17 @@
 			this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-			this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-			this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
 			this.gridControl1 = new DevExpress.XtraGrid.GridControl();
 			this.xpCollection1 = new DevExpress.Xpo.XPCollection(this.components);
 			this.unitOfWork1 = new DevExpress.Xpo.UnitOfWork(this.components);
 			this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-			this.colRO001 = new DevExpress.XtraGrid.Columns.GridColumn();
-			this.colRO003 = new DevExpress.XtraGrid.Columns.GridColumn();
-			this.colRO004 = new DevExpress.XtraGrid.Columns.GridColumn();
+			this.colUC001 = new DevExpress.XtraGrid.Columns.GridColumn();
+			this.colUC002 = new DevExpress.XtraGrid.Columns.GridColumn();
+			this.colUC003 = new DevExpress.XtraGrid.Columns.GridColumn();
+			this.colUC004 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colSTATUS = new DevExpress.XtraGrid.Columns.GridColumn();
+			this.colROLESLIST = new DevExpress.XtraGrid.Columns.GridColumn();
 			((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.xpCollection1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).BeginInit();
@@ -107,9 +105,9 @@
 			// 
 			// barButtonItem3
 			// 
-			this.barButtonItem3.Caption = "保存";
+			this.barButtonItem3.Caption = "修改";
 			this.barButtonItem3.Id = 3;
-			this.barButtonItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem3.ImageOptions.SvgImage")));
+			this.barButtonItem3.ImageOptions.SvgImage = global::Lime.Properties.Resources.editnames;
 			this.barButtonItem3.Name = "barButtonItem3";
 			this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
 			// 
@@ -127,65 +125,49 @@
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
 			this.barDockControlTop.Manager = this.barManager1;
-			this.barDockControlTop.Size = new System.Drawing.Size(1251, 37);
+			this.barDockControlTop.Size = new System.Drawing.Size(1155, 34);
 			// 
 			// barDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControlBottom.Location = new System.Drawing.Point(0, 530);
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 591);
 			this.barDockControlBottom.Manager = this.barManager1;
-			this.barDockControlBottom.Size = new System.Drawing.Size(1251, 0);
+			this.barDockControlBottom.Size = new System.Drawing.Size(1155, 0);
 			// 
 			// barDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControlLeft.Location = new System.Drawing.Point(0, 37);
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 34);
 			this.barDockControlLeft.Manager = this.barManager1;
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 493);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 557);
 			// 
 			// barDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(1251, 37);
+			this.barDockControlRight.Location = new System.Drawing.Point(1155, 34);
 			this.barDockControlRight.Manager = this.barManager1;
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 493);
-			// 
-			// repositoryItemTextEdit1
-			// 
-			this.repositoryItemTextEdit1.AutoHeight = false;
-			this.repositoryItemTextEdit1.Mask.EditMask = "N2";
-			this.repositoryItemTextEdit1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-			this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-			// 
-			// repositoryItemTextEdit2
-			// 
-			this.repositoryItemTextEdit2.AutoHeight = false;
-			this.repositoryItemTextEdit2.Mask.EditMask = "N2";
-			this.repositoryItemTextEdit2.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-			this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 557);
 			// 
 			// gridControl1
 			// 
 			this.gridControl1.DataSource = this.xpCollection1;
 			this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gridControl1.Location = new System.Drawing.Point(0, 37);
+			this.gridControl1.Location = new System.Drawing.Point(0, 34);
 			this.gridControl1.MainView = this.gridView1;
 			this.gridControl1.MenuManager = this.barManager1;
 			this.gridControl1.Name = "gridControl1";
-			this.gridControl1.Size = new System.Drawing.Size(1251, 493);
-			this.gridControl1.TabIndex = 4;
+			this.gridControl1.Size = new System.Drawing.Size(1155, 557);
+			this.gridControl1.TabIndex = 5;
 			this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
 			// 
 			// xpCollection1
 			// 
-			this.xpCollection1.CriteriaString = "[STATUS] = \'1\'";
-			this.xpCollection1.ObjectType = typeof(Lime.Xpo.orcl.RO01);
+			this.xpCollection1.ObjectType = typeof(Lime.Xpo.orcl.V_UC01);
 			this.xpCollection1.Session = this.unitOfWork1;
-			this.xpCollection1.CollectionChanged += new DevExpress.Xpo.XPCollectionChangedEventHandler(this.xpCollection1_CollectionChanged);
 			// 
 			// unitOfWork1
 			// 
@@ -194,53 +176,61 @@
 			// 
 			// gridView1
 			// 
-			this.gridView1.ActiveFilterString = "[STATUS] <> \'0\'";
+			this.gridView1.ActiveFilterString = "[STATUS] = \'1\'";
 			this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colRO001,
-            this.colRO003,
-            this.colRO004,
-            this.colSTATUS});
+            this.colUC001,
+            this.colUC002,
+            this.colUC003,
+            this.colUC004,
+            this.colSTATUS,
+            this.colROLESLIST});
 			this.gridView1.GridControl = this.gridControl1;
 			this.gridView1.IndicatorWidth = 30;
 			this.gridView1.Name = "gridView1";
 			this.gridView1.OptionsBehavior.AllowValidationErrors = false;
+			this.gridView1.OptionsBehavior.Editable = false;
 			this.gridView1.OptionsFilter.AllowFilterEditor = false;
 			this.gridView1.OptionsNavigation.EnterMoveNextColumn = true;
 			this.gridView1.OptionsView.ColumnAutoWidth = false;
-			this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
 			this.gridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
 			this.gridView1.OptionsView.ShowGroupPanel = false;
-			this.gridView1.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridView1_ShowingEditor);
-			this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
-			this.gridView1.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView1_ValidatingEditor);
+			this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseDown);
 			// 
-			// colRO001
+			// colUC001
 			// 
-			this.colRO001.FieldName = "RO001";
-			this.colRO001.MinWidth = 25;
-			this.colRO001.Name = "colRO001";
-			this.colRO001.OptionsColumn.AllowShowHide = false;
-			this.colRO001.Width = 94;
+			this.colUC001.FieldName = "UC001";
+			this.colUC001.MinWidth = 25;
+			this.colUC001.Name = "colUC001";
+			this.colUC001.OptionsColumn.AllowShowHide = false;
+			this.colUC001.Width = 94;
 			// 
-			// colRO003
+			// colUC002
 			// 
-			this.colRO003.Caption = "角色名";
-			this.colRO003.FieldName = "RO003";
-			this.colRO003.MinWidth = 25;
-			this.colRO003.Name = "colRO003";
-			this.colRO003.Visible = true;
-			this.colRO003.VisibleIndex = 0;
-			this.colRO003.Width = 222;
+			this.colUC002.Caption = "用户代码";
+			this.colUC002.FieldName = "UC002";
+			this.colUC002.MinWidth = 25;
+			this.colUC002.Name = "colUC002";
+			this.colUC002.Visible = true;
+			this.colUC002.VisibleIndex = 0;
+			this.colUC002.Width = 172;
 			// 
-			// colRO004
+			// colUC003
 			// 
-			this.colRO004.Caption = "描述";
-			this.colRO004.FieldName = "RO004";
-			this.colRO004.MinWidth = 25;
-			this.colRO004.Name = "colRO004";
-			this.colRO004.Visible = true;
-			this.colRO004.VisibleIndex = 1;
-			this.colRO004.Width = 843;
+			this.colUC003.Caption = "用户名";
+			this.colUC003.FieldName = "UC003";
+			this.colUC003.MinWidth = 25;
+			this.colUC003.Name = "colUC003";
+			this.colUC003.Visible = true;
+			this.colUC003.VisibleIndex = 1;
+			this.colUC003.Width = 208;
+			// 
+			// colUC004
+			// 
+			this.colUC004.FieldName = "UC004";
+			this.colUC004.MinWidth = 25;
+			this.colUC004.Name = "colUC004";
+			this.colUC004.OptionsColumn.AllowShowHide = false;
+			this.colUC004.Width = 94;
 			// 
 			// colSTATUS
 			// 
@@ -250,7 +240,17 @@
 			this.colSTATUS.OptionsColumn.AllowShowHide = false;
 			this.colSTATUS.Width = 94;
 			// 
-			// Roles
+			// colROLESLIST
+			// 
+			this.colROLESLIST.Caption = "角色列表";
+			this.colROLESLIST.FieldName = "ROLESLIST";
+			this.colROLESLIST.MinWidth = 25;
+			this.colROLESLIST.Name = "colROLESLIST";
+			this.colROLESLIST.Visible = true;
+			this.colROLESLIST.VisibleIndex = 2;
+			this.colROLESLIST.Width = 521;
+			// 
+			// Operator
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -259,11 +259,10 @@
 			this.Controls.Add(this.barDockControlRight);
 			this.Controls.Add(this.barDockControlBottom);
 			this.Controls.Add(this.barDockControlTop);
-			this.Name = "Roles";
-			this.Size = new System.Drawing.Size(1251, 530);
+			this.Name = "Operator";
+			this.Size = new System.Drawing.Size(1155, 591);
+			this.Load += new System.EventHandler(this.Operator_Load);
 			((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.xpCollection1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).EndInit();
@@ -285,15 +284,15 @@
 		private DevExpress.XtraBars.BarDockControl barDockControlBottom;
 		private DevExpress.XtraBars.BarDockControl barDockControlLeft;
 		private DevExpress.XtraBars.BarDockControl barDockControlRight;
-		private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
-		private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
 		private DevExpress.XtraGrid.GridControl gridControl1;
 		private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-		private DevExpress.Xpo.XPCollection xpCollection1;
-		private DevExpress.XtraGrid.Columns.GridColumn colRO001;
-		private DevExpress.XtraGrid.Columns.GridColumn colRO003;
-		private DevExpress.XtraGrid.Columns.GridColumn colRO004;
-		private DevExpress.XtraGrid.Columns.GridColumn colSTATUS;
 		private DevExpress.Xpo.UnitOfWork unitOfWork1;
+		private DevExpress.Xpo.XPCollection xpCollection1;
+		private DevExpress.XtraGrid.Columns.GridColumn colUC001;
+		private DevExpress.XtraGrid.Columns.GridColumn colUC002;
+		private DevExpress.XtraGrid.Columns.GridColumn colUC003;
+		private DevExpress.XtraGrid.Columns.GridColumn colUC004;
+		private DevExpress.XtraGrid.Columns.GridColumn colSTATUS;
+		private DevExpress.XtraGrid.Columns.GridColumn colROLESLIST;
 	}
 }

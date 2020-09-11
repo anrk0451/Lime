@@ -121,7 +121,7 @@
             this.ribbonPage1,
             this.ribbonPage2,
             this.ribbonPage3});
-			this.ribbon.Size = new System.Drawing.Size(1409, 186);
+			this.ribbon.Size = new System.Drawing.Size(1413, 186);
 			this.ribbon.StatusBar = this.ribbonStatusBar;
 			// 
 			// barButtonItem1
@@ -130,6 +130,7 @@
 			this.barButtonItem1.Id = 1;
 			this.barButtonItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
 			this.barButtonItem1.Name = "barButtonItem1";
+			this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
 			// 
 			// barButtonItem2
 			// 
@@ -152,6 +153,7 @@
 			this.barButtonItem4.Id = 4;
 			this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
 			this.barButtonItem4.Name = "barButtonItem4";
+			this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
 			// 
 			// barButtonItem5
 			// 
@@ -393,10 +395,10 @@
 			this.ribbonStatusBar.ItemLinks.Add(this.barHeaderItem1);
 			this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem1);
 			this.ribbonStatusBar.ItemLinks.Add(this.barHeaderItem2);
-			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 526);
+			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 521);
 			this.ribbonStatusBar.Name = "ribbonStatusBar";
 			this.ribbonStatusBar.Ribbon = this.ribbon;
-			this.ribbonStatusBar.Size = new System.Drawing.Size(1409, 29);
+			this.ribbonStatusBar.Size = new System.Drawing.Size(1413, 34);
 			// 
 			// session1
 			// 
@@ -410,17 +412,18 @@
 			this.xtraTabControl1.Location = new System.Drawing.Point(0, 186);
 			this.xtraTabControl1.Name = "xtraTabControl1";
 			this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-			this.xtraTabControl1.Size = new System.Drawing.Size(1409, 340);
+			this.xtraTabControl1.Size = new System.Drawing.Size(1413, 335);
 			this.xtraTabControl1.TabIndex = 3;
 			this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1});
+			this.xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
 			// 
 			// xtraTabPage1
 			// 
 			this.xtraTabPage1.Controls.Add(this.pictureEdit1);
 			this.xtraTabPage1.Name = "xtraTabPage1";
 			this.xtraTabPage1.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-			this.xtraTabPage1.Size = new System.Drawing.Size(1407, 305);
+			this.xtraTabPage1.Size = new System.Drawing.Size(1403, 296);
 			this.xtraTabPage1.Text = "欢迎";
 			// 
 			// pictureEdit1
@@ -434,18 +437,18 @@
 			this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
 			this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-			this.pictureEdit1.Size = new System.Drawing.Size(1407, 305);
+			this.pictureEdit1.Size = new System.Drawing.Size(1403, 296);
 			this.pictureEdit1.TabIndex = 0;
 			// 
 			// Frm_main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1409, 555);
+			this.ClientSize = new System.Drawing.Size(1413, 555);
 			this.Controls.Add(this.xtraTabControl1);
 			this.Controls.Add(this.ribbonStatusBar);
 			this.Controls.Add(this.ribbon);
-			this.Font = new System.Drawing.Font("宋体", 10.8F);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Frm_main";
 			this.Ribbon = this.ribbon;
 			this.StatusBar = this.ribbonStatusBar;
