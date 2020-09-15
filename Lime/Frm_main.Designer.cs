@@ -162,6 +162,7 @@
 			this.barButtonItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
 			this.barButtonItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
 			this.barButtonItem5.Name = "barButtonItem5";
+			this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
 			// 
 			// barButtonItem6
 			// 
@@ -177,6 +178,7 @@
 			this.barButtonItem7.Id = 7;
 			this.barButtonItem7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem7.ImageOptions.SvgImage")));
 			this.barButtonItem7.Name = "barButtonItem7";
+			this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
 			// 
 			// barButtonItem8
 			// 

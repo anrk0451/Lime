@@ -14,6 +14,9 @@ namespace Lime.Misc
 		//根用户ID
 		public static string ROOT_ID = "0000000000";         
 		//管理员组ID
-		public static string ADMIN_GROUP_ID = "0000000000";           
+		public static string ADMIN_GROUP_ID = "0000000000";
+
+		public const int GRID_HEIGHT = 50;
+		public const int GRID_WIDTH = 60;
 	}
 }

@@ -46,6 +46,7 @@
     <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="log4net">
       <HintPath>..\..\..\dll\log4net.dll</HintPath>
     </Reference>
@@ -65,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action\MiscAction.cs" />
+    <Compile Include="Action\RegAction.cs" />
     <Compile Include="Action\SqlHelper.cs" />
     <Compile Include="BaseObject\BaseBusiness.cs">
       <SubType>UserControl</SubType>
@@ -90,11 +92,23 @@
     <Compile Include="BusinessObject\Operator.Designer.cs">
       <DependentUpon>Operator.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObject\RegisterStru.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\RegisterStru.Designer.cs">
+      <DependentUpon>RegisterStru.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObject\Roles.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="BusinessObject\Roles.Designer.cs">
       <DependentUpon>Roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\SalesItemInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\SalesItemInfo.Designer.cs">
+      <DependentUpon>SalesItemInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_main.cs">
       <SubType>Form</SubType>
@@ -106,6 +120,7 @@
     <Compile Include="Misc\Envior.cs" />
     <Compile Include="Misc\LogUtils.cs" />
     <Compile Include="Misc\SecurityTool.cs" />
+    <Compile Include="Misc\Tool.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplashScreen1.cs">
@@ -114,20 +129,54 @@
     <Compile Include="SplashScreen1.Designer.cs">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Frm_Bi01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_Bi01.Designer.cs">
+      <DependentUpon>Frm_Bi01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_LayerPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_LayerPrice.Designer.cs">
+      <DependentUpon>Frm_LayerPrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Frm_Operator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Windows\Frm_Operator.Designer.cs">
       <DependentUpon>Frm_Operator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Frm_Region.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_Region.Designer.cs">
+      <DependentUpon>Frm_Region.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\BI01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\BI01.Designer.cs">
+      <DependentUpon>BI01.cs</DependentUpon>
+    </Compile>
     <Compile Include="Xpo\LimeDataModel1Code\BO01.cs" />
     <Compile Include="Xpo\LimeDataModel1Code\BO01.Designer.cs">
       <DependentUpon>BO01.cs</DependentUpon>
     </Compile>
     <Compile Include="Xpo\LimeDataModel1Code\ConnectionHelper.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\LY01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\LY01.Designer.cs">
+      <DependentUpon>LY01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\RG01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\RG01.Designer.cs">
+      <DependentUpon>RG01.cs</DependentUpon>
+    </Compile>
     <Compile Include="Xpo\LimeDataModel1Code\RO01.cs" />
     <Compile Include="Xpo\LimeDataModel1Code\RO01.Designer.cs">
       <DependentUpon>RO01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\SI01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\SI01.Designer.cs">
+      <DependentUpon>SI01.cs</DependentUpon>
     </Compile>
     <Compile Include="Xpo\LimeDataModel1Code\ST01.cs" />
     <Compile Include="Xpo\LimeDataModel1Code\ST01.Designer.cs">
@@ -157,8 +206,14 @@
     <EmbeddedResource Include="BusinessObject\Operator.resx">
       <DependentUpon>Operator.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\RegisterStru.resx">
+      <DependentUpon>RegisterStru.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\SalesItemInfo.resx">
+      <DependentUpon>SalesItemInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_main.resx">
       <DependentUpon>Frm_main.cs</DependentUpon>
@@ -166,8 +221,17 @@
     <EmbeddedResource Include="SplashScreen1.resx">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_Bi01.resx">
+      <DependentUpon>Frm_Bi01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_LayerPrice.resx">
+      <DependentUpon>Frm_LayerPrice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_Operator.resx">
       <DependentUpon>Frm_Operator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_Region.resx">
+      <DependentUpon>Frm_Region.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="log4net.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -205,6 +269,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Network.contrast-white.ico" />
+    <None Include="Resources\nodata.jpg" />
+    <None Include="Resources\charttype_gantt.svg" />
+    <None Include="Resources\actions_addcircled2.svg" />
+    <None Include="Resources\contentarrangeinrows_32x326.png" />
+    <None Include="Resources\contentarrangeinrows_32x325.png" />
+    <None Include="Resources\open2.svg" />
+    <None Include="Resources\actions_zoom.svg" />
+    <None Include="Resources\withtextwrapping_centercenter_32x323.png" />
+    <None Include="Resources\withtextwrapping_centercenter_32x322.png" />
+    <None Include="Resources\withtextwrapping_centercenter_32x321.png" />
+    <None Include="Resources\withtextwrapping_centercenter_32x32.png" />
+    <None Include="Resources\contentarrangeinrows_32x324.png" />
+    <None Include="Resources\contentarrangeinrows_32x323.png" />
+    <None Include="Resources\contentarrangeinrows_32x322.png" />
+    <None Include="Resources\contentarrangeinrows_32x321.png" />
+    <None Include="Resources\contentarrangeincolums_32x32.png" />
+    <None Include="Resources\contentarrangeinrows_32x32.png" />
+    <None Include="Resources\movedown.svg" />
+    <None Include="Resources\moveup.svg" />
+    <None Include="Resources\bo_contract5.svg" />
+    <None Include="Resources\bo_contract4.svg" />
     <None Include="Resources\changeview.svg" />
     <None Include="Resources\save.svg" />
     <None Include="Resources\delete.svg" />

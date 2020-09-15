@@ -13,61 +13,78 @@ using DevExpress.Data.Filtering;
 using Lime.Action;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.Xpo;
+using DevExpress.XtraPrinting;
 using Lime.Misc;
 
 namespace Lime.BusinessObject
 {
-	public partial class DataDict : BaseBusiness
+	public partial class SalesItemInfo : BaseBusiness
 	{
-
-		private int i_sel_index;
-
-		public DataDict()
+		private int i_sel_index;   //类别索引
+		public SalesItemInfo()
 		{
 			InitializeComponent();
 			gridView1.CustomDrawRowIndicator += MiscAction.DrawGridLineNo;
 		}
-		private void DataDict_Load(object sender, EventArgs e)
+
+		private void SalesItemInfo_Load(object sender, EventArgs e)
 		{
 			imageListBoxControl1.SetSelected(0, true);
 			gridView1.Columns["SORTID"].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
 		}
-
 		/// <summary>
-		/// 类别选择改变事件
+		/// 类别选择事件响应
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void imageListBoxControl1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			i_sel_index = imageListBoxControl1.SelectedIndex;
-			CriteriaOperator filter = CriteriaOperator.Parse("ST002='" + GetDataTypeByIndex(i_sel_index) + "'");
+			CriteriaOperator filter = CriteriaOperator.Parse("SI002='" + GetServiceType(i_sel_index) + "'");
 			xpCollection1.Filter = filter;
-			 
 		}
-
-		private string GetDataTypeByIndex(int index)
+		/// <summary>
+		/// 类别索引对照
+		/// </summary>
+		/// <param name="index"></param>
+		/// <returns></returns>
+		private string GetServiceType(int index)
 		{
 			string result = string.Empty;
 			switch (index)
 			{
-				case 0:
-					result = "DIEREASON";
+				case 0:  //守灵厅
+					result = "01";
 					break;
-				case 1:
-					result = "DISTRICT";
-					break;				 
-				case 2:
-					result = "RELATION";
+				case 1:  //冷藏柜
+					result = "02";
 					break;
-				case 3:
-					result = "ASHHANDLE";
+				case 2:  //休息室
+					result = "03";
 					break;
-				case 4:
-					result = "OUTREASON";
+				case 3:  //告别厅
+					result = "04";
 					break;
-				case 5:
-					result = "FREMOVE_REASON";
+				case 4:  //殡仪服务
+					result = "05";
+					break;
+				case 5:  //火化
+					result = "06";
+					break;
+				case 6:  //灵车
+					result = "07";
+					break;
+				case 7:  //谷类
+					result = "10";
+					break;
+				case 8:  //纸类
+					result = "11";
+					break;
+				case 9:  //祭品
+					result = "12";
+					break;
+				case 10:  //寄存附品
+					result = "13";
 					break;
 			}
 			return result;
@@ -82,7 +99,7 @@ namespace Lime.BusinessObject
 			gridView1.AddNewRow();
 			int rowno = gridView1.FocusedRowHandle;
 			/////// 设置焦点 开始编辑 !!!
-			gridView1.FocusedColumn = gridView1.Columns["ST003"];
+			gridView1.FocusedColumn = gridView1.Columns["SI003"];
 			gridView1.ShowEditor();
 		}
 		/// <summary>
@@ -93,11 +110,11 @@ namespace Lime.BusinessObject
 		private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
 		{
 			//// 初始化新行时触发(当在新行中)
-			string s_st001 = MiscAction.GetEntityPK("ST01");
-			gridView1.SetRowCellValue(e.RowHandle, "ST002", GetDataTypeByIndex(i_sel_index));
-			gridView1.SetRowCellValue(e.RowHandle, "ST001", s_st001);
+			string s_si001 = MiscAction.GetEntityPK("SI01");
+			gridView1.SetRowCellValue(e.RowHandle, "SI002", GetServiceType(i_sel_index));
+			gridView1.SetRowCellValue(e.RowHandle, "SI001", s_si001);
 			gridView1.SetRowCellValue(e.RowHandle, "STATUS", "1");
-			gridView1.SetRowCellValue(e.RowHandle, "SORTID", Convert.ToInt32(s_st001));
+			gridView1.SetRowCellValue(e.RowHandle, "SORTID", Convert.ToInt32(s_si001));
 		}
 		/// <summary>
 		/// 删除
@@ -125,22 +142,22 @@ namespace Lime.BusinessObject
 		private void gridView1_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
 		{
 			string colName = (sender as ColumnView).FocusedColumn.FieldName.ToUpper();
-			if (colName.Equals("ST003"))       //数据项值
+			if (colName.Equals("SI003"))       //名称
 			{
 				if (String.IsNullOrEmpty(e.Value.ToString()))
 				{
 					e.Valid = false;
-					e.ErrorText = "数据项值不能为空!";
+					e.ErrorText = "名称不能为空!";
 				}
 				else
 				{
 					for (int i = 0; i < gridView1.RowCount - 1; i++)
 					{
 						if (i == (sender as ColumnView).FocusedRowHandle) continue;
-						if (gridView1.GetRowCellValue(i, "ST003") == null) continue;
+						if (gridView1.GetRowCellValue(i, "SI003") == null) continue;
 
 						//如果名字相同,则校验不通过!                        
-						if (String.Equals(gridView1.GetRowCellValue(i, "ST003").ToString(), e.Value.ToString()))
+						if (String.Equals(gridView1.GetRowCellValue(i, "SI003").ToString(), e.Value.ToString()))
 						{
 							e.Valid = false;
 							e.ErrorText = "值已经存在!";
@@ -148,19 +165,26 @@ namespace Lime.BusinessObject
 						}
 					}
 				}
+			}else if (colName.Equals("PRICE"))   //单价
+			{
+				if (Decimal.Parse(e.Value.ToString()) < 0)
+				{
+					e.Valid = false;
+					e.ErrorText = "单价不能小于0!";
+				}
 			}
 		}
 		/// <summary>
-		/// 行校验
+		/// 行验证
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void gridView1_ValidateRow(object sender, ValidateRowEventArgs e)
 		{
-			if (gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ST003") == null || string.IsNullOrEmpty(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ST003").ToString()))
+			if (gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "SI003") == null)
 			{
 				e.Valid = false;
-				(sender as ColumnView).SetColumnError(gridView1.Columns["ST003"], "数据项不能为空!");
+				(sender as ColumnView).SetColumnError(gridView1.Columns["SI003"], "名称不能为空!");
 			}
 		}
 		/// <summary>
@@ -215,6 +239,58 @@ namespace Lime.BusinessObject
 			this.Cursor = Cursors.Arrow;
 		}
 		/// <summary>
+		/// 查找对话框
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			if (gridView1.IsFindPanelVisible)
+				gridView1.HideFindPanel();
+			else
+				gridView1.ShowFindPanel();
+		}
+		/// <summary>
+		/// 导出
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			SaveFileDialog fileDialog = new SaveFileDialog();
+			fileDialog.Title = "导出Excel";
+			fileDialog.Filter = "Excel文件(*.xlsx)|*.xlsx";
+
+			DialogResult dialogResult = fileDialog.ShowDialog(this);
+			if (dialogResult == DialogResult.OK)
+			{
+				DevExpress.XtraPrinting.XlsxExportOptions options = new DevExpress.XtraPrinting.XlsxExportOptions();
+				options.TextExportMode = TextExportMode.Text;//设置导出模式为文本
+
+				gridControl1.ExportToXlsx(fileDialog.FileName, options);				 
+				XtraMessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+		}
+		/// <summary>
+		/// 单元格修改事件
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void gridView1_CellValueChanged(object sender, CellValueChangedEventArgs e)
+		{
+			if (e.Column.FieldName == "SI003")
+			{
+				if (e.Value != System.DBNull.Value)
+				{
+					gridView1.SetFocusedRowCellValue("SI088", Tool.GetPYString(e.Value.ToString().Trim()));
+				}
+				else
+				{
+					gridView1.SetFocusedRowCellValue("SI088", System.DBNull.Value);
+				}
+			}
+		}
+		/// <summary>
 		/// 保存
 		/// </summary>
 		/// <param name="sender"></param>
@@ -227,13 +303,13 @@ namespace Lime.BusinessObject
 			try
 			{
 				unitOfWork1.CommitChanges();
-				XtraMessageBox.Show("保存成功!","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				XtraMessageBox.Show("保存成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			catch (Exception ee)
 			{
 				unitOfWork1.RollbackTransaction();
 				LogUtils.Error(ee.Message);
-				XtraMessageBox.Show(ee.Message,"错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+				XtraMessageBox.Show(ee.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 	}

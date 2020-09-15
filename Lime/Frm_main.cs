@@ -171,5 +171,23 @@ namespace Lime
 		{
 			openBusinessObject("DataDict");
 		}
+		/// <summary>
+		/// 服务商品及定价
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("SalesItemInfo");
+		}
+		/// <summary>
+		/// 寄存结构维护
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("RegisterStru");
+		}
 	}
 }

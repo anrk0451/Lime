@@ -23,7 +23,11 @@ namespace Lime.Xpo.orcl
 			typeof(BO01),
 			typeof(UR_MAPPER),
 			typeof(V_UC01),
-			typeof(ST01)
+			typeof(ST01),
+			typeof(SI01),
+			typeof(RG01),
+			typeof(BI01),
+			typeof(LY01)
 		};
 		public static Type[] GetPersistentTypes()
 		{
