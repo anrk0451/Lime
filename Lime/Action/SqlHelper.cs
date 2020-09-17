@@ -113,7 +113,9 @@ namespace Lime.Action
 				result = XpoDefault.Session.ExecuteSproc(procName.ToUpper(), parameters);
 
 				i_ret_code = Convert.ToInt32(result.ResultSet[1].Rows[0].Values[1]);
-				s_error = result.ResultSet[1].Rows[1].Values[1].ToString();
+				if(result.ResultSet[1].Rows[1].Values[1] != null)
+					s_error = result.ResultSet[1].Rows[1].Values[1].ToString();
+
 				if (i_ret_code > 0)
 					return i_ret_code;
 				else

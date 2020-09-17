@@ -27,7 +27,13 @@ namespace Lime.Xpo.orcl
 			typeof(SI01),
 			typeof(RG01),
 			typeof(BI01),
-			typeof(LY01)
+			typeof(LY01),
+			typeof(CB01),
+			typeof(CB02),
+			typeof(CASTINFO),
+			typeof(V_BINDINGSERVICE),
+			typeof(V_ALLVALIDITEM),
+			typeof(V_COMBO_ITEMS)
 		};
 		public static Type[] GetPersistentTypes()
 		{

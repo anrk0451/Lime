@@ -189,5 +189,14 @@ namespace Lime
 		{
 			openBusinessObject("RegisterStru");
 		}
+		/// <summary>
+		/// 业务套餐维护
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("Combo2");
+		}
 	}
 }

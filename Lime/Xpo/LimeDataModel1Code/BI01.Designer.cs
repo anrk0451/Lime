@@ -16,6 +16,7 @@ using System.Reflection;
 namespace Lime.Xpo.orcl
 {
 
+	[Indices(@"BI003")]
 	public partial class BI01 : XPLiteObject
 	{
 		string fBI001;
@@ -27,6 +28,7 @@ namespace Lime.Xpo.orcl
 			set { SetPropertyValue<string>(nameof(BI001), ref fBI001, value); }
 		}
 		string fRG001;
+		[Indexed(@"BI003", Name = @"IDX_BI01_DUP", Unique = true)]
 		[Size(10)]
 		public string RG001
 		{
@@ -54,7 +56,6 @@ namespace Lime.Xpo.orcl
 			set { SetPropertyValue<int>(nameof(BI002), ref fBI002, value); }
 		}
 		string fBI003;
-		[Indexed(Name = @"IDX_BI01_BI003")]
 		[Size(50)]
 		public string BI003
 		{

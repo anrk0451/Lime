@@ -80,6 +80,12 @@
     <Compile Include="BaseObject\MyDialog.Designer.cs">
       <DependentUpon>MyDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObject\Combo2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Combo2.Designer.cs">
+      <DependentUpon>Combo2.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObject\DataDict.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -135,6 +141,12 @@
     <Compile Include="Windows\Frm_Bi01.Designer.cs">
       <DependentUpon>Frm_Bi01.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Frm_Combo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_Combo.Designer.cs">
+      <DependentUpon>Frm_Combo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Frm_LayerPrice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +172,18 @@
     <Compile Include="Xpo\LimeDataModel1Code\BO01.cs" />
     <Compile Include="Xpo\LimeDataModel1Code\BO01.Designer.cs">
       <DependentUpon>BO01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\CASTINFO.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\CASTINFO.Designer.cs">
+      <DependentUpon>CASTINFO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\CB01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\CB01.Designer.cs">
+      <DependentUpon>CB01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\CB02.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\CB02.Designer.cs">
+      <DependentUpon>CB02.cs</DependentUpon>
     </Compile>
     <Compile Include="Xpo\LimeDataModel1Code\ConnectionHelper.cs" />
     <Compile Include="Xpo\LimeDataModel1Code\LY01.cs" />
@@ -190,6 +214,18 @@
     <Compile Include="Xpo\LimeDataModel1Code\UR_MAPPER.Designer.cs">
       <DependentUpon>UR_MAPPER.cs</DependentUpon>
     </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\V_ALLVALIDITEM.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\V_ALLVALIDITEM.Designer.cs">
+      <DependentUpon>V_ALLVALIDITEM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\V_BINDINGSERVICE.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\V_BINDINGSERVICE.Designer.cs">
+      <DependentUpon>V_BINDINGSERVICE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\V_COMBO_ITEMS.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\V_COMBO_ITEMS.Designer.cs">
+      <DependentUpon>V_COMBO_ITEMS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Xpo\LimeDataModel1Code\V_UC01.cs" />
     <Compile Include="Xpo\LimeDataModel1Code\V_UC01.Designer.cs">
       <DependentUpon>V_UC01.cs</DependentUpon>
@@ -199,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseObject\MyDialog.resx">
       <DependentUpon>MyDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Combo2.resx">
+      <DependentUpon>Combo2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\DataDict.resx">
       <DependentUpon>DataDict.cs</DependentUpon>
@@ -223,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_Bi01.resx">
       <DependentUpon>Frm_Bi01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_Combo.resx">
+      <DependentUpon>Frm_Combo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_LayerPrice.resx">
       <DependentUpon>Frm_LayerPrice.cs</DependentUpon>
@@ -269,6 +311,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Network.contrast-white.ico" />
+    <None Include="Resources\editnames1.svg" />
+    <None Include="Resources\del.svg" />
+    <None Include="Resources\errorbarsnone_32x32.png" />
+    <None Include="Resources\cancel_32x32.png" />
+    <None Include="Resources\reading_32x32.png" />
+    <None Include="Resources\album.svg" />
+    <None Include="Resources\changeview1.svg" />
+    <None Include="Resources\save1.svg" />
+    <None Include="Resources\actions_delete.svg" />
+    <None Include="Resources\actions_addcircled3.svg" />
     <None Include="Resources\nodata.jpg" />
     <None Include="Resources\charttype_gantt.svg" />
     <None Include="Resources\actions_addcircled2.svg" />

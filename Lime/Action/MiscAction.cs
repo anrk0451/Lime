@@ -43,5 +43,15 @@ namespace Lime.Action
 			}
 		}
 
+		/// <summary>
+		/// 删除业务套餐
+		/// </summary>
+		/// <param name="cb001"></param>
+		/// <returns></returns>
+		public static int DeleteCombo(string cb001)
+		{
+			return SqlHelper.ExecuteProc("pkg_business.prc_DeleteCombo", cb001);
+		}
+
 	}
 }
