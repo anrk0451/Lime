@@ -11,6 +11,7 @@ using System.Configuration;
 using Lime.Misc;
 using DevExpress.Xpo.DB;
 using DevExpress.Xpo;
+using Lime.Action;
 
 namespace Lime
 {
@@ -52,7 +53,7 @@ namespace Lime
 				///// 连接数据库 //////
 				string ConnectionString = OracleConnectionProvider.GetConnectionString("orcl", "lime", "bestunion");
 				XpoDefault.DataLayer = XpoDefault.GetDataLayer(ConnectionString, AutoCreateOption.DatabaseAndSchema);
-				//SqlAssist.ConnectDb();
+				SqlHelper.ConnectDb();
 
 				///// 检查版本  ///////
 				//string curNewestVersion = Tools.getNewVersion();

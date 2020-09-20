@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Lime.BusinessObject
 {
-	public partial class Combo2 : BaseBusiness
+	public partial class Combo : BaseBusiness
 	{
-		public Combo2()
+		public Combo()
 		{
 			InitializeComponent();
 			gridView1.CustomDrawRowIndicator += MiscAction.DrawGridLineNo;
@@ -137,5 +137,7 @@ namespace Lime.BusinessObject
 		{
 			this.Edit(gridView1.FocusedRowHandle);
 		}
+
+		 
 	}
 }

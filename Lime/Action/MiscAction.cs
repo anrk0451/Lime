@@ -52,6 +52,22 @@ namespace Lime.Action
 		{
 			return SqlHelper.ExecuteProc("pkg_business.prc_DeleteCombo", cb001);
 		}
-
+		/// <summary>
+		/// 返回服务器时间
+		/// </summary>
+		/// <returns></returns>
+		public static DateTime GetServerTime()
+		{
+			return Convert.ToDateTime(SqlHelper.ExecuteScalar("select sysdate from dual"));
+		}
+		/// <summary>
+		/// 返回数据字典映射
+		/// </summary>
+		/// <param name="st001"></param>
+		/// <returns></returns>
+		public static string Mapper_DD(string st001)
+		{
+			return SqlHelper.ExecuteFunc("pkg_report.fun_Mapper_DD", st001).ToString();
+		}
 	}
 }

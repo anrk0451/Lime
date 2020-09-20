@@ -54,6 +54,7 @@ namespace Lime.Xpo.orcl
 			set { SetPropertyValue<string>(nameof(STATUS), ref fSTATUS, value); }
 		}
 		string fCB006;
+		[Size(500)]
 		public string CB006
 		{
 			get { return fCB006; }

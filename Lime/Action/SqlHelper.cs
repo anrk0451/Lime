@@ -3,8 +3,10 @@ using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
 using DevExpress.XtraEditors;
 using Lime.Misc;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +19,40 @@ namespace Lime.Action
 	/// </summary>
 	class SqlHelper
 	{
+
+		public static OracleConnection conn = null;
+	 
+		/// <summary>
+		/// // 创建数据库连接并 连接数据库 
+		/// </summary>
+		public static void ConnectDb()
+		{
+			string s_dataSource = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath).AppSettings.Settings["DataSource"].Value.ToString();
+			string s_conn = "Password=bestunion;User ID=lime;Data Source=" + s_dataSource;
+			conn = new OracleConnection(s_conn);		 
+			try
+			{
+				conn.Open();
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("数据库连接失败!\n" + e.ToString(), "错误");
+
+				/////////// 最干净的退出方式 //////////
+				System.Environment.Exit(0);
+			}
+		}
+
+		/// <summary>
+		/// 销毁数据库连接
+		/// </summary>
+		public static void DisConnect()
+		{
+			conn.Close();
+			conn.Dispose();
+			//MessageBox.Show("我被销毁!");
+		}
+
 		/// <summary>
 		/// 执行非查询类sql (数据操控语句直接提交)
 		/// </summary>

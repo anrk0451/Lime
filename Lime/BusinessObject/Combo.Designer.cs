@@ -1,6 +1,6 @@
 ﻿namespace Lime.BusinessObject
 {
-	partial class Combo2
+	partial class Combo
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -167,6 +167,7 @@
 			this.gridControl1.TabIndex = 4;
 			this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+		 
 			// 
 			// xpCollection1
 			// 
@@ -280,7 +281,7 @@
 			this.gridColumn1.VisibleIndex = 3;
 			this.gridColumn1.Width = 367;
 			// 
-			// Combo2
+			// Combo
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -289,7 +290,7 @@
 			this.Controls.Add(this.barDockControlRight);
 			this.Controls.Add(this.barDockControlBottom);
 			this.Controls.Add(this.barDockControlTop);
-			this.Name = "Combo2";
+			this.Name = "Combo";
 			((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.xpCollection1)).EndInit();

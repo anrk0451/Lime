@@ -17,6 +17,8 @@ using Lime.BaseObject;
 using DevExpress.Xpo;
 using Lime.Misc;
 using DevExpress.XtraTab.ViewInfo;
+using Lime.Action;
+using Lime.Windows;
 
 namespace Lime
 {
@@ -47,7 +49,8 @@ namespace Lime
 		/// <param name="e"></param>
 		private void Frm_main_FormClosed(object sender, FormClosedEventArgs e)
 		{
-			 
+			//断开数据库连接
+			SqlHelper.DisConnect();
 		}
 
 		/// <summary>
@@ -129,15 +132,16 @@ namespace Lime
 		{
 			openBusinessObject("Roles");
 		}
-
+		/// <summary>
+		/// 进灵登记
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
 		{
-			if (session1.IsConnected)
-				MessageBox.Show("数据库已经连接", "默认连接");
-			else
-				MessageBox.Show("数据库未连接", "默认连接");
-
-			MessageBox.Show(session1.Connection.ConnectionString, "记录数");
+			Frm_FireCheckin frm_1 = new Frm_FireCheckin();
+			frm_1.ShowDialog();
+			frm_1.Dispose();
 		}
 		/// <summary>
 		/// 关闭标签页
@@ -196,7 +200,12 @@ namespace Lime
 		/// <param name="e"></param>
 		private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
 		{
-			openBusinessObject("Combo2");
+			openBusinessObject("Combo");
+		}
+
+		private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("FireCheckinBrow");
 		}
 	}
 }

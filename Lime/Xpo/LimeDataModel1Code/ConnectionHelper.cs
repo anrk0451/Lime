@@ -33,7 +33,9 @@ namespace Lime.Xpo.orcl
 			typeof(CASTINFO),
 			typeof(V_BINDINGSERVICE),
 			typeof(V_ALLVALIDITEM),
-			typeof(V_COMBO_ITEMS)
+			typeof(V_COMBO_ITEMS),
+			typeof(AC01),
+			typeof(SA01)
 		};
 		public static Type[] GetPersistentTypes()
 		{
