@@ -331,6 +331,9 @@
 			// xpCollection_item
 			// 
 			this.xpCollection_item.ObjectType = typeof(Lime.Xpo.orcl.V_COMBO_ITEMS);
+			this.xpCollection_item.Sorting.AddRange(new DevExpress.Xpo.SortProperty[] {
+            new DevExpress.Xpo.SortProperty("[INVTYPE]", DevExpress.Xpo.DB.SortingDirection.Ascending),
+            new DevExpress.Xpo.SortProperty("[ITEM_ID]", DevExpress.Xpo.DB.SortingDirection.Ascending)});
 			// 
 			// repositoryItemGridLookUpEdit1View
 			// 

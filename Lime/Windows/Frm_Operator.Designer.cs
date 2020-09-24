@@ -59,10 +59,11 @@
 			this.sb_cancel.Appearance.Options.UseForeColor = true;
 			this.sb_cancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
 			this.sb_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.sb_cancel.Location = new System.Drawing.Point(324, 382);
+			this.sb_cancel.Location = new System.Drawing.Point(405, 478);
 			this.sb_cancel.LookAndFeel.UseDefaultLookAndFeel = false;
+			this.sb_cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.sb_cancel.Name = "sb_cancel";
-			this.sb_cancel.Size = new System.Drawing.Size(90, 30);
+			this.sb_cancel.Size = new System.Drawing.Size(112, 38);
 			this.sb_cancel.TabIndex = 47;
 			this.sb_cancel.Text = "关闭";
 			this.sb_cancel.Click += new System.EventHandler(this.sb_cancel_Click);
@@ -74,10 +75,11 @@
 			this.sb_ok.Appearance.Options.UseBackColor = true;
 			this.sb_ok.Appearance.Options.UseForeColor = true;
 			this.sb_ok.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-			this.sb_ok.Location = new System.Drawing.Point(181, 382);
+			this.sb_ok.Location = new System.Drawing.Point(226, 478);
 			this.sb_ok.LookAndFeel.UseDefaultLookAndFeel = false;
+			this.sb_ok.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.sb_ok.Name = "sb_ok";
-			this.sb_ok.Size = new System.Drawing.Size(137, 30);
+			this.sb_ok.Size = new System.Drawing.Size(171, 38);
 			this.sb_ok.TabIndex = 46;
 			this.sb_ok.Text = "确定";
 			this.sb_ok.Click += new System.EventHandler(this.sb_ok_Click);
@@ -88,9 +90,10 @@
 			this.clbx_roles.Cursor = System.Windows.Forms.Cursors.Default;
 			this.clbx_roles.DataSource = this.xpCollection1;
 			this.clbx_roles.DisplayMember = "RO003";
-			this.clbx_roles.Location = new System.Drawing.Point(60, 225);
+			this.clbx_roles.Location = new System.Drawing.Point(75, 281);
+			this.clbx_roles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.clbx_roles.Name = "clbx_roles";
-			this.clbx_roles.Size = new System.Drawing.Size(356, 139);
+			this.clbx_roles.Size = new System.Drawing.Size(445, 174);
 			this.clbx_roles.TabIndex = 45;
 			this.clbx_roles.ValueMember = "RO001";
 			// 
@@ -100,31 +103,23 @@
 			this.xpCollection1.ObjectType = typeof(Lime.Xpo.orcl.RO01);
 			this.xpCollection1.Session = this.unitOfWork1;
 			// 
-			// unitOfWork1
-			// 
-			this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
-			this.unitOfWork1.TrackPropertiesModifications = false;
-			// 
 			// txtedit_pwd2
 			// 
 			this.txtedit_pwd2.EditValue = "";
-			this.txtedit_pwd2.Location = new System.Drawing.Point(163, 173);
+			this.txtedit_pwd2.Location = new System.Drawing.Point(204, 216);
+			this.txtedit_pwd2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.txtedit_pwd2.Name = "txtedit_pwd2";
 			this.txtedit_pwd2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
 			this.txtedit_pwd2.Properties.NullText = "请再次输入密码";
 			this.txtedit_pwd2.Properties.NullValuePrompt = "请再次输入密码";
-			this.txtedit_pwd2.Properties.NullValuePromptShowForEmptyValue = true;
 			this.txtedit_pwd2.Properties.PasswordChar = '*';
-			this.txtedit_pwd2.Size = new System.Drawing.Size(253, 24);
+			this.txtedit_pwd2.Size = new System.Drawing.Size(316, 24);
 			this.txtedit_pwd2.TabIndex = 44;
 			// 
 			// labelControl4
 			// 
-			this.labelControl4.Appearance.Image = null;
-			this.labelControl4.AppearanceDisabled.Image = null;
-			this.labelControl4.AppearanceHovered.Image = null;
-			this.labelControl4.AppearancePressed.Image = null;
-			this.labelControl4.Location = new System.Drawing.Point(60, 177);
+			this.labelControl4.Location = new System.Drawing.Point(75, 221);
+			this.labelControl4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.labelControl4.Name = "labelControl4";
 			this.labelControl4.Size = new System.Drawing.Size(86, 19);
 			this.labelControl4.TabIndex = 43;
@@ -133,23 +128,20 @@
 			// txtedit_pwd
 			// 
 			this.txtedit_pwd.EditValue = "";
-			this.txtedit_pwd.Location = new System.Drawing.Point(163, 126);
+			this.txtedit_pwd.Location = new System.Drawing.Point(204, 158);
+			this.txtedit_pwd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.txtedit_pwd.Name = "txtedit_pwd";
 			this.txtedit_pwd.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
 			this.txtedit_pwd.Properties.NullText = "请输入密码";
 			this.txtedit_pwd.Properties.NullValuePrompt = "请输入密码";
-			this.txtedit_pwd.Properties.NullValuePromptShowForEmptyValue = true;
 			this.txtedit_pwd.Properties.PasswordChar = '*';
-			this.txtedit_pwd.Size = new System.Drawing.Size(253, 24);
+			this.txtedit_pwd.Size = new System.Drawing.Size(316, 24);
 			this.txtedit_pwd.TabIndex = 42;
 			// 
 			// labelControl3
 			// 
-			this.labelControl3.Appearance.Image = null;
-			this.labelControl3.AppearanceDisabled.Image = null;
-			this.labelControl3.AppearanceHovered.Image = null;
-			this.labelControl3.AppearancePressed.Image = null;
-			this.labelControl3.Location = new System.Drawing.Point(60, 129);
+			this.labelControl3.Location = new System.Drawing.Point(75, 161);
+			this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.labelControl3.Name = "labelControl3";
 			this.labelControl3.Size = new System.Drawing.Size(48, 19);
 			this.labelControl3.TabIndex = 41;
@@ -158,22 +150,19 @@
 			// txtedit_uc003
 			// 
 			this.txtedit_uc003.EditValue = "";
-			this.txtedit_uc003.Location = new System.Drawing.Point(163, 75);
+			this.txtedit_uc003.Location = new System.Drawing.Point(204, 94);
+			this.txtedit_uc003.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.txtedit_uc003.Name = "txtedit_uc003";
 			this.txtedit_uc003.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
 			this.txtedit_uc003.Properties.NullText = "请输入用户姓名";
 			this.txtedit_uc003.Properties.NullValuePrompt = "请输入用户姓名";
-			this.txtedit_uc003.Properties.NullValuePromptShowForEmptyValue = true;
-			this.txtedit_uc003.Size = new System.Drawing.Size(253, 24);
+			this.txtedit_uc003.Size = new System.Drawing.Size(316, 24);
 			this.txtedit_uc003.TabIndex = 40;
 			// 
 			// labelControl2
 			// 
-			this.labelControl2.Appearance.Image = null;
-			this.labelControl2.AppearanceDisabled.Image = null;
-			this.labelControl2.AppearanceHovered.Image = null;
-			this.labelControl2.AppearancePressed.Image = null;
-			this.labelControl2.Location = new System.Drawing.Point(60, 78);
+			this.labelControl2.Location = new System.Drawing.Point(75, 98);
+			this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.labelControl2.Name = "labelControl2";
 			this.labelControl2.Size = new System.Drawing.Size(86, 19);
 			this.labelControl2.TabIndex = 39;
@@ -182,23 +171,19 @@
 			// txtedit_uc002
 			// 
 			this.txtedit_uc002.EditValue = "";
-			this.txtedit_uc002.Location = new System.Drawing.Point(163, 28);
+			this.txtedit_uc002.Location = new System.Drawing.Point(204, 35);
+			this.txtedit_uc002.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.txtedit_uc002.Name = "txtedit_uc002";
 			this.txtedit_uc002.Properties.NullText = "请输入用户登录代码";
 			this.txtedit_uc002.Properties.NullValuePrompt = "请输入用户登录代码";
-			this.txtedit_uc002.Properties.NullValuePromptShowForEmptyValue = true;
-			this.txtedit_uc002.Properties.ShowNullValuePromptWhenFocused = true;
 			this.txtedit_uc002.Properties.ValidateOnEnterKey = true;
-			this.txtedit_uc002.Size = new System.Drawing.Size(253, 24);
+			this.txtedit_uc002.Size = new System.Drawing.Size(316, 24);
 			this.txtedit_uc002.TabIndex = 38;
 			// 
 			// labelControl1
 			// 
-			this.labelControl1.Appearance.Image = null;
-			this.labelControl1.AppearanceDisabled.Image = null;
-			this.labelControl1.AppearanceHovered.Image = null;
-			this.labelControl1.AppearancePressed.Image = null;
-			this.labelControl1.Location = new System.Drawing.Point(60, 31);
+			this.labelControl1.Location = new System.Drawing.Point(75, 39);
+			this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.labelControl1.Name = "labelControl1";
 			this.labelControl1.Size = new System.Drawing.Size(86, 19);
 			this.labelControl1.TabIndex = 37;
@@ -209,7 +194,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.sb_cancel;
-			this.ClientSize = new System.Drawing.Size(474, 445);
+			this.ClientSize = new System.Drawing.Size(584, 547);
 			this.Controls.Add(this.sb_cancel);
 			this.Controls.Add(this.sb_ok);
 			this.Controls.Add(this.clbx_roles);

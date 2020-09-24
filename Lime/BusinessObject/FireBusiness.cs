@@ -334,20 +334,20 @@ namespace Lime.BusinessObject
 				}
 			}
 
-			//Frm_FireSettle frm_settle = new Frm_FireSettle();
-			//frm_settle.swapdata["dataset"] = business_ds;
-			//frm_settle.swapdata["AC001"] = AC001;
-			//frm_settle.swapdata["rowList"] = rowList;
+			Frm_FireSettle frm_settle = new Frm_FireSettle();
+			frm_settle.swapdata["collection"] = xpCollection1;
+			frm_settle.swapdata["rowList"] = rowList;
+			frm_settle.swapdata["ac01"] = ac01;
+			frm_settle.swapdata["session"] = unitOfWork1;
 
-
-			//if (frm_settle.ShowDialog() == DialogResult.OK)
-			//{
-			//	this.RefreshData();
-			//}
-			//frm_settle.Dispose();
+			if (frm_settle.ShowDialog() == DialogResult.OK)
+			{
+				this.RefreshData();
+			}
+			frm_settle.Dispose();
 
 			CancelSelect();
-			 
+
 		}
 
 		/// <summary>
@@ -359,6 +359,70 @@ namespace Lime.BusinessObject
 			{
 				gridView1.UnselectRow(i);
 			}
+		}
+		/// <summary>
+		/// 全部结算
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem23_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			for (int i = 0; i < gridView1.RowCount; i++)
+			{
+				if (gridView1.GetRowCellValue(i, "SA008").ToString() == "0")
+				{
+					gridView1.SelectRow(i);
+				}
+			}
+			this.SettleHandle();
+		}
+
+		private void gridView1_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
+		{
+			if (e.Action == CollectionChangeAction.Add)
+			{
+				int row = gridView1.FocusedRowHandle;
+				if (gridView1.GetRowCellValue(row, "SA008").ToString() == "1")
+				{
+					XtraMessageBox.Show("已结算数据不能修改!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					gridView1.UnselectRow(row);
+				}
+			}
+			else if (e.Action == CollectionChangeAction.Refresh && gridView1.SelectedRowsCount > 0)
+			{
+				gridView1.BeginUpdate();
+				for (int i = 0; i < gridView1.RowCount; i++)
+				{
+					if (gridView1.GetRowCellValue(i, "SA008").ToString() == "1")
+					{
+						gridView1.UnselectRow(i);
+					}
+				}
+				gridView1.EndUpdate();
+			}
+		}
+		/// <summary>
+		/// 骨灰寄存
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem19_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			///要先检测该逝者是否已经办理过寄存业务 
+			if(Convert.ToInt32(SqlHelper.ExecuteScalar("select count(*) from v_sa01 where sa002 = '08' and ac001 = '" + s_ac001 + "'")) > 0)
+			{
+				XtraMessageBox.Show("该逝者已经办理了骨灰寄存业务!","提示",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+				return;
+			}
+			 
+			Frm_Register frm_1 = new Frm_Register();
+			frm_1.swapdata["source"] = "8";   //来源 8-待缴费
+			frm_1.swapdata["rc001"] = s_ac001;
+			if(frm_1.ShowDialog() == DialogResult.OK)
+			{
+				this.RefreshData();
+			}
+			frm_1.Dispose();
 		}
 	}
 }

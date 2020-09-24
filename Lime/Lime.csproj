@@ -36,17 +36,18 @@
     <ApplicationIcon>Network.contrast-white.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.BonusSkins.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpo.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.BonusSkins.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="log4net">
       <HintPath>..\..\..\dll\log4net.dll</HintPath>
     </Reference>
@@ -114,6 +115,12 @@
     <Compile Include="BusinessObject\Operator.Designer.cs">
       <DependentUpon>Operator.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObject\RegisterBrow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\RegisterBrow.Designer.cs">
+      <DependentUpon>RegisterBrow.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObject\RegisterStru.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -131,6 +138,12 @@
     </Compile>
     <Compile Include="BusinessObject\SalesItemInfo.Designer.cs">
       <DependentUpon>SalesItemInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\TempSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\TempSales.Designer.cs">
+      <DependentUpon>TempSales.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_main.cs">
       <SubType>Form</SubType>
@@ -187,6 +200,18 @@
     <Compile Include="Windows\Frm_FireSettle.Designer.cs">
       <DependentUpon>Frm_FireSettle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Frm_FreeBit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_FreeBit.Designer.cs">
+      <DependentUpon>Frm_FreeBit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_InputBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_InputBill.Designer.cs">
+      <DependentUpon>Frm_InputBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Frm_LayerPrice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +224,12 @@
     <Compile Include="Windows\Frm_MiscItem.Designer.cs">
       <DependentUpon>Frm_MiscItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Frm_MiscItem2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_MiscItem2.Designer.cs">
+      <DependentUpon>Frm_MiscItem2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Frm_Operator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +241,12 @@
     </Compile>
     <Compile Include="Windows\Frm_Region.Designer.cs">
       <DependentUpon>Frm_Region.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_Register.Designer.cs">
+      <DependentUpon>Frm_Register.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\Frm_SetFireTime.cs">
       <SubType>Form</SubType>
@@ -242,9 +279,25 @@
       <DependentUpon>CB02.cs</DependentUpon>
     </Compile>
     <Compile Include="Xpo\LimeDataModel1Code\ConnectionHelper.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\FA01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\FA01.Designer.cs">
+      <DependentUpon>FA01.cs</DependentUpon>
+    </Compile>
     <Compile Include="Xpo\LimeDataModel1Code\LY01.cs" />
     <Compile Include="Xpo\LimeDataModel1Code\LY01.Designer.cs">
       <DependentUpon>LY01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\NEWTOMB_T_VERSION.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\NEWTOMB_T_VERSION.Designer.cs">
+      <DependentUpon>NEWTOMB_T_VERSION.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\RC01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\RC01.Designer.cs">
+      <DependentUpon>RC01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\RC04.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\RC04.Designer.cs">
+      <DependentUpon>RC04.cs</DependentUpon>
     </Compile>
     <Compile Include="Xpo\LimeDataModel1Code\RG01.cs" />
     <Compile Include="Xpo\LimeDataModel1Code\RG01.Designer.cs">
@@ -257,6 +310,10 @@
     <Compile Include="Xpo\LimeDataModel1Code\SA01.cs" />
     <Compile Include="Xpo\LimeDataModel1Code\SA01.Designer.cs">
       <DependentUpon>SA01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\SA01_LOG.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\SA01_LOG.Designer.cs">
+      <DependentUpon>SA01_LOG.cs</DependentUpon>
     </Compile>
     <Compile Include="Xpo\LimeDataModel1Code\SI01.cs" />
     <Compile Include="Xpo\LimeDataModel1Code\SI01.Designer.cs">
@@ -290,6 +347,10 @@
     <Compile Include="Xpo\LimeDataModel1Code\V_UC01.Designer.cs">
       <DependentUpon>V_UC01.cs</DependentUpon>
     </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\WS01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\WS01.Designer.cs">
+      <DependentUpon>WS01.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BaseObject\BaseBusiness.resx">
       <DependentUpon>BaseBusiness.cs</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +372,9 @@
     <EmbeddedResource Include="BusinessObject\Operator.resx">
       <DependentUpon>Operator.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\RegisterBrow.resx">
+      <DependentUpon>RegisterBrow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\RegisterStru.resx">
       <DependentUpon>RegisterStru.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\SalesItemInfo.resx">
       <DependentUpon>SalesItemInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\TempSales.resx">
+      <DependentUpon>TempSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_main.resx">
       <DependentUpon>Frm_main.cs</DependentUpon>
@@ -344,17 +411,29 @@
     <EmbeddedResource Include="Windows\Frm_FireSettle.resx">
       <DependentUpon>Frm_FireSettle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_FreeBit.resx">
+      <DependentUpon>Frm_FreeBit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_InputBill.resx">
+      <DependentUpon>Frm_InputBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_LayerPrice.resx">
       <DependentUpon>Frm_LayerPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_MiscItem.resx">
       <DependentUpon>Frm_MiscItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_MiscItem2.resx">
+      <DependentUpon>Frm_MiscItem2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_Operator.resx">
       <DependentUpon>Frm_Operator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_Region.resx">
       <DependentUpon>Frm_Region.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_Register.resx">
+      <DependentUpon>Frm_Register.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_SetFireTime.resx">
       <DependentUpon>Frm_SetFireTime.cs</DependentUpon>
@@ -395,6 +474,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Network.contrast-white.ico" />
+    <None Include="Resources\open22.svg" />
+    <None Include="Resources\changeview3.svg" />
+    <None Include="Resources\print.svg" />
+    <None Include="Resources\wordwrap.svg" />
+    <None Include="Resources\bo_position.svg" />
+    <None Include="Resources\editnames2.svg" />
+    <None Include="Resources\actions_addcircled6.svg" />
+    <None Include="Resources\boposition2_16x161.png" />
+    <None Include="Resources\boposition2_32x321.png" />
     <None Include="Resources\currency_16x16.png" />
     <None Include="Resources\currency_32x32.png" />
     <None Include="Resources\boposition2_16x16.png" />

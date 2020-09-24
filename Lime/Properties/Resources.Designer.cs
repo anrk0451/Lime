@@ -123,6 +123,16 @@ namespace Lime.Properties {
         /// <summary>
         ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_addcircled6 {
+            get {
+                object obj = ResourceManager.GetObject("actions_addcircled6", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage actions_delete {
             get {
                 object obj = ResourceManager.GetObject("actions_delete", resourceCulture);
@@ -233,6 +243,16 @@ namespace Lime.Properties {
         /// <summary>
         ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage bo_position {
+            get {
+                object obj = ResourceManager.GetObject("bo_position", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage bo_sale {
             get {
                 object obj = ResourceManager.GetObject("bo_sale", resourceCulture);
@@ -313,9 +333,29 @@ namespace Lime.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap boposition2_16x161 {
+            get {
+                object obj = ResourceManager.GetObject("boposition2_16x161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap boposition2_32x32 {
             get {
                 object obj = ResourceManager.GetObject("boposition2_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap boposition2_32x321 {
+            get {
+                object obj = ResourceManager.GetObject("boposition2_32x321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -356,6 +396,16 @@ namespace Lime.Properties {
         internal static DevExpress.Utils.Svg.SvgImage changeview2 {
             get {
                 object obj = ResourceManager.GetObject("changeview2", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage changeview3 {
+            get {
+                object obj = ResourceManager.GetObject("changeview3", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
@@ -561,6 +611,16 @@ namespace Lime.Properties {
         }
         
         /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage editnames2 {
+            get {
+                object obj = ResourceManager.GetObject("editnames2", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap errorbarsnone_32x32 {
@@ -631,6 +691,16 @@ namespace Lime.Properties {
         }
         
         /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage open22 {
+            get {
+                object obj = ResourceManager.GetObject("open22", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap piemap_16x16 {
@@ -647,6 +717,16 @@ namespace Lime.Properties {
             get {
                 object obj = ResourceManager.GetObject("piemap_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage print {
+            get {
+                object obj = ResourceManager.GetObject("print", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
         
@@ -747,6 +827,16 @@ namespace Lime.Properties {
             get {
                 object obj = ResourceManager.GetObject("withtextwrapping_centercenter_32x323", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage wordwrap {
+            get {
+                object obj = ResourceManager.GetObject("wordwrap", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
     }

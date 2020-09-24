@@ -138,5 +138,27 @@ namespace Lime.Action
 		{
 			return SqlHelper.ExecuteProc("pkg_business.prc_SetFireTime", ac001,ac015);
 		}
+		/// <summary>
+		/// 判断销售项目是否已经结算
+		/// </summary>
+		/// <param name="sa001"></param>
+		/// <returns></returns>
+		public static bool SalesItemIsSettled(string sa001)
+		{
+			object result = SqlHelper.ExecuteFunc("pkg_business.fun_SalesItemIsSettled", sa001);
+			if (result.ToString() == "1")
+				return true;
+			else
+				return false;
+		}
+		/// <summary>
+		/// 映射项目名
+		/// </summary>
+		/// <param name="itemId"></param>
+		/// <returns></returns>
+		public static string Mapper_Item(string itemId)
+		{
+			return SqlHelper.ExecuteFunc("pkg_report.fun_Mapper_Item", itemId).ToString();
+		}
 	}
 }

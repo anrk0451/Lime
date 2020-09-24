@@ -231,6 +231,7 @@
 			this.barButtonItem19.Caption = "骨灰寄存";
 			this.barButtonItem19.Id = 20;
 			this.barButtonItem19.Name = "barButtonItem19";
+			this.barButtonItem19.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem19_ItemClick);
 			// 
 			// barButtonItem20
 			// 
@@ -296,6 +297,7 @@
 			this.barButtonItem23.ImageOptions.Image = global::Lime.Properties.Resources.currency_16x16;
 			this.barButtonItem23.ImageOptions.LargeImage = global::Lime.Properties.Resources.currency_32x32;
 			this.barButtonItem23.Name = "barButtonItem23";
+			this.barButtonItem23.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem23_ItemClick);
 			// 
 			// barDockControlTop
 			// 
@@ -980,6 +982,7 @@
 			this.gridView1.OptionsView.ShowFooter = true;
 			this.gridView1.OptionsView.ShowGroupPanel = false;
 			this.gridView1.PaintStyleName = "Skin";
+			this.gridView1.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridView1_SelectionChanged);
 			this.gridView1.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gridView1_CustomColumnDisplayText);
 			this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseDown);
 			// 

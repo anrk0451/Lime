@@ -50,28 +50,20 @@
 			// 
 			// labelControl1
 			// 
-			this.labelControl1.Appearance.Image = null;
-			this.labelControl1.AppearanceDisabled.Image = null;
-			this.labelControl1.AppearanceHovered.Image = null;
-			this.labelControl1.AppearancePressed.Image = null;
 			this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.labelControl1.Location = new System.Drawing.Point(31, 330);
 			this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.labelControl1.Name = "labelControl1";
-			this.labelControl1.Size = new System.Drawing.Size(61, 18);
+			this.labelControl1.Size = new System.Drawing.Size(81, 18);
 			this.labelControl1.TabIndex = 6;
 			this.labelControl1.Text = "Copyright";
 			// 
 			// labelControl2
 			// 
-			this.labelControl2.Appearance.Image = null;
-			this.labelControl2.AppearanceDisabled.Image = null;
-			this.labelControl2.AppearanceHovered.Image = null;
-			this.labelControl2.AppearancePressed.Image = null;
 			this.labelControl2.Location = new System.Drawing.Point(31, 238);
 			this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.labelControl2.Name = "labelControl2";
-			this.labelControl2.Size = new System.Drawing.Size(60, 18);
+			this.labelControl2.Size = new System.Drawing.Size(87, 19);
 			this.labelControl2.TabIndex = 7;
 			this.labelControl2.Text = "请稍候...";
 			// 

@@ -28,6 +28,7 @@ namespace Lime.Windows
  
 		private AC01 ac01 = null;
 		private string s_ac001 = string.Empty;
+		private bool b_new = true;
 		
 		public Frm_FireCheckin()
 		{
@@ -94,11 +95,12 @@ namespace Lime.Windows
 				mem_ac099.EditValue = ac01.AC099;				//备注
  
 				sb_clear.Enabled = false;
+				b_new = false;
 			}
 			else                                     //新建模式    
 			{
 				ac01 = new AC01(unitOfWork1);
-				ac01.AC001 = MiscAction.GetEntityPK("AC01");
+				s_ac001 = ac01.AC001 = MiscAction.GetEntityPK("AC01");
 				ac01.STATUS = "1";
 				rg_ac002.EditValue = "0";                         //性别 默认 男
 				ac01.AC020 = MiscAction.GetServerTime();          //到达时间
@@ -289,15 +291,7 @@ namespace Lime.Windows
 
 			return true;
 		}
-		/// <summary>
-		/// 保存过程
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void sb_ok_Click(object sender, EventArgs e)
-		{
-
-		}
+		
 		/// <summary>
 		/// 到达日期编辑校验
 		/// </summary>
@@ -313,5 +307,62 @@ namespace Lime.Windows
 				e.Cancel = true;
 			}
 		}
+
+		/// <summary>
+		/// 保存过程
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void sb_ok_Click(object sender, EventArgs e)
+		{
+			if (!CheckBeforeSave()) return;
+			ac01.AC003 = txtEdit_ac003.Text;					  //逝者姓名
+			ac01.AC002 = rg_ac002.EditValue.ToString();			  //性别
+			ac01.AC004 = Convert.ToInt32(txtEdit_ac004.EditValue);//年龄
+			ac01.AC014 = txtedit_ac014.Text;                      //身份证号
+			ac01.AC020 = Convert.ToDateTime(dateEdit_ac020.EditValue);  //到达时间
+			ac01.AC009 = txtEdit_ac009.Text;                      //接令地点
+			ac01.AC010 = Convert.ToDateTime(dateEdit_ac010.EditValue);  //死亡时间
+			ac01.AC005 = lookUp_ac005.EditValue.ToString();       //死亡原因
+			ac01.AC006 = lookUp_ac006.EditValue.ToString();       //骨灰处理
+			ac01.AC007 = lookUp_ac007.EditValue.ToString();       //县镇区县
+			ac01.AC008 = txtEdit_ac008.Text;                      //详细地址
+			ac01.AC050 = txtEdit_ac050.Text;                      //联系人
+			ac01.AC052 = lookUp_ac052.EditValue.ToString();       //与逝者关系
+			ac01.AC051 = txtEdit_ac051.Text;                      //联系电话
+			ac01.AC055 = txtEdit_ac055.Text;                      //联系地址
+			ac01.AC099 = mem_ac099.Text;                          //备注
+
+			try
+			{
+				unitOfWork1.CommitChanges();
+				DialogResult = DialogResult.OK;
+				if (b_new)
+				{
+					if(XtraMessageBox.Show("登记成功,现在要进行业务办理吗?","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+					{
+						this.Close();
+						(Envior.mform as Frm_main).openBusinessObject("FireBusiness", s_ac001);
+					}
+					else
+					{
+						this.Close();
+					}
+				}
+				else
+				{
+					XtraMessageBox.Show("保存成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					this.Close();
+				}
+				
+			}
+			catch (Exception ee)
+			{
+				unitOfWork1.RollbackTransaction();
+				LogUtils.Error(ee.Message);
+				XtraMessageBox.Show(ee.Message,"错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+			}
+
+  		}
 	}
 }

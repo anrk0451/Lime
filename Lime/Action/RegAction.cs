@@ -34,5 +34,74 @@ namespace Lime.Action
 		{
 			return Convert.ToInt32(SqlHelper.ExecuteFunc("pkg_report.fun_regstruIsUse", rg001));
 		}
+
+		/// <summary>
+		/// 返回寄存号位状态
+		/// </summary>
+		/// <param name="regionId"></param>
+		/// <param name="bitDesc"></param>
+		/// <returns></returns>
+		public static string GetBitStatus(string regionId, string bitDesc)
+		{
+			return SqlHelper.ExecuteFunc("pkg_report.fun_getBitStatus", regionId, bitDesc).ToString();
+		}
+		/// <summary>
+		/// 根据寄存排编号及号位描述 返回寄存号位ID
+		/// </summary>
+		/// <param name="regionId"></param>
+		/// <param name="bitDesc"></param>
+		/// <returns></returns>
+		public static string GetBitId(string regionId, string bitDesc)
+		{
+			return SqlHelper.ExecuteFunc("pkg_report.fun_getBitId", regionId, bitDesc).ToString();
+		}
+		/// <summary>
+		/// 返回寄存号位位置
+		/// </summary>
+		/// <param name="regionId"></param>
+		/// <param name="bitDesc"></param>
+		/// <returns></returns>
+		public static string GetBitFullName(string regionId, string bitDesc)
+		{
+			return SqlHelper.ExecuteFunc("pkg_report.fun_getBitFullName", regionId, bitDesc).ToString();
+		}
+		/// <summary>
+		/// 返回寄存号位定价
+		/// </summary>
+		/// <param name="regionId"></param>
+		/// <param name="bitDesc"></param>
+		/// <returns></returns>
+		public static decimal GetBitPrice(string regionId, string bitDesc)
+		{
+			return Convert.ToDecimal(SqlHelper.ExecuteFunc("pkg_report.fun_getBitPrice2", regionId, bitDesc));
+		}
+		/// <summary>
+		/// 根据寄存号位ID 返回寄存堂编号
+		/// </summary>
+		/// <param name="bitId"></param>
+		/// <returns></returns>
+		public static string GetHallIdByBitId(string bitId)
+		{
+			return SqlHelper.ExecuteFunc("pkg_report.fun_getHallIdByBitId", bitId).ToString();
+		}
+
+		/// <summary>
+		/// 根据寄存号位ID 返回寄存室编号
+		/// </summary>
+		/// <param name="bitId"></param>
+		/// <returns></returns>
+		public static string GetRoomIdByBitId(string bitId)
+		{
+			return SqlHelper.ExecuteFunc("pkg_report.fun_getRoomIdByBitId", bitId).ToString();
+		}
+		/// <summary>
+		/// 生成寄存证号
+		/// </summary>
+		/// <param name="type"></param>
+		/// <returns></returns>
+		public static string GenRegisterNo(string type)
+		{
+			return SqlHelper.ExecuteFunc("pkg_business.GenRegisterNo", type).ToString();
+		}
 	}
 }

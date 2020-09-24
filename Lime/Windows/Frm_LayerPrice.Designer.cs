@@ -77,7 +77,6 @@
 			this.gridView1.OptionsFilter.AllowFilterIncrementalSearch = false;
 			this.gridView1.OptionsFilter.AllowMRUFilterList = false;
 			this.gridView1.OptionsFilter.AllowMultiSelectInCheckedFilterPopup = false;
-			this.gridView1.OptionsFilter.FilterEditorUseMenuForOperandsAndOperators = false;
 			this.gridView1.OptionsFilter.ShowAllTableValuesInCheckedFilterPopup = false;
 			this.gridView1.OptionsMenu.EnableColumnMenu = false;
 			this.gridView1.OptionsView.ColumnAutoWidth = false;
@@ -197,7 +196,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.sb_cancel;
-			this.ClientSize = new System.Drawing.Size(499, 423);
+			this.ClientSize = new System.Drawing.Size(499, 411);
 			this.Controls.Add(this.simpleButton1);
 			this.Controls.Add(this.sb_cancel);
 			this.Controls.Add(this.sb_ok);

@@ -30,6 +30,7 @@ namespace Lime.Windows
 		{
 			InitializeComponent();
 			gridView2.CustomDrawRowIndicator += MiscAction.DrawGridLineNo;
+			this.SetGridLookUpEditMoreColumnFilter(repository_cb021);
 		}
 
 		private void Frm_Combo_Load(object sender, EventArgs e)
@@ -147,28 +148,31 @@ namespace Lime.Windows
 
 		private void repository_cb021_Popup(object sender, EventArgs e)
 		{
-			FilterLookup(sender);
+			//FilterLookup(sender);
 		}
 
 		/// <summary>
 		/// 过滤 项目
 		/// </summary>
 		/// <param name="sender"></param>
-		private void FilterLookup(object sender)
-		{
-			Text += " ! ";
-			GridLookUpEdit edit = sender as GridLookUpEdit;
-			GridView gridView = edit.Properties.View;
-			FieldInfo fi = gridView.GetType().GetField("extraFilter", BindingFlags.NonPublic | BindingFlags.Instance);
-			Text = edit.AutoSearchText;
-			BinaryOperator op1 = new BinaryOperator("ITEM_TEXT", edit.AutoSearchText + "%", BinaryOperatorType.Like);
-			BinaryOperator op2 = new BinaryOperator("ZJF", edit.AutoSearchText + "%", BinaryOperatorType.Like);
-			string filterCondition = new GroupOperator(GroupOperatorType.Or, new CriteriaOperator[] { op1, op2 }).ToString();
-			fi.SetValue(gridView, filterCondition);
+		//private void FilterLookup(object sender)
+		//{
+		//	Text += " ! ";
+		//	GridLookUpEdit edit = sender as GridLookUpEdit;
+		//	GridView gridView = edit.Properties.View;
+		//	FieldInfo fi = gridView.GetType().GetField("extraFilter", BindingFlags.NonPublic | BindingFlags.Instance);
+		//	Text = edit.AutoSearchText;
+		//	BinaryOperator op1 = new BinaryOperator("ITEM_TEXT", edit.AutoSearchText + "%", BinaryOperatorType.Like);
+		//	BinaryOperator op2 = new BinaryOperator("ZJF", edit.AutoSearchText + "%", BinaryOperatorType.Like);
+		//	string filterCondition = new GroupOperator(GroupOperatorType.Or, new CriteriaOperator[] { op1, op2 }).ToString();
+		//	fi.SetValue(gridView, filterCondition);
 
-			MethodInfo mi = gridView.GetType().GetMethod("ApplyColumnsFilterEx", BindingFlags.NonPublic | BindingFlags.Instance);
-			mi.Invoke(gridView, null);
-		}
+		//	MethodInfo mi = gridView.GetType().GetMethod("ApplyColumnsFilterEx", BindingFlags.NonPublic | BindingFlags.Instance);
+		//	mi.Invoke(gridView, null);
+		//}
+
+
+
 		/// <summary>
 		/// 删除明细
 		/// </summary>
@@ -296,6 +300,41 @@ namespace Lime.Windows
 			if ( !gridView2.UpdateCurrentRow()) return false;
 
 			return true;
+		}
+
+		/// <summary>
+		/// 设置GridLookUpEdit多列过滤
+		/// </summary>
+		/// <param name="repGLUEdit">GridLookUpEdit的知识库，eg:gridlookUpEdit.Properties</param>
+		private void SetGridLookUpEditMoreColumnFilter(DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repGLUEdit)
+		{
+			repGLUEdit.EditValueChanging += (sender, e) =>
+			{
+				this.BeginInvoke(new System.Windows.Forms.MethodInvoker(() => {
+					GridLookUpEdit edit = sender as GridLookUpEdit;
+					DevExpress.XtraGrid.Views.Grid.GridView view = edit.Properties.View as DevExpress.XtraGrid.Views.Grid.GridView;
+					//获取GriView私有变量
+					System.Reflection.FieldInfo extraFilter = view.GetType().GetField("extraFilter", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+					List<DevExpress.Data.Filtering.CriteriaOperator> columnsOperators = new List<DevExpress.Data.Filtering.CriteriaOperator>();
+					foreach (GridColumn col in view.VisibleColumns)
+					{
+						if (col.Visible && col.ColumnType == typeof(string))
+							columnsOperators.Add(new DevExpress.Data.Filtering.FunctionOperator(DevExpress.Data.Filtering.FunctionOperatorType.Contains,
+								new DevExpress.Data.Filtering.OperandProperty(col.FieldName),
+								new DevExpress.Data.Filtering.OperandValue(edit.Text)));
+					}
+
+					string filterCondition = new DevExpress.Data.Filtering.GroupOperator(DevExpress.Data.Filtering.GroupOperatorType.Or, columnsOperators).ToString();
+					extraFilter.SetValue(view, filterCondition);
+					//获取GriView中处理列过滤的私有方法
+					System.Reflection.MethodInfo ApplyColumnsFilterEx = view.GetType().GetMethod("ApplyColumnsFilterEx", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+
+					ApplyColumnsFilterEx.Invoke(view, null);
+
+				}));
+
+			};
+
 		}
 	}
 }

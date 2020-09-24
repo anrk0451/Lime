@@ -39,7 +39,8 @@ namespace Lime
 
 		private void Frm_main_Load(object sender, EventArgs e)
 		{
-			LogUtils.Info("start successfully!");
+			//登记系统主窗口
+			Envior.mform = this;
 		}
 
 		/// <summary>
@@ -101,8 +102,6 @@ namespace Lime
 				newPage.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
 
 				BaseBusiness bo = (BaseBusiness)Activator.CreateInstance(Type.GetType("Lime.BusinessObject." + bo001));
-
-				Envior.mform = this;
 
 				bo.Dock = DockStyle.Fill;
 				bo.Parent = newPage;
@@ -206,6 +205,16 @@ namespace Lime
 		private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
 		{
 			openBusinessObject("FireCheckinBrow");
+		}
+
+		private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("TempSales");
+		}
+
+		private void barButtonItem18_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("RegisterBrow");
 		}
 	}
 }

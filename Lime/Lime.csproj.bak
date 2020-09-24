@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0EA24603-7A71-4455-8BEC-130B3C19CF5F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Lime</RootNamespace>
+    <AssemblyName>Lime</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Network.contrast-white.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="log4net">
+      <HintPath>..\..\..\dll\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess">
+      <HintPath>..\..\..\dll\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Action\FireAction.cs" />
+    <Compile Include="Action\MiscAction.cs" />
+    <Compile Include="Action\RegAction.cs" />
+    <Compile Include="Action\SqlHelper.cs" />
+    <Compile Include="BaseObject\BaseBusiness.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseObject\BaseBusiness.Designer.cs">
+      <DependentUpon>BaseBusiness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseObject\MyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseObject\MyDialog.Designer.cs">
+      <DependentUpon>MyDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\Combo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Combo.Designer.cs">
+      <DependentUpon>Combo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\DataDict.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\DataDict.Designer.cs">
+      <DependentUpon>DataDict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\FireBusiness.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\FireBusiness.Designer.cs">
+      <DependentUpon>FireBusiness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\FireCheckinBrow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\FireCheckinBrow.Designer.cs">
+      <DependentUpon>FireCheckinBrow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\Operator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Operator.Designer.cs">
+      <DependentUpon>Operator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\RegisterBrow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\RegisterBrow.Designer.cs">
+      <DependentUpon>RegisterBrow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\RegisterStru.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\RegisterStru.Designer.cs">
+      <DependentUpon>RegisterStru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\Roles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Roles.Designer.cs">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\SalesItemInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\SalesItemInfo.Designer.cs">
+      <DependentUpon>SalesItemInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\TempSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\TempSales.Designer.cs">
+      <DependentUpon>TempSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_main.Designer.cs">
+      <DependentUpon>Frm_main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\App_Const.cs" />
+    <Compile Include="Misc\Envior.cs" />
+    <Compile Include="Misc\LogUtils.cs" />
+    <Compile Include="Misc\SecurityTool.cs" />
+    <Compile Include="Misc\Tool.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_BaseService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_BaseService.Designer.cs">
+      <DependentUpon>Frm_BaseService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_Bi01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_Bi01.Designer.cs">
+      <DependentUpon>Frm_Bi01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_BusinessEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_BusinessEdit.Designer.cs">
+      <DependentUpon>Frm_BusinessEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_Combo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_Combo.Designer.cs">
+      <DependentUpon>Frm_Combo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_FireCheckin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_FireCheckin.Designer.cs">
+      <DependentUpon>Frm_FireCheckin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_FireSettle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_FireSettle.Designer.cs">
+      <DependentUpon>Frm_FireSettle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_FreeBit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_FreeBit.Designer.cs">
+      <DependentUpon>Frm_FreeBit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_InputBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_InputBill.Designer.cs">
+      <DependentUpon>Frm_InputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_LayerPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_LayerPrice.Designer.cs">
+      <DependentUpon>Frm_LayerPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_MiscItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_MiscItem.Designer.cs">
+      <DependentUpon>Frm_MiscItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_MiscItem2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_MiscItem2.Designer.cs">
+      <DependentUpon>Frm_MiscItem2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_Operator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_Operator.Designer.cs">
+      <DependentUpon>Frm_Operator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_Region.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_Region.Designer.cs">
+      <DependentUpon>Frm_Region.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_Register.Designer.cs">
+      <DependentUpon>Frm_Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_SetFireTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_SetFireTime.Designer.cs">
+      <DependentUpon>Frm_SetFireTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\AC01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\AC01.Designer.cs">
+      <DependentUpon>AC01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\BI01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\BI01.Designer.cs">
+      <DependentUpon>BI01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\BO01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\BO01.Designer.cs">
+      <DependentUpon>BO01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\CASTINFO.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\CASTINFO.Designer.cs">
+      <DependentUpon>CASTINFO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\CB01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\CB01.Designer.cs">
+      <DependentUpon>CB01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\CB02.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\CB02.Designer.cs">
+      <DependentUpon>CB02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\ConnectionHelper.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\FA01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\FA01.Designer.cs">
+      <DependentUpon>FA01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\LY01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\LY01.Designer.cs">
+      <DependentUpon>LY01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\NEWTOMB_T_VERSION.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\NEWTOMB_T_VERSION.Designer.cs">
+      <DependentUpon>NEWTOMB_T_VERSION.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\RC01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\RC01.Designer.cs">
+      <DependentUpon>RC01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\RC04.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\RC04.Designer.cs">
+      <DependentUpon>RC04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\RG01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\RG01.Designer.cs">
+      <DependentUpon>RG01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\RO01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\RO01.Designer.cs">
+      <DependentUpon>RO01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\SA01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\SA01.Designer.cs">
+      <DependentUpon>SA01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\SA01_LOG.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\SA01_LOG.Designer.cs">
+      <DependentUpon>SA01_LOG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\SI01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\SI01.Designer.cs">
+      <DependentUpon>SI01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\ST01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\ST01.Designer.cs">
+      <DependentUpon>ST01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\UC01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\UC01.Designer.cs">
+      <DependentUpon>UC01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\UR_MAPPER.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\UR_MAPPER.Designer.cs">
+      <DependentUpon>UR_MAPPER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\V_ALLVALIDITEM.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\V_ALLVALIDITEM.Designer.cs">
+      <DependentUpon>V_ALLVALIDITEM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\V_BINDINGSERVICE.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\V_BINDINGSERVICE.Designer.cs">
+      <DependentUpon>V_BINDINGSERVICE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\V_COMBO_ITEMS.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\V_COMBO_ITEMS.Designer.cs">
+      <DependentUpon>V_COMBO_ITEMS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\V_UC01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\V_UC01.Designer.cs">
+      <DependentUpon>V_UC01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xpo\LimeDataModel1Code\WS01.cs" />
+    <Compile Include="Xpo\LimeDataModel1Code\WS01.Designer.cs">
+      <DependentUpon>WS01.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BaseObject\BaseBusiness.resx">
+      <DependentUpon>BaseBusiness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseObject\MyDialog.resx">
+      <DependentUpon>MyDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Combo.resx">
+      <DependentUpon>Combo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\DataDict.resx">
+      <DependentUpon>DataDict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\FireBusiness.resx">
+      <DependentUpon>FireBusiness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\FireCheckinBrow.resx">
+      <DependentUpon>FireCheckinBrow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Operator.resx">
+      <DependentUpon>Operator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\RegisterBrow.resx">
+      <DependentUpon>RegisterBrow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\RegisterStru.resx">
+      <DependentUpon>RegisterStru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Roles.resx">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\SalesItemInfo.resx">
+      <DependentUpon>SalesItemInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\TempSales.resx">
+      <DependentUpon>TempSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_main.resx">
+      <DependentUpon>Frm_main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_BaseService.resx">
+      <DependentUpon>Frm_BaseService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_Bi01.resx">
+      <DependentUpon>Frm_Bi01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_BusinessEdit.resx">
+      <DependentUpon>Frm_BusinessEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_Combo.resx">
+      <DependentUpon>Frm_Combo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_FireCheckin.resx">
+      <DependentUpon>Frm_FireCheckin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_FireSettle.resx">
+      <DependentUpon>Frm_FireSettle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_FreeBit.resx">
+      <DependentUpon>Frm_FreeBit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_InputBill.resx">
+      <DependentUpon>Frm_InputBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_LayerPrice.resx">
+      <DependentUpon>Frm_LayerPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_MiscItem.resx">
+      <DependentUpon>Frm_MiscItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_MiscItem2.resx">
+      <DependentUpon>Frm_MiscItem2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_Operator.resx">
+      <DependentUpon>Frm_Operator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_Region.resx">
+      <DependentUpon>Frm_Region.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_Register.resx">
+      <DependentUpon>Frm_Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_SetFireTime.resx">
+      <DependentUpon>Frm_SetFireTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Xpo\LimeDataModel1.xpo" />
+    <None Include="Xpo\LimeDataModel1.xpo.diagram">
+      <DependentUpon>LimeDataModel1.xpo</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_addcircled.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Network.contrast-white.ico" />
+    <None Include="Resources\open22.svg" />
+    <None Include="Resources\changeview3.svg" />
+    <None Include="Resources\print.svg" />
+    <None Include="Resources\wordwrap.svg" />
+    <None Include="Resources\bo_position.svg" />
+    <None Include="Resources\editnames2.svg" />
+    <None Include="Resources\actions_addcircled6.svg" />
+    <None Include="Resources\boposition2_16x161.png" />
+    <None Include="Resources\boposition2_32x321.png" />
+    <None Include="Resources\currency_16x16.png" />
+    <None Include="Resources\currency_32x32.png" />
+    <None Include="Resources\boposition2_16x16.png" />
+    <None Include="Resources\boposition2_32x32.png" />
+    <None Include="Resources\cleartablestyle_16x16.png" />
+    <None Include="Resources\cleartablestyle_32x32.png" />
+    <None Include="Resources\charttype_areastepstacked.svg" />
+    <None Include="Resources\travel_map.svg" />
+    <None Include="Resources\charttype_polarline.svg" />
+    <None Include="Resources\actions_addcircled5.svg" />
+    <None Include="Resources\changeview2.svg" />
+    <None Include="Resources\bo_scheduler.svg" />
+    <None Include="Resources\del1.svg" />
+    <None Include="Resources\bo_sale.svg" />
+    <None Include="Resources\actions_edit.svg" />
+    <None Include="Resources\bo_user.svg" />
+    <None Include="Resources\boorder_16x16.png" />
+    <None Include="Resources\boorder_32x32.png" />
+    <None Include="Resources\selectall_16x16.png" />
+    <None Include="Resources\selectall_32x32.png" />
+    <None Include="Resources\actions_addcircled4.svg" />
+    <None Include="Resources\open21.svg" />
+    <None Include="Resources\boorderitem_16x16.png" />
+    <None Include="Resources\boorderitem_32x32.png" />
+    <None Include="Resources\piemap_16x16.png" />
+    <None Include="Resources\piemap_32x32.png" />
+    <None Include="Resources\morecolors.svg" />
+    <None Include="Resources\editnames1.svg" />
+    <None Include="Resources\del.svg" />
+    <None Include="Resources\errorbarsnone_32x32.png" />
+    <None Include="Resources\cancel_32x32.png" />
+    <None Include="Resources\reading_32x32.png" />
+    <None Include="Resources\album.svg" />
+    <None Include="Resources\changeview1.svg" />
+    <None Include="Resources\save1.svg" />
+    <None Include="Resources\actions_delete.svg" />
+    <None Include="Resources\actions_addcircled3.svg" />
+    <None Include="Resources\nodata.jpg" />
+    <None Include="Resources\charttype_gantt.svg" />
+    <None Include="Resources\actions_addcircled2.svg" />
+    <None Include="Resources\contentarrangeinrows_32x326.png" />
+    <None Include="Resources\contentarrangeinrows_32x325.png" />
+    <None Include="Resources\open2.svg" />
+    <None Include="Resources\actions_zoom.svg" />
+    <None Include="Resources\withtextwrapping_centercenter_32x323.png" />
+    <None Include="Resources\withtextwrapping_centercenter_32x322.png" />
+    <None Include="Resources\withtextwrapping_centercenter_32x321.png" />
+    <None Include="Resources\withtextwrapping_centercenter_32x32.png" />
+    <None Include="Resources\contentarrangeinrows_32x324.png" />
+    <None Include="Resources\contentarrangeinrows_32x323.png" />
+    <None Include="Resources\contentarrangeinrows_32x322.png" />
+    <None Include="Resources\contentarrangeinrows_32x321.png" />
+    <None Include="Resources\contentarrangeincolums_32x32.png" />
+    <None Include="Resources\contentarrangeinrows_32x32.png" />
+    <None Include="Resources\movedown.svg" />
+    <None Include="Resources\moveup.svg" />
+    <None Include="Resources\bo_contract5.svg" />
+    <None Include="Resources\bo_contract4.svg" />
+    <None Include="Resources\changeview.svg" />
+    <None Include="Resources\save.svg" />
+    <None Include="Resources\delete.svg" />
+    <None Include="Resources\actions_deletecircled.svg" />
+    <None Include="Resources\actions_addcircled1.svg" />
+    <None Include="Resources\bo_contract3.svg" />
+    <None Include="Resources\bo_contract2.svg" />
+    <None Include="Resources\bo_contract1.svg" />
+    <None Include="Resources\bo_contract.svg" />
+    <None Include="Resources\editnames.svg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
