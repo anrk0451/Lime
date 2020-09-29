@@ -39,7 +39,6 @@ namespace Lime.Xpo.orcl
 			typeof(SA01_LOG),
 			typeof(FA01),
 			typeof(WS01),
-			typeof(NEWTOMB_T_VERSION),
 			typeof(RC01),
 			typeof(RC04)
 		};

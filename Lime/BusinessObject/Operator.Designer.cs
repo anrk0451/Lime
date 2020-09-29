@@ -125,7 +125,7 @@
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
 			this.barDockControlTop.Manager = this.barManager1;
-			this.barDockControlTop.Size = new System.Drawing.Size(1155, 34);
+			this.barDockControlTop.Size = new System.Drawing.Size(1155, 36);
 			// 
 			// barDockControlBottom
 			// 
@@ -139,27 +139,27 @@
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControlLeft.Location = new System.Drawing.Point(0, 34);
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 36);
 			this.barDockControlLeft.Manager = this.barManager1;
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 557);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 555);
 			// 
 			// barDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(1155, 34);
+			this.barDockControlRight.Location = new System.Drawing.Point(1155, 36);
 			this.barDockControlRight.Manager = this.barManager1;
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 557);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 555);
 			// 
 			// gridControl1
 			// 
 			this.gridControl1.DataSource = this.xpCollection1;
 			this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gridControl1.Location = new System.Drawing.Point(0, 34);
+			this.gridControl1.Location = new System.Drawing.Point(0, 36);
 			this.gridControl1.MainView = this.gridView1;
 			this.gridControl1.MenuManager = this.barManager1;
 			this.gridControl1.Name = "gridControl1";
-			this.gridControl1.Size = new System.Drawing.Size(1155, 557);
+			this.gridControl1.Size = new System.Drawing.Size(1155, 555);
 			this.gridControl1.TabIndex = 5;
 			this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -168,11 +168,8 @@
 			// 
 			this.xpCollection1.ObjectType = typeof(Lime.Xpo.orcl.V_UC01);
 			this.xpCollection1.Session = this.unitOfWork1;
-			// 
-			// unitOfWork1
-			// 
-			this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
-			this.unitOfWork1.TrackPropertiesModifications = false;
+			this.xpCollection1.Sorting.AddRange(new DevExpress.Xpo.SortProperty[] {
+            new DevExpress.Xpo.SortProperty("[UC001]", DevExpress.Xpo.DB.SortingDirection.Ascending)});
 			// 
 			// gridView1
 			// 

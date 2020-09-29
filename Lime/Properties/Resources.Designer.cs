@@ -753,6 +753,16 @@ namespace Lime.Properties {
         /// <summary>
         ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage save_as {
+            get {
+                object obj = ResourceManager.GetObject("save as", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage save1 {
             get {
                 object obj = ResourceManager.GetObject("save1", resourceCulture);

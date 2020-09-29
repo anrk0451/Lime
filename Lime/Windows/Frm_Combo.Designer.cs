@@ -78,6 +78,7 @@
 			// 
 			// groupControl1
 			// 
+			this.groupControl1.Appearance.Options.UseFont = true;
 			this.groupControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
 			this.groupControl1.Controls.Add(this.mem_cb006);
 			this.groupControl1.Controls.Add(this.labelControl4);
@@ -87,35 +88,31 @@
 			this.groupControl1.Controls.Add(this.labelControl2);
 			this.groupControl1.Controls.Add(this.te_cb003);
 			this.groupControl1.Controls.Add(this.labelControl1);
-			this.groupControl1.Location = new System.Drawing.Point(20, 20);
+			this.groupControl1.Location = new System.Drawing.Point(18, 20);
 			this.groupControl1.Name = "groupControl1";
-			this.groupControl1.Size = new System.Drawing.Size(629, 324);
+			this.groupControl1.Size = new System.Drawing.Size(559, 324);
 			this.groupControl1.TabIndex = 0;
 			this.groupControl1.Text = "基本信息";
 			// 
 			// mem_cb006
 			// 
-			this.mem_cb006.Location = new System.Drawing.Point(91, 223);
+			this.mem_cb006.Location = new System.Drawing.Point(81, 223);
 			this.mem_cb006.Name = "mem_cb006";
-			this.mem_cb006.Size = new System.Drawing.Size(442, 83);
+			this.mem_cb006.Size = new System.Drawing.Size(393, 83);
 			this.mem_cb006.TabIndex = 7;
 			// 
 			// labelControl4
 			// 
-			this.labelControl4.Appearance.Image = null;
-			this.labelControl4.AppearanceDisabled.Image = null;
-			this.labelControl4.AppearanceHovered.Image = null;
-			this.labelControl4.AppearancePressed.Image = null;
-			this.labelControl4.Location = new System.Drawing.Point(91, 189);
+			this.labelControl4.Location = new System.Drawing.Point(81, 189);
 			this.labelControl4.Name = "labelControl4";
-			this.labelControl4.Size = new System.Drawing.Size(76, 19);
+			this.labelControl4.Size = new System.Drawing.Size(60, 18);
 			this.labelControl4.TabIndex = 6;
 			this.labelControl4.Text = "套餐描述";
 			// 
 			// glue_cb005
 			// 
 			this.glue_cb005.EditValue = "";
-			this.glue_cb005.Location = new System.Drawing.Point(195, 136);
+			this.glue_cb005.Location = new System.Drawing.Point(173, 136);
 			this.glue_cb005.Name = "glue_cb005";
 			this.glue_cb005.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -124,18 +121,13 @@
 			this.glue_cb005.Properties.NullText = "[选择关联服务]";
 			this.glue_cb005.Properties.PopupView = this.gridLookUpEdit1View;
 			this.glue_cb005.Properties.ValueMember = "SERVICEID";
-			this.glue_cb005.Size = new System.Drawing.Size(338, 24);
+			this.glue_cb005.Size = new System.Drawing.Size(300, 24);
 			this.glue_cb005.TabIndex = 5;
 			// 
 			// xpCollection_service
 			// 
 			this.xpCollection_service.ObjectType = typeof(Lime.Xpo.orcl.V_BINDINGSERVICE);
 			this.xpCollection_service.Session = this.session1;
-			// 
-			// session1
-			// 
-			this.session1.IsObjectModifiedOnNonPersistentPropertyChange = null;
-			this.session1.TrackPropertiesModifications = false;
 			// 
 			// gridLookUpEdit1View
 			// 
@@ -151,32 +143,32 @@
 			// colSERVICEID
 			// 
 			this.colSERVICEID.FieldName = "SERVICEID";
+			this.colSERVICEID.MinWidth = 18;
 			this.colSERVICEID.Name = "colSERVICEID";
 			this.colSERVICEID.Visible = true;
 			this.colSERVICEID.VisibleIndex = 0;
+			this.colSERVICEID.Width = 67;
 			// 
 			// colSERVICENAME
 			// 
 			this.colSERVICENAME.FieldName = "SERVICENAME";
+			this.colSERVICENAME.MinWidth = 18;
 			this.colSERVICENAME.Name = "colSERVICENAME";
 			this.colSERVICENAME.Visible = true;
 			this.colSERVICENAME.VisibleIndex = 1;
+			this.colSERVICENAME.Width = 67;
 			// 
 			// labelControl3
 			// 
-			this.labelControl3.Appearance.Image = null;
-			this.labelControl3.AppearanceDisabled.Image = null;
-			this.labelControl3.AppearanceHovered.Image = null;
-			this.labelControl3.AppearancePressed.Image = null;
-			this.labelControl3.Location = new System.Drawing.Point(91, 139);
+			this.labelControl3.Location = new System.Drawing.Point(81, 139);
 			this.labelControl3.Name = "labelControl3";
-			this.labelControl3.Size = new System.Drawing.Size(76, 19);
+			this.labelControl3.Size = new System.Drawing.Size(60, 18);
 			this.labelControl3.TabIndex = 4;
 			this.labelControl3.Text = "关联服务";
 			// 
 			// rg_cb002
 			// 
-			this.rg_cb002.Location = new System.Drawing.Point(194, 82);
+			this.rg_cb002.Location = new System.Drawing.Point(172, 82);
 			this.rg_cb002.Name = "rg_cb002";
 			this.rg_cb002.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
 			this.rg_cb002.Properties.Appearance.Options.UseBackColor = true;
@@ -184,39 +176,31 @@
 			this.rg_cb002.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem("0", "服务绑定"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("1", "用户定义")});
-			this.rg_cb002.Size = new System.Drawing.Size(301, 32);
+			this.rg_cb002.Size = new System.Drawing.Size(268, 32);
 			this.rg_cb002.TabIndex = 3;
 			this.rg_cb002.SelectedIndexChanged += new System.EventHandler(this.rg_cb002_SelectedIndexChanged);
 			// 
 			// labelControl2
 			// 
-			this.labelControl2.Appearance.Image = null;
-			this.labelControl2.AppearanceDisabled.Image = null;
-			this.labelControl2.AppearanceHovered.Image = null;
-			this.labelControl2.AppearancePressed.Image = null;
-			this.labelControl2.Location = new System.Drawing.Point(91, 89);
+			this.labelControl2.Location = new System.Drawing.Point(81, 89);
 			this.labelControl2.Name = "labelControl2";
-			this.labelControl2.Size = new System.Drawing.Size(38, 19);
+			this.labelControl2.Size = new System.Drawing.Size(30, 18);
 			this.labelControl2.TabIndex = 2;
 			this.labelControl2.Text = "类型";
 			// 
 			// te_cb003
 			// 
-			this.te_cb003.Location = new System.Drawing.Point(195, 42);
+			this.te_cb003.Location = new System.Drawing.Point(173, 42);
 			this.te_cb003.Name = "te_cb003";
-			this.te_cb003.Size = new System.Drawing.Size(338, 24);
+			this.te_cb003.Size = new System.Drawing.Size(300, 24);
 			this.te_cb003.TabIndex = 1;
 			this.te_cb003.Validating += new System.ComponentModel.CancelEventHandler(this.te_cb003_Validating);
 			// 
 			// labelControl1
 			// 
-			this.labelControl1.Appearance.Image = null;
-			this.labelControl1.AppearanceDisabled.Image = null;
-			this.labelControl1.AppearanceHovered.Image = null;
-			this.labelControl1.AppearancePressed.Image = null;
-			this.labelControl1.Location = new System.Drawing.Point(91, 44);
+			this.labelControl1.Location = new System.Drawing.Point(81, 44);
 			this.labelControl1.Name = "labelControl1";
-			this.labelControl1.Size = new System.Drawing.Size(57, 19);
+			this.labelControl1.Size = new System.Drawing.Size(45, 18);
 			this.labelControl1.TabIndex = 0;
 			this.labelControl1.Text = "套餐名";
 			// 
@@ -232,13 +216,13 @@
 			this.gridControl2.EmbeddedNavigator.Buttons.Prev.Visible = false;
 			this.gridControl2.EmbeddedNavigator.Buttons.PrevPage.Visible = false;
 			this.gridControl2.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-			this.gridControl2.Location = new System.Drawing.Point(20, 350);
+			this.gridControl2.Location = new System.Drawing.Point(18, 350);
 			this.gridControl2.MainView = this.gridView2;
 			this.gridControl2.Name = "gridControl2";
 			this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repository_cb021,
             this.repositoryItemSpinEdit1});
-			this.gridControl2.Size = new System.Drawing.Size(629, 258);
+			this.gridControl2.Size = new System.Drawing.Size(559, 258);
 			this.gridControl2.TabIndex = 29;
 			this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -266,7 +250,7 @@
             this.gridColumn4,
             this.gridColumn5});
 			this.gridView2.GridControl = this.gridControl2;
-			this.gridView2.IndicatorWidth = 35;
+			this.gridView2.IndicatorWidth = 31;
 			this.gridView2.Name = "gridView2";
 			this.gridView2.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
 			this.gridView2.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
@@ -286,30 +270,30 @@
 			// 
 			this.gridColumn1.Caption = "明细编号";
 			this.gridColumn1.FieldName = "CB201";
-			this.gridColumn1.MinWidth = 25;
+			this.gridColumn1.MinWidth = 22;
 			this.gridColumn1.Name = "gridColumn1";
 			this.gridColumn1.OptionsColumn.AllowShowHide = false;
-			this.gridColumn1.Width = 94;
+			this.gridColumn1.Width = 84;
 			// 
 			// gridColumn2
 			// 
 			this.gridColumn2.Caption = "套餐编号";
 			this.gridColumn2.FieldName = "CB001";
-			this.gridColumn2.MinWidth = 25;
+			this.gridColumn2.MinWidth = 22;
 			this.gridColumn2.Name = "gridColumn2";
 			this.gridColumn2.OptionsColumn.AllowShowHide = false;
-			this.gridColumn2.Width = 94;
+			this.gridColumn2.Width = 84;
 			// 
 			// gridColumn3
 			// 
 			this.gridColumn3.Caption = "服务或商品";
 			this.gridColumn3.ColumnEdit = this.repository_cb021;
 			this.gridColumn3.FieldName = "CB021";
-			this.gridColumn3.MinWidth = 25;
+			this.gridColumn3.MinWidth = 22;
 			this.gridColumn3.Name = "gridColumn3";
 			this.gridColumn3.Visible = true;
 			this.gridColumn3.VisibleIndex = 0;
-			this.gridColumn3.Width = 229;
+			this.gridColumn3.Width = 204;
 			// 
 			// repository_cb021
 			// 
@@ -352,11 +336,11 @@
 			this.gridColumn4.DisplayFormat.FormatString = "N0";
 			this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
 			this.gridColumn4.FieldName = "CB030";
-			this.gridColumn4.MinWidth = 25;
+			this.gridColumn4.MinWidth = 22;
 			this.gridColumn4.Name = "gridColumn4";
 			this.gridColumn4.Visible = true;
 			this.gridColumn4.VisibleIndex = 1;
-			this.gridColumn4.Width = 148;
+			this.gridColumn4.Width = 132;
 			// 
 			// repositoryItemSpinEdit1
 			// 
@@ -384,10 +368,10 @@
 			// 
 			this.gridColumn5.Caption = "项目类别";
 			this.gridColumn5.FieldName = "CB022";
-			this.gridColumn5.MinWidth = 25;
+			this.gridColumn5.MinWidth = 22;
 			this.gridColumn5.Name = "gridColumn5";
 			this.gridColumn5.OptionsColumn.AllowShowHide = false;
-			this.gridColumn5.Width = 94;
+			this.gridColumn5.Width = 84;
 			// 
 			// sb_cancel
 			// 
@@ -397,10 +381,10 @@
 			this.sb_cancel.Appearance.Options.UseForeColor = true;
 			this.sb_cancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
 			this.sb_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.sb_cancel.Location = new System.Drawing.Point(675, 65);
+			this.sb_cancel.Location = new System.Drawing.Point(600, 65);
 			this.sb_cancel.LookAndFeel.UseDefaultLookAndFeel = false;
 			this.sb_cancel.Name = "sb_cancel";
-			this.sb_cancel.Size = new System.Drawing.Size(129, 30);
+			this.sb_cancel.Size = new System.Drawing.Size(115, 30);
 			this.sb_cancel.TabIndex = 68;
 			this.sb_cancel.Text = "取消";
 			// 
@@ -411,10 +395,10 @@
 			this.sb_ok.Appearance.Options.UseBackColor = true;
 			this.sb_ok.Appearance.Options.UseForeColor = true;
 			this.sb_ok.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-			this.sb_ok.Location = new System.Drawing.Point(675, 20);
+			this.sb_ok.Location = new System.Drawing.Point(600, 20);
 			this.sb_ok.LookAndFeel.UseDefaultLookAndFeel = false;
 			this.sb_ok.Name = "sb_ok";
-			this.sb_ok.Size = new System.Drawing.Size(129, 30);
+			this.sb_ok.Size = new System.Drawing.Size(115, 30);
 			this.sb_ok.TabIndex = 67;
 			this.sb_ok.Text = "确定";
 			this.sb_ok.Click += new System.EventHandler(this.sb_ok_Click);
@@ -426,19 +410,19 @@
 			this.simpleButton1.Appearance.Options.UseBackColor = true;
 			this.simpleButton1.Appearance.Options.UseForeColor = true;
 			this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-			this.simpleButton1.Location = new System.Drawing.Point(675, 361);
+			this.simpleButton1.Location = new System.Drawing.Point(600, 361);
 			this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
 			this.simpleButton1.Name = "simpleButton1";
-			this.simpleButton1.Size = new System.Drawing.Size(129, 30);
+			this.simpleButton1.Size = new System.Drawing.Size(115, 30);
 			this.simpleButton1.TabIndex = 69;
 			this.simpleButton1.Text = "删除明细";
 			this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
 			// 
 			// Frm_Combo
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(828, 620);
+			this.ClientSize = new System.Drawing.Size(736, 620);
 			this.Controls.Add(this.simpleButton1);
 			this.Controls.Add(this.sb_cancel);
 			this.Controls.Add(this.sb_ok);

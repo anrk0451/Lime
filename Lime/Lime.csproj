@@ -474,6 +474,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Network.contrast-white.ico" />
+    <None Include="Resources\save as.svg" />
     <None Include="Resources\open22.svg" />
     <None Include="Resources\changeview3.svg" />
     <None Include="Resources\print.svg" />

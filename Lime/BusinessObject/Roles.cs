@@ -117,11 +117,15 @@ namespace Lime.BusinessObject
 		{
 			this.Cursor = Cursors.WaitCursor;
 			gridView1.BeginUpdate();
+
+
+			unitOfWork1.Dispose();
 			UnitOfWork unitOfWork = new UnitOfWork();
-			 
+
 			xpCollection1.Session = unitOfWork;
 			xpCollection1.Reload();
-	 
+			unitOfWork1 = xpCollection1.Session as UnitOfWork;
+
 			gridView1.EndUpdate();
 			this.Cursor = Cursors.Arrow;
 		}
