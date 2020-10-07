@@ -365,8 +365,10 @@ namespace Lime.BusinessObject
 					bi01.RG001 = newRegion.RG001;
 					bi01.BI020 = newNode.ParentNode.GetValue("RG001").ToString();		      //寄存室编号
 					bi01.BI030 = newNode.ParentNode.ParentNode.GetValue("RG001").ToString();  //寄存楼编号
-					bi01.BI002 = startbit + j - 1;											  //号位数字编号
-					bi01.BI003 = (startbit + j - 1).ToString().PadLeft(4, '0');               //号位文字描述
+					bi01.BI002 = startbit + j - 1;                                            //号位数字编号
+					//bi01.BI003 = (startbit + j - 1).ToString().PadLeft(4, '0');               //号位文字描述
+					bi01.BI003 = (startbit + j - 1).ToString();						          //号位文字描述
+
 					bi01.BI005 = layerIndex;												  //层号
 					bi01.BI008 = colIndex;                                                    //列数.
 					bi01.BI009 = 0;                                                           //价格
@@ -439,7 +441,10 @@ namespace Lime.BusinessObject
 
 					}
 				}
-				startbit += newRegion.RG021;
+				
+				//startbit += newRegion.RG021;
+				startbit = int.Parse(newRegion.RG010.ToString());
+
 
 				if (newRegion.RG033 == "1")
 				{
@@ -465,7 +470,7 @@ namespace Lime.BusinessObject
 				if (e.RowHandle >= 0)
 				{
 					int layerNum = gridView1.RowCount - e.RowHandle;
-					e.Info.DisplayText = (gridView1.RowCount - e.RowHandle).ToString() + "【" + this.GetLayerPrice(curRegionId, layerNum).ToString() + "】";
+					e.Info.DisplayText = (gridView1.RowCount - e.RowHandle).ToString() + "(" + this.GetLayerPrice(curRegionId, layerNum).ToString() + ")";
 				}
 				else if (e.RowHandle < 0 && e.RowHandle > -1000)
 				{
@@ -503,8 +508,10 @@ namespace Lime.BusinessObject
 		private void gridView1_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
 		{
 			string s_bitStatus = string.Empty;  // RegisterAction.GetBitStatus(curRegionId, e.CellValue.ToString());
+			int i_bi005 = gridView1.RowCount - e.RowHandle;
 
-			CriteriaOperator criteria = CriteriaOperator.Parse("RG001 ='" + curRegionId + "' and BI003='" + e.CellValue.ToString() + "'");
+
+			CriteriaOperator criteria = CriteriaOperator.Parse("RG001 ='" + curRegionId + "' and BI003='" + e.CellValue.ToString() + "' and BI005 =" + i_bi005.ToString());
 			XPCollection<BI01> xp_temp = new XPCollection<BI01>(unitOfWork1, xpCollection_bi01, criteria);
 			if(xp_temp.Count > 0)
 			{
@@ -715,7 +722,9 @@ namespace Lime.BusinessObject
 			frm_bi01.swapdata["session"] = unitOfWork1;
 			frm_bi01.swapdata["regionId"] = curNode.GetValue("RG001");
 			frm_bi01.swapdata["bi003"] = bi003;
-			 
+			frm_bi01.swapdata["bi005"] = gridView1.RowCount - gridView1.FocusedRowHandle;
+
+
 			DialogResult dr = frm_bi01.ShowDialog();
 			if (dr == DialogResult.OK)
 			{

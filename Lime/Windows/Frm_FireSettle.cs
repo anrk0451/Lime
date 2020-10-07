@@ -116,8 +116,28 @@ namespace Lime.Windows
  
 				session.CommitChanges();
 				XtraMessageBox.Show("结算办理成功!现在开始打印单据!","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
-				///todo 1.单据打印
-				///
+
+				 
+				PrintAction.Print_Skpz0(s_fa001);
+				if(gridView1.LocateByValue("SA002", "06") >= 0)
+				{
+					if (XtraMessageBox.Show("现在打印【火化证明】吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+					{
+						PrintAction.Print_HHZM(ac01.AC001);
+					}
+				}
+				if (gridView1.LocateByValue("SA002", "08") >= 0)
+				{
+					if (XtraMessageBox.Show("现在打印【寄存证】吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+					{
+						PrintAction.Print_RegCardBase(ac01.AC001);
+					}
+					if (XtraMessageBox.Show("现在打印【骨灰安放卡】吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+					{
+						PrintAction.Print_RegSettle(ac01.AC001);
+					}
+				}
+
 				this.DialogResult = DialogResult.OK;
 				this.Close();
 

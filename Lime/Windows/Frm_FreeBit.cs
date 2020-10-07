@@ -173,12 +173,15 @@ namespace Lime.Windows
 					int rowHandle = gridView1.FocusedRowHandle;
 					string fieldName = gridView1.FocusedColumn.FieldName;
 					string bi003 = gridView1.GetRowCellValue(rowHandle, fieldName).ToString();
-					string s_status = RegAction.GetBitStatus(curRegionId, bi003);
+					int bi005 = gridView1.RowCount - rowHandle;
+
+					string s_status = RegAction.GetBitStatus(curRegionId, bi005,bi003);
 
 					if (s_status == "9")  //空闲
 					{
 						(this.swapdata["parent"] as MyDialog).swapdata["regionId"] = curRegionId;
 						(this.swapdata["parent"] as MyDialog).swapdata["bitDesc"] = bi003;
+						(this.swapdata["parent"] as MyDialog).swapdata["bi005"] = bi005;
 						DialogResult = DialogResult.OK;
 						this.Close();
 					}
@@ -198,7 +201,8 @@ namespace Lime.Windows
 		/// <param name="e"></param>
 		private void gridView1_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
 		{
-			string s_bitStatus = RegAction.GetBitStatus(curRegionId, e.CellValue.ToString());
+			int bi005 = gridView1.RowCount - e.RowHandle;
+			string s_bitStatus = RegAction.GetBitStatus(curRegionId,bi005, e.CellValue.ToString());
 			if (s_bitStatus == "9")
 			{
 				e.Appearance.BackColor = Color.Green;

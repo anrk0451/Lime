@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Lime.Misc
@@ -132,7 +134,37 @@ namespace Lime.Misc
             return true;//正确
         }
 
-        
+        /// <summary>
+        /// 判断字符是否是汉字
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static bool IsHZ(string text)
+        {
+            return Regex.IsMatch(text, @"[\u4E00-\u9FA5]+$");
+        }
 
+        /// <summary>
+        /// 转换对象到 Json 字符串
+        /// </summary>
+        /// <returns></returns>
+        public static string ConvertObjectToJson(Object source)
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(source);
+        }
+
+        public static string EncryptWithMD5(string source)
+        {
+            byte[] sor = Encoding.UTF8.GetBytes(source);
+            MD5 md5 = MD5.Create();
+            byte[] result = md5.ComputeHash(sor);
+            StringBuilder strbul = new StringBuilder(40);
+            for (int i = 0; i < result.Length; i++)
+            {
+                strbul.Append(result[i].ToString("x2"));//加密结果"x2"结果为32位,"x3"结果为48位,"x4"结果为64位
+
+            }
+            return strbul.ToString();
+        }
     }
 }

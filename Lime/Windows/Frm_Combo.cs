@@ -36,24 +36,25 @@ namespace Lime.Windows
 		private void Frm_Combo_Load(object sender, EventArgs e)
 		{
 			//设置下拉窗口
+			
 			GridColumn col_itemid = repository_cb021.View.Columns.AddField("ITEM_ID");
 			col_itemid.Visible = false;
 
 			GridColumn col_itemtype = repository_cb021.View.Columns.AddField("ITEM_TYPE_TEXT");
 			col_itemtype.Caption = "类别";
 			col_itemtype.VisibleIndex = 0;
-			col_itemtype.Width = 60;
+			col_itemtype.Width = 80;
 			col_itemtype.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
 
 			GridColumn col_itemtext = repository_cb021.View.Columns.AddField("ITEM_TEXT");
 			col_itemtext.Caption = "名称";
 			col_itemtext.VisibleIndex = 1;
-			col_itemtext.Width = 75;
+			col_itemtext.Width = 125;
 
 			GridColumn col_price = repository_cb021.View.Columns.AddField("PRICE");
 			col_price.Caption = "单价";
 			col_price.VisibleIndex = 2;
-			col_price.Width = 50;
+			col_price.Width = 70;
 			col_price.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
 			col_price.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
 			col_price.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -62,7 +63,7 @@ namespace Lime.Windows
 			GridColumn col_zjf = repository_cb021.View.Columns.AddField("ZJF");
 			col_zjf.Caption = "助记符";
 			col_zjf.VisibleIndex = 3;
-			col_zjf.Width = 50;
+			col_zjf.Width = 60;
 
 
 			if (this.swapdata.ContainsKey("collection"))

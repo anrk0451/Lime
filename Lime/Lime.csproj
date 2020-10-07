@@ -51,13 +51,19 @@
     <Reference Include="log4net">
       <HintPath>..\..\..\dll\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Oracle.ManagedDataAccess">
       <HintPath>..\..\..\dll\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,6 +77,7 @@
   <ItemGroup>
     <Compile Include="Action\FireAction.cs" />
     <Compile Include="Action\MiscAction.cs" />
+    <Compile Include="Action\PrintAction.cs" />
     <Compile Include="Action\RegAction.cs" />
     <Compile Include="Action\SqlHelper.cs" />
     <Compile Include="BaseObject\BaseBusiness.cs">
@@ -78,6 +85,12 @@
     </Compile>
     <Compile Include="BaseObject\BaseBusiness.Designer.cs">
       <DependentUpon>BaseBusiness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseObject\CheckedListBoxOnlyOne.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseObject\CheckedListBoxOnlyOne.Designer.cs">
+      <DependentUpon>CheckedListBoxOnlyOne.cs</DependentUpon>
     </Compile>
     <Compile Include="BaseObject\MyDialog.cs">
       <SubType>Form</SubType>
@@ -97,6 +110,12 @@
     <Compile Include="BusinessObject\DataDict.Designer.cs">
       <DependentUpon>DataDict.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObject\FinanceDaySearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\FinanceDaySearch.Designer.cs">
+      <DependentUpon>FinanceDaySearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObject\FireBusiness.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +134,12 @@
     <Compile Include="BusinessObject\Operator.Designer.cs">
       <DependentUpon>Operator.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObject\RegData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\RegData.Designer.cs">
+      <DependentUpon>RegData.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObject\RegisterBrow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -126,6 +151,54 @@
     </Compile>
     <Compile Include="BusinessObject\RegisterStru.Designer.cs">
       <DependentUpon>RegisterStru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\Report_Checkin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Report_Checkin.Designer.cs">
+      <DependentUpon>Report_Checkin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\Report_Checkout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Report_Checkout.Designer.cs">
+      <DependentUpon>Report_Checkout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\Report_ClassStat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Report_ClassStat.Designer.cs">
+      <DependentUpon>Report_ClassStat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\Report_FinRoll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Report_FinRoll.Designer.cs">
+      <DependentUpon>Report_FinRoll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\Report_ItemStat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Report_ItemStat.Designer.cs">
+      <DependentUpon>Report_ItemStat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\Report_OutSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Report_OutSearch.Designer.cs">
+      <DependentUpon>Report_OutSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\Report_RegDebt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Report_RegDebt.Designer.cs">
+      <DependentUpon>Report_RegDebt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\Report_Regstat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Report_Regstat.Designer.cs">
+      <DependentUpon>Report_Regstat.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessObject\Roles.cs">
       <SubType>UserControl</SubType>
@@ -155,6 +228,7 @@
     <Compile Include="Misc\Envior.cs" />
     <Compile Include="Misc\LogUtils.cs" />
     <Compile Include="Misc\SecurityTool.cs" />
+    <Compile Include="Misc\SocketClient.cs" />
     <Compile Include="Misc\Tool.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -163,6 +237,12 @@
     </Compile>
     <Compile Include="SplashScreen1.Designer.cs">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_ApplyCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_ApplyCombo.Designer.cs">
+      <DependentUpon>Frm_ApplyCombo.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\Frm_BaseService.cs">
       <SubType>Form</SubType>
@@ -176,17 +256,53 @@
     <Compile Include="Windows\Frm_Bi01.Designer.cs">
       <DependentUpon>Frm_Bi01.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Frm_BitInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_BitInfo.Designer.cs">
+      <DependentUpon>Frm_BitInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Frm_BusinessEdit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Windows\Frm_BusinessEdit.Designer.cs">
       <DependentUpon>Frm_BusinessEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Frm_Checkout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_Checkout.Designer.cs">
+      <DependentUpon>Frm_Checkout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_ChgPwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_ChgPwd.Designer.cs">
+      <DependentUpon>Frm_ChgPwd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Frm_Combo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Windows\Frm_Combo.Designer.cs">
       <DependentUpon>Frm_Combo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_Duration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_Duration.Designer.cs">
+      <DependentUpon>Frm_Duration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_FinRemoveReason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_FinRemoveReason.Designer.cs">
+      <DependentUpon>Frm_FinRemoveReason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_FinSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_FinSearch.Designer.cs">
+      <DependentUpon>Frm_FinSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\Frm_FireCheckin.cs">
       <SubType>Form</SubType>
@@ -218,6 +334,12 @@
     <Compile Include="Windows\Frm_LayerPrice.Designer.cs">
       <DependentUpon>Frm_LayerPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_Login.Designer.cs">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Frm_MiscItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +358,18 @@
     <Compile Include="Windows\Frm_Operator.Designer.cs">
       <DependentUpon>Frm_Operator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Frm_PrtPayRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_PrtPayRecord.Designer.cs">
+      <DependentUpon>Frm_PrtPayRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_RegFromFire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_RegFromFire.Designer.cs">
+      <DependentUpon>Frm_RegFromFire.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Frm_Region.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +381,48 @@
     </Compile>
     <Compile Include="Windows\Frm_Register.Designer.cs">
       <DependentUpon>Frm_Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_RegisterEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_RegisterEdit.Designer.cs">
+      <DependentUpon>Frm_RegisterEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_RegisterPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_RegisterPay.Designer.cs">
+      <DependentUpon>Frm_RegisterPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_RegMove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_RegMove.Designer.cs">
+      <DependentUpon>Frm_RegMove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_RegOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_RegOut.Designer.cs">
+      <DependentUpon>Frm_RegOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_ReportDebt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_ReportDebt.Designer.cs">
+      <DependentUpon>Frm_ReportDebt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_ReportOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_ReportOut.Designer.cs">
+      <DependentUpon>Frm_ReportOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Frm_Report_ClassStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Frm_Report_ClassStat.Designer.cs">
+      <DependentUpon>Frm_Report_ClassStat.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\Frm_SetFireTime.cs">
       <SubType>Form</SubType>
@@ -354,6 +530,9 @@
     <EmbeddedResource Include="BaseObject\BaseBusiness.resx">
       <DependentUpon>BaseBusiness.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaseObject\CheckedListBoxOnlyOne.resx">
+      <DependentUpon>CheckedListBoxOnlyOne.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaseObject\MyDialog.resx">
       <DependentUpon>MyDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,6 +541,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\DataDict.resx">
       <DependentUpon>DataDict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\FinanceDaySearch.resx">
+      <DependentUpon>FinanceDaySearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\FireBusiness.resx">
       <DependentUpon>FireBusiness.cs</DependentUpon>
@@ -372,11 +554,38 @@
     <EmbeddedResource Include="BusinessObject\Operator.resx">
       <DependentUpon>Operator.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\RegData.resx">
+      <DependentUpon>RegData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\RegisterBrow.resx">
       <DependentUpon>RegisterBrow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\RegisterStru.resx">
       <DependentUpon>RegisterStru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Report_Checkin.resx">
+      <DependentUpon>Report_Checkin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Report_Checkout.resx">
+      <DependentUpon>Report_Checkout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Report_ClassStat.resx">
+      <DependentUpon>Report_ClassStat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Report_FinRoll.resx">
+      <DependentUpon>Report_FinRoll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Report_ItemStat.resx">
+      <DependentUpon>Report_ItemStat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Report_OutSearch.resx">
+      <DependentUpon>Report_OutSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Report_RegDebt.resx">
+      <DependentUpon>Report_RegDebt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Report_Regstat.resx">
+      <DependentUpon>Report_Regstat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
@@ -393,17 +602,38 @@
     <EmbeddedResource Include="SplashScreen1.resx">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_ApplyCombo.resx">
+      <DependentUpon>Frm_ApplyCombo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_BaseService.resx">
       <DependentUpon>Frm_BaseService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_Bi01.resx">
       <DependentUpon>Frm_Bi01.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_BitInfo.resx">
+      <DependentUpon>Frm_BitInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_BusinessEdit.resx">
       <DependentUpon>Frm_BusinessEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_Checkout.resx">
+      <DependentUpon>Frm_Checkout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_ChgPwd.resx">
+      <DependentUpon>Frm_ChgPwd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_Combo.resx">
       <DependentUpon>Frm_Combo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_Duration.resx">
+      <DependentUpon>Frm_Duration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_FinRemoveReason.resx">
+      <DependentUpon>Frm_FinRemoveReason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_FinSearch.resx">
+      <DependentUpon>Frm_FinSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_FireCheckin.resx">
       <DependentUpon>Frm_FireCheckin.cs</DependentUpon>
@@ -420,6 +650,9 @@
     <EmbeddedResource Include="Windows\Frm_LayerPrice.resx">
       <DependentUpon>Frm_LayerPrice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_Login.resx">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_MiscItem.resx">
       <DependentUpon>Frm_MiscItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -429,11 +662,38 @@
     <EmbeddedResource Include="Windows\Frm_Operator.resx">
       <DependentUpon>Frm_Operator.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_PrtPayRecord.resx">
+      <DependentUpon>Frm_PrtPayRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_RegFromFire.resx">
+      <DependentUpon>Frm_RegFromFire.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_Region.resx">
       <DependentUpon>Frm_Region.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_Register.resx">
       <DependentUpon>Frm_Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_RegisterEdit.resx">
+      <DependentUpon>Frm_RegisterEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_RegisterPay.resx">
+      <DependentUpon>Frm_RegisterPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_RegMove.resx">
+      <DependentUpon>Frm_RegMove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_RegOut.resx">
+      <DependentUpon>Frm_RegOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_ReportDebt.resx">
+      <DependentUpon>Frm_ReportDebt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_ReportOut.resx">
+      <DependentUpon>Frm_ReportOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Frm_Report_ClassStat.resx">
+      <DependentUpon>Frm_Report_ClassStat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Frm_SetFireTime.resx">
       <DependentUpon>Frm_SetFireTime.cs</DependentUpon>
@@ -474,6 +734,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Network.contrast-white.ico" />
+    <None Include="Resources\bg2.jpg" />
+    <None Include="Resources\cover.jpg" />
     <None Include="Resources\save as.svg" />
     <None Include="Resources\open22.svg" />
     <None Include="Resources\changeview3.svg" />

@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+			DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
 			this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
 			this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
 			this.glookup_slt = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -131,10 +131,6 @@
 			// 
 			// labelControl2
 			// 
-			this.labelControl2.Appearance.Image = null;
-			this.labelControl2.AppearanceDisabled.Image = null;
-			this.labelControl2.AppearanceHovered.Image = null;
-			this.labelControl2.AppearancePressed.Image = null;
 			this.labelControl2.Location = new System.Drawing.Point(38, 118);
 			this.labelControl2.Name = "labelControl2";
 			this.labelControl2.Size = new System.Drawing.Size(38, 19);
@@ -191,10 +187,6 @@
 			// 
 			// labelControl1
 			// 
-			this.labelControl1.Appearance.Image = null;
-			this.labelControl1.AppearanceDisabled.Image = null;
-			this.labelControl1.AppearanceHovered.Image = null;
-			this.labelControl1.AppearancePressed.Image = null;
 			this.labelControl1.Location = new System.Drawing.Point(38, 58);
 			this.labelControl1.Name = "labelControl1";
 			this.labelControl1.Size = new System.Drawing.Size(57, 19);
@@ -235,10 +227,6 @@
 			// 
 			// labelControl5
 			// 
-			this.labelControl5.Appearance.Image = null;
-			this.labelControl5.AppearanceDisabled.Image = null;
-			this.labelControl5.AppearanceHovered.Image = null;
-			this.labelControl5.AppearancePressed.Image = null;
 			this.labelControl5.Location = new System.Drawing.Point(48, 118);
 			this.labelControl5.Name = "labelControl5";
 			this.labelControl5.Size = new System.Drawing.Size(38, 19);
@@ -295,10 +283,6 @@
 			// 
 			// labelControl6
 			// 
-			this.labelControl6.Appearance.Image = null;
-			this.labelControl6.AppearanceDisabled.Image = null;
-			this.labelControl6.AppearanceHovered.Image = null;
-			this.labelControl6.AppearancePressed.Image = null;
 			this.labelControl6.Location = new System.Drawing.Point(48, 58);
 			this.labelControl6.Name = "labelControl6";
 			this.labelControl6.Size = new System.Drawing.Size(57, 19);
@@ -336,9 +320,9 @@
 			// 
 			// gridControl1
 			// 
-			gridLevelNode2.RelationName = "Level1";
+			gridLevelNode1.RelationName = "Level1";
 			this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
 			this.gridControl1.Location = new System.Drawing.Point(5, 29);
 			this.gridControl1.MainView = this.gridView2;
 			this.gridControl1.Name = "gridControl1";
@@ -421,10 +405,6 @@
 			// 
 			// labelControl7
 			// 
-			this.labelControl7.Appearance.Image = null;
-			this.labelControl7.AppearanceDisabled.Image = null;
-			this.labelControl7.AppearanceHovered.Image = null;
-			this.labelControl7.AppearancePressed.Image = null;
 			this.labelControl7.Location = new System.Drawing.Point(31, 109);
 			this.labelControl7.Name = "labelControl7";
 			this.labelControl7.Size = new System.Drawing.Size(76, 19);
@@ -481,10 +461,6 @@
 			// 
 			// labelControl8
 			// 
-			this.labelControl8.Appearance.Image = null;
-			this.labelControl8.AppearanceDisabled.Image = null;
-			this.labelControl8.AppearanceHovered.Image = null;
-			this.labelControl8.AppearancePressed.Image = null;
 			this.labelControl8.Location = new System.Drawing.Point(31, 67);
 			this.labelControl8.Name = "labelControl8";
 			this.labelControl8.Size = new System.Drawing.Size(57, 19);
@@ -519,10 +495,6 @@
 			// 
 			// labelControl9
 			// 
-			this.labelControl9.Appearance.Image = null;
-			this.labelControl9.AppearanceDisabled.Image = null;
-			this.labelControl9.AppearanceHovered.Image = null;
-			this.labelControl9.AppearancePressed.Image = null;
 			this.labelControl9.Location = new System.Drawing.Point(31, 106);
 			this.labelControl9.Name = "labelControl9";
 			this.labelControl9.Size = new System.Drawing.Size(76, 19);
@@ -579,10 +551,6 @@
 			// 
 			// labelControl10
 			// 
-			this.labelControl10.Appearance.Image = null;
-			this.labelControl10.AppearanceDisabled.Image = null;
-			this.labelControl10.AppearanceHovered.Image = null;
-			this.labelControl10.AppearancePressed.Image = null;
 			this.labelControl10.Location = new System.Drawing.Point(31, 64);
 			this.labelControl10.Name = "labelControl10";
 			this.labelControl10.Size = new System.Drawing.Size(76, 19);
@@ -648,10 +616,6 @@
 			// 
 			// labelControl11
 			// 
-			this.labelControl11.Appearance.Image = null;
-			this.labelControl11.AppearanceDisabled.Image = null;
-			this.labelControl11.AppearanceHovered.Image = null;
-			this.labelControl11.AppearancePressed.Image = null;
 			this.labelControl11.Location = new System.Drawing.Point(47, 84);
 			this.labelControl11.Name = "labelControl11";
 			this.labelControl11.Size = new System.Drawing.Size(38, 19);
@@ -703,11 +667,6 @@
 			this.simpleButton1.TabIndex = 143;
 			this.simpleButton1.Text = "清除选择";
 			this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-			// 
-			// unitOfWork1
-			// 
-			this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
-			this.unitOfWork1.TrackPropertiesModifications = false;
 			// 
 			// Frm_BaseService
 			// 

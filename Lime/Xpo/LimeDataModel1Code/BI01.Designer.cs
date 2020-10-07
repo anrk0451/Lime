@@ -28,7 +28,7 @@ namespace Lime.Xpo.orcl
 			set { SetPropertyValue<string>(nameof(BI001), ref fBI001, value); }
 		}
 		string fRG001;
-		[Indexed(@"BI003", Name = @"IDX_BI01_DUP", Unique = true)]
+		[Indexed(@"BI003;BI005", Name = @"IDX_BI01_DUP", Unique = true)]
 		[Size(10)]
 		public string RG001
 		{

@@ -70,6 +70,13 @@ namespace Lime.BusinessObject
 		/// <param name="e"></param>
 		private void barButtonItem17_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
+			////检查火化是否办理并且结算///////
+			if (FireAction.FireIsSettled(s_ac001))
+			{
+				XtraMessageBox.Show("该逝者已经办理火化并且结算,不能再办理业务!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				return;
+			}
+
 			Frm_BaseService frm_1 = new Frm_BaseService();
 			frm_1.swapdata["ac001"] = s_ac001;
 			if(frm_1.ShowDialog() == DialogResult.OK)
@@ -144,6 +151,12 @@ namespace Lime.BusinessObject
 			te_hhl.Text = FireAction.GetHHL(s_ac001);
 			txtedit_xxs.Text = FireAction.GetRestRoomList(s_ac001);
 
+			//判断是否办理寄存业务
+			if (gridView1.LocateByValue("SA002", "08") >= 0)
+				te_pos.Text = RegAction.GetRegPosition(s_ac001);			 
+			else
+				te_pos.Text = "";
+
 			decimal dec_yjs = decimal.Zero;
 			decimal dec_wjs = decimal.Zero;
 			for(int i = 0; i< gridView1.RowCount; i++)
@@ -164,6 +177,13 @@ namespace Lime.BusinessObject
 		/// <param name="e"></param>
 		private void barButtonItem18_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
+			////检查火化是否办理并且结算///////
+			if (FireAction.FireIsSettled(s_ac001))
+			{
+				XtraMessageBox.Show("该逝者已经办理火化并且结算,不能再办理业务!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				return;
+			}
+
 			Frm_MiscItem frm_1 = new Frm_MiscItem();
 			frm_1.swapdata["ac001"] = s_ac001;
 			if(frm_1.ShowDialog() == DialogResult.OK)
@@ -189,6 +209,12 @@ namespace Lime.BusinessObject
 		{
 			if(rowHandle >= 0)
 			{
+				if(gridView1.GetRowCellValue(rowHandle,"SA008").ToString() == "1")
+				{
+					XtraMessageBox.Show("该项目已经结算,不能修改!","提示",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+					return;
+				}
+
 				SA01 sa01 = xpCollection1[gridView1.GetDataSourceRowIndex(rowHandle)] as SA01;
 				Frm_BusinessEdit frm_1 = new Frm_BusinessEdit();
 				frm_1.swapdata["sa01"] = sa01;
@@ -408,8 +434,15 @@ namespace Lime.BusinessObject
 		/// <param name="e"></param>
 		private void barButtonItem19_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
+			////检查火化是否办理并且结算///////
+			if (FireAction.FireIsSettled(s_ac001))
+			{
+				XtraMessageBox.Show("该逝者已经办理火化并且结算,不能再办理业务!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				return;
+			}
+
 			///要先检测该逝者是否已经办理过寄存业务 
-			if(Convert.ToInt32(SqlHelper.ExecuteScalar("select count(*) from v_sa01 where sa002 = '08' and ac001 = '" + s_ac001 + "'")) > 0)
+			if (Convert.ToInt32(SqlHelper.ExecuteScalar("select count(*) from v_sa01 where sa002 = '08' and ac001 = '" + s_ac001 + "'")) > 0)
 			{
 				XtraMessageBox.Show("该逝者已经办理了骨灰寄存业务!","提示",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
 				return;

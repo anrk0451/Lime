@@ -29,14 +29,16 @@ namespace Lime.Windows
 		{
 			string s_regionId = string.Empty;
 			string s_bi003 = string.Empty;
+			int i_bi005;
 			if (this.swapdata.ContainsKey("collection"))
 			{
 				xpcollection_bi01 = this.swapdata["collection"] as XPCollection;
 				session = this.swapdata["session"] as UnitOfWork;
 				s_regionId = this.swapdata["regionId"].ToString();
 				s_bi003 = this.swapdata["bi003"].ToString();
+				i_bi005 = Convert.ToInt32(this.swapdata["bi005"]);
 
-				CriteriaOperator criteria = CriteriaOperator.Parse("RG001 ='" + s_regionId + "' and BI003='" + s_bi003 + "'" );
+				CriteriaOperator criteria = CriteriaOperator.Parse("RG001 ='" + s_regionId + "' and BI003='" + s_bi003 + "' and BI005=" + i_bi005.ToString() );
 				XPCollection<BI01> xp_temp = new XPCollection<BI01>(session, xpcollection_bi01, criteria);
 				if (xp_temp.Count > 0)
 					bi01 = xp_temp[0];
@@ -117,7 +119,7 @@ namespace Lime.Windows
 			}
 			else
 			{
-				CriteriaOperator criteria = CriteriaOperator.Parse("BI003 ='" + te_bi003.Text + "' and BI001 !='" + bi01.BI001 + "'");
+				CriteriaOperator criteria = CriteriaOperator.Parse("BI003 ='" + te_bi003.Text + "' and BI001 !='" + bi01.BI001 + "' BI005 =" + bi01.BI005.ToString());
 				XPCollection<BI01> xp_temp = new XPCollection<BI01>(session, xpcollection_bi01, criteria);
 				 
 				if (xp_temp.Count > 0)

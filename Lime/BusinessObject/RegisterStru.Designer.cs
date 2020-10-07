@@ -38,6 +38,7 @@
 			DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
 			DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
 			DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+			DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
 			this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
 			this.bar1 = new DevExpress.XtraBars.Bar();
 			this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
@@ -132,6 +133,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem11, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem3, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem6, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+			this.bar1.OptionsBar.AllowQuickCustomization = false;
 			this.bar1.Text = "工具";
 			// 
 			// barSubItem1
@@ -188,6 +190,7 @@
 			this.barButtonItem6.Id = 5;
 			this.barButtonItem6.ImageOptions.SvgImage = global::Lime.Properties.Resources.changeview;
 			this.barButtonItem6.Name = "barButtonItem6";
+			this.barButtonItem6.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
 			this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
 			// 
 			// barDockControlTop
@@ -196,7 +199,7 @@
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
 			this.barDockControlTop.Manager = this.barManager1;
-			this.barDockControlTop.Size = new System.Drawing.Size(1175, 32);
+			this.barDockControlTop.Size = new System.Drawing.Size(1175, 36);
 			// 
 			// barDockControlBottom
 			// 
@@ -210,17 +213,17 @@
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControlLeft.Location = new System.Drawing.Point(0, 32);
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 36);
 			this.barDockControlLeft.Manager = this.barManager1;
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 643);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 639);
 			// 
 			// barDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(1175, 32);
+			this.barDockControlRight.Location = new System.Drawing.Point(1175, 36);
 			this.barDockControlRight.Manager = this.barManager1;
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 643);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 639);
 			// 
 			// barButtonItem1
 			// 
@@ -268,14 +271,14 @@
 			// splitContainerControl1
 			// 
 			this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.splitContainerControl1.Location = new System.Drawing.Point(0, 32);
+			this.splitContainerControl1.Location = new System.Drawing.Point(0, 36);
 			this.splitContainerControl1.Name = "splitContainerControl1";
 			this.splitContainerControl1.Panel1.Controls.Add(this.treeList1);
 			this.splitContainerControl1.Panel1.Text = "Panel1";
 			this.splitContainerControl1.Panel2.Controls.Add(this.gridControl1);
 			this.splitContainerControl1.Panel2.Controls.Add(this.pictureBox1);
 			this.splitContainerControl1.Panel2.Text = "Panel2";
-			this.splitContainerControl1.Size = new System.Drawing.Size(1175, 643);
+			this.splitContainerControl1.Size = new System.Drawing.Size(1175, 639);
 			this.splitContainerControl1.SplitterPosition = 209;
 			this.splitContainerControl1.TabIndex = 4;
 			// 
@@ -305,7 +308,7 @@
 			this.treeList1.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.Never;
 			this.treeList1.ParentFieldName = "RG009";
 			this.treeList1.SelectImageList = this.svgImageCollection1;
-			this.treeList1.Size = new System.Drawing.Size(209, 643);
+			this.treeList1.Size = new System.Drawing.Size(209, 639);
 			this.treeList1.TabIndex = 0;
 			this.treeList1.TreeViewFieldName = "RG003";
 			this.treeList1.ViewStyle = DevExpress.XtraTreeList.TreeListViewStyle.TreeView;
@@ -397,11 +400,6 @@
 			this.xpCollection_rg01.ObjectType = typeof(Lime.Xpo.orcl.RG01);
 			this.xpCollection_rg01.Session = this.unitOfWork1;
 			// 
-			// unitOfWork1
-			// 
-			this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
-			this.unitOfWork1.TrackPropertiesModifications = false;
-			// 
 			// svgImageCollection1
 			// 
 			this.svgImageCollection1.Add("bo_product", "image://svgimages/business objects/bo_product.svg");
@@ -413,13 +411,15 @@
 			// 
 			this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			gridLevelNode1.RelationName = "Level1";
+			gridLevelNode2.RelationName = "Level2";
 			this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode1,
+            gridLevelNode2});
 			this.gridControl1.Location = new System.Drawing.Point(0, 0);
 			this.gridControl1.MainView = this.gridView1;
 			this.gridControl1.MenuManager = this.barManager1;
 			this.gridControl1.Name = "gridControl1";
-			this.gridControl1.Size = new System.Drawing.Size(959, 643);
+			this.gridControl1.Size = new System.Drawing.Size(959, 639);
 			this.gridControl1.TabIndex = 3;
 			this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -427,10 +427,14 @@
 			// gridView1
 			// 
 			this.gridView1.ActiveFilterEnabled = false;
+			this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
+			this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+			this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.gridView1.Appearance.Row.Options.UseTextOptions = true;
 			this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.gridView1.GridControl = this.gridControl1;
-			this.gridView1.IndicatorWidth = 95;
+			this.gridView1.IndicatorWidth = 80;
 			this.gridView1.Name = "gridView1";
 			this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
 			this.gridView1.OptionsBehavior.Editable = false;
@@ -455,7 +459,7 @@
 			this.pictureBox1.Image = global::Lime.Properties.Resources.nodata;
 			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(959, 643);
+			this.pictureBox1.Size = new System.Drawing.Size(959, 639);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;

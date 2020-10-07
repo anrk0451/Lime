@@ -5,13 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 using Lime.Xpo.orcl;
 using DevExpress.XtraTab;
-using DevExpress.XtraSplashScreen;
-using System.Threading;
 using DevExpress.XtraEditors;
 using Lime.BaseObject;
 using DevExpress.Xpo;
@@ -19,11 +16,18 @@ using Lime.Misc;
 using DevExpress.XtraTab.ViewInfo;
 using Lime.Action;
 using Lime.Windows;
-
+using System.Runtime.InteropServices;
+using System.Diagnostics;
 namespace Lime
 {
 	public partial class Frm_main : DevExpress.XtraBars.Ribbon.RibbonForm
 	{
+		[DllImport("user32.dll", EntryPoint = "FindWindow")]
+		private extern static IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+		Process printprocess = new Process();                            //打印服务进程
+		public static SocketClient socket = new SocketClient();
+
 		public Dictionary<string, Object> swapdata { get; set; }      //交换数据对象
 		XPQuery<BO01> BO01_list = null; 
 		
@@ -41,6 +45,21 @@ namespace Lime
 		{
 			//登记系统主窗口
 			Envior.mform = this;
+
+			Frm_Login f_login = new Frm_Login();
+			f_login.ShowDialog();
+
+			if (f_login.DialogResult == DialogResult.OK)  //登录成功处理..........
+			{
+				bs_user.Caption = Envior.cur_user.UC003;
+				bs_version.Caption = App_Const.APP_VERSION;
+				f_login.Dispose();				 
+			}
+
+
+			//启动打印服务进程
+			printprocess.StartInfo.FileName = "pbnative.exe";
+			printprocess.Start();
 		}
 
 		/// <summary>
@@ -52,6 +71,8 @@ namespace Lime
 		{
 			//断开数据库连接
 			SqlHelper.DisConnect();
+			//关闭关联的打印进程
+			if (!printprocess.HasExited) printprocess.Kill();
 		}
 
 		/// <summary>
@@ -212,6 +233,86 @@ namespace Lime
 		private void barButtonItem18_ItemClick(object sender, ItemClickEventArgs e)
 		{
 			openBusinessObject("RegisterBrow");
+		}
+		/// <summary>
+		/// 收费日查询
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem23_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("FinanceDaySearch");
+		}
+
+		private void barButtonItem19_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("RegData");
+		}
+		/// <summary>
+		/// 进灵数据查询
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem14_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("Report_Checkin");
+		}
+		/// <summary>
+		/// 出灵数据查询
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem15_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("Report_Checkout");
+		}
+		/// <summary>
+		/// 骨灰寄存量统计
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem20_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("Report_Regstat");
+		}
+
+		private void barButtonItem21_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("Report_RegDebt");
+		}
+		/// <summary>
+		/// 迁出查询统计
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem22_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("Report_OutSearch");
+		}
+
+		private void barButtonItem26_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("Report_ClassStat");
+		}
+
+		private void barButtonItem27_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("Report_ItemStat");
+		}
+
+		private void barButtonItem24_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("Report_FinRoll");
+		}
+		/// <summary>
+		/// 修改密码
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem28_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			Frm_ChgPwd frm_modify_pwd = new Frm_ChgPwd();
+			frm_modify_pwd.ShowDialog();
 		}
 	}
 }

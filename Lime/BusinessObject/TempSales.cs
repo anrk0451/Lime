@@ -117,7 +117,8 @@ namespace Lime.BusinessObject
 			}
 			if (string.IsNullOrEmpty(te_billno.Text))
 			{
-				if (XtraMessageBox.Show("尚未输入单据号,是否继续?","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.No) return;
+				XtraMessageBox.Show("尚未输入单据号!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				return;
 			}
 
 
@@ -153,11 +154,16 @@ namespace Lime.BusinessObject
 			fa01.FA100 = Envior.cur_user.UC001;
 			fa01.FA200 = MiscAction.GetServerTime();
 			fa01.WS001 = Envior.workstationId;
+			fa01.FA099 = s_billno;
 			fa01.STATUS = "1";
 			try
 			{
 				unitOfWork1.CommitChanges();
 				XtraMessageBox.Show("办理成功!","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				if(XtraMessageBox.Show("现在打印【收据】吗?","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+				{
+					PrintAction.Print_Skpz0(s_fa001);
+				}
 
 				be_cuname.Text = "";
 				te_billno.Text = "";

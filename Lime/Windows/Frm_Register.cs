@@ -22,6 +22,7 @@ namespace Lime.Windows
 		private string regionId = string.Empty;
 		private string bitDesc = string.Empty;
 		private string bitId = string.Empty;
+		private int i_bi005;
 
 		private decimal bitPrice = decimal.Zero;   //号位定价
 		private decimal fpfee = decimal.Zero;      //附品费用 	
@@ -118,10 +119,11 @@ namespace Lime.Windows
 			{
 				regionId = this.swapdata["regionId"].ToString();
 				bitDesc = this.swapdata["bitDesc"].ToString();
-				bitId = RegAction.GetBitId(regionId, bitDesc);
+				i_bi005 = Convert.ToInt32(this.swapdata["bi005"]);
 
-				be_position.Text = RegAction.GetBitFullName(regionId, bitDesc);
-				bitPrice = RegAction.GetBitPrice(regionId, bitDesc);
+				bitId = RegAction.GetBitId(regionId, i_bi005, bitDesc);
+				be_position.Text = RegAction.GetBitFullName(regionId, i_bi005, bitDesc);
+				bitPrice = RegAction.GetBitPrice(regionId, i_bi005, bitDesc);
 				txtedit_price.EditValue = bitPrice;
 
 				this.CalcHJ();
@@ -480,20 +482,9 @@ namespace Lime.Windows
 			if (!SaveCheck()) return;  //数据合法性校验!!!
 
 			string s_billno = string.Empty;
-
-			if (s_source == "0" || s_source == "1")
-			{
-				Frm_InputBill frm_bill = new Frm_InputBill();
-				if(frm_bill.ShowDialog() == DialogResult.OK)
-				{
-					s_billno = frm_bill.swapdata["billno"].ToString();
-				}
-				frm_bill.Dispose();
-				if (string.IsNullOrEmpty(s_billno)) return;
-			}
-
+ 
 		    //0.再次判断寄存号位 是否占用
-			if (RegAction.GetBitStatus(regionId,bitDesc) != "9")
+			if (RegAction.GetBitStatus(regionId, i_bi005,bitDesc) != "9")
 			{
 				XtraMessageBox.Show("当前号位无效或已被占用!","提示",MessageBoxButtons.OK,MessageBoxIcon.Warning);
 				return;
@@ -622,14 +613,35 @@ namespace Lime.Windows
 			{
 				unitOfWork1.CommitChanges();
 				string s_tip = string.Empty;
-				if (s_source == "0" || s_source == "1")
-					s_tip = "办理成功,现在打印【寄存证】";
+				if (s_source == "0" || s_source == "1" )
+					s_tip = "办理成功,现在打印【收据】";
 				else
 					s_tip = "办理成功!";
 
-				XtraMessageBox.Show(s_tip,"提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				XtraMessageBox.Show(s_tip, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				////打印收据
+				if (s_source == "0" || s_source == "1")
+				{
+					Frm_InputBill frm_bill = new Frm_InputBill();
+					if (frm_bill.ShowDialog() == DialogResult.OK)
+					{
+						s_billno = frm_bill.swapdata["billno"].ToString();
+					}
+					frm_bill.Dispose();
+					if (!string.IsNullOrEmpty(s_billno))
+					{
+						PrintAction.Print_Skpz1(s_fa001);
+						MiscAction.SetFinanceBill(s_fa001, s_billno);
+					}
+				}
 
 				////todo 2.打印寄存证
+				if (s_source == "0" || s_source == "1" || s_source == "2")
+				{
+					XtraMessageBox.Show("现在准备打印【寄存证】!","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+					PrintAction.Print_RegCardBase(rc01.RC001);
+				}
+				 
 				this.DialogResult = DialogResult.OK;
 				this.Close();
 			}

@@ -324,7 +324,9 @@ namespace Lime.Windows
 			ac01.AC009 = txtEdit_ac009.Text;                      //接令地点
 			ac01.AC010 = Convert.ToDateTime(dateEdit_ac010.EditValue);  //死亡时间
 			ac01.AC005 = lookUp_ac005.EditValue.ToString();       //死亡原因
-			ac01.AC006 = lookUp_ac006.EditValue.ToString();       //骨灰处理
+
+			ac01.AC006 = lookUp_ac006.EditValue == null ? null : lookUp_ac006.EditValue.ToString();       //骨灰处理
+
 			ac01.AC007 = lookUp_ac007.EditValue.ToString();       //县镇区县
 			ac01.AC008 = txtEdit_ac008.Text;                      //详细地址
 			ac01.AC050 = txtEdit_ac050.Text;                      //联系人
@@ -339,6 +341,7 @@ namespace Lime.Windows
 				DialogResult = DialogResult.OK;
 				if (b_new)
 				{
+					this.swapdata["ac001"] = ac01.AC001;
 					if(XtraMessageBox.Show("登记成功,现在要进行业务办理吗?","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
 					{
 						this.Close();

@@ -18,5 +18,10 @@ namespace Lime.Misc
 
 		public const int GRID_HEIGHT = 50;
 		public const int GRID_WIDTH = 60;
+		public const int BILL_COUNT = 28;		//收据明细数量
+		public const int PAYPAGECOUNT = 5;		//寄存续费单页数量
+
+		//版本
+		public const string APP_VERSION = "20.1007001";
 	}
 }

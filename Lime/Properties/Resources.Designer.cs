@@ -181,6 +181,16 @@ namespace Lime.Properties {
         }
         
         /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap bg2 {
+            get {
+                object obj = ResourceManager.GetObject("bg2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
         /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage bo_contract {
@@ -536,6 +546,16 @@ namespace Lime.Properties {
         internal static System.Drawing.Bitmap contentarrangeinrows_32x326 {
             get {
                 object obj = ResourceManager.GetObject("contentarrangeinrows_32x326", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap cover {
+            get {
+                object obj = ResourceManager.GetObject("cover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

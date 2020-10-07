@@ -63,6 +63,8 @@
 			this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
 			this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
 			this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+			this.te_pos = new DevExpress.XtraEditors.TextEdit();
+			this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
 			this.te_gbt = new DevExpress.XtraEditors.TextEdit();
 			this.te_position = new DevExpress.XtraEditors.TextEdit();
 			this.lc_position = new DevExpress.XtraEditors.LabelControl();
@@ -117,6 +119,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
 			this.groupControl1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.te_pos.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.te_gbt.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.te_position.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.te_wjs.Properties)).BeginInit();
@@ -305,7 +308,7 @@
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
 			this.barDockControlTop.Manager = this.barManager1;
-			this.barDockControlTop.Size = new System.Drawing.Size(1584, 36);
+			this.barDockControlTop.Size = new System.Drawing.Size(1975, 36);
 			// 
 			// barDockControlBottom
 			// 
@@ -313,7 +316,7 @@
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.barDockControlBottom.Location = new System.Drawing.Point(0, 647);
 			this.barDockControlBottom.Manager = this.barManager1;
-			this.barDockControlBottom.Size = new System.Drawing.Size(1584, 0);
+			this.barDockControlBottom.Size = new System.Drawing.Size(1975, 0);
 			// 
 			// barDockControlLeft
 			// 
@@ -327,7 +330,7 @@
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(1584, 36);
+			this.barDockControlRight.Location = new System.Drawing.Point(1975, 36);
 			this.barDockControlRight.Manager = this.barManager1;
 			this.barDockControlRight.Size = new System.Drawing.Size(0, 611);
 			// 
@@ -430,6 +433,8 @@
 			this.groupControl1.AppearanceCaption.Options.UseImage = true;
 			this.groupControl1.AppearanceCaption.Options.UseTextOptions = true;
 			this.groupControl1.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.groupControl1.Controls.Add(this.te_pos);
+			this.groupControl1.Controls.Add(this.labelControl17);
 			this.groupControl1.Controls.Add(this.te_gbt);
 			this.groupControl1.Controls.Add(this.te_position);
 			this.groupControl1.Controls.Add(this.lc_position);
@@ -466,9 +471,32 @@
 			this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.groupControl1.Location = new System.Drawing.Point(0, 36);
 			this.groupControl1.Name = "groupControl1";
-			this.groupControl1.Size = new System.Drawing.Size(1584, 230);
+			this.groupControl1.Size = new System.Drawing.Size(1975, 230);
 			this.groupControl1.TabIndex = 24;
 			this.groupControl1.Text = "逝者信息";
+			// 
+			// te_pos
+			// 
+			this.te_pos.Location = new System.Drawing.Point(1557, 52);
+			this.te_pos.MenuManager = this.barManager1;
+			this.te_pos.Name = "te_pos";
+			this.te_pos.Properties.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.te_pos.Properties.Appearance.Options.UseFont = true;
+			this.te_pos.Properties.Mask.EditMask = "g";
+			this.te_pos.Properties.Mask.UseMaskAsDisplayFormat = true;
+			this.te_pos.Properties.ReadOnly = true;
+			this.te_pos.Size = new System.Drawing.Size(291, 24);
+			this.te_pos.TabIndex = 37;
+			// 
+			// labelControl17
+			// 
+			this.labelControl17.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.labelControl17.Appearance.Options.UseFont = true;
+			this.labelControl17.Location = new System.Drawing.Point(1459, 52);
+			this.labelControl17.Name = "labelControl17";
+			this.labelControl17.Size = new System.Drawing.Size(76, 19);
+			this.labelControl17.TabIndex = 36;
+			this.labelControl17.Text = "寄存位置";
 			// 
 			// te_gbt
 			// 
@@ -495,16 +523,13 @@
 			// lc_position
 			// 
 			this.lc_position.Appearance.ForeColor = System.Drawing.Color.Blue;
-			this.lc_position.Appearance.Image = null;
 			this.lc_position.Appearance.Options.UseForeColor = true;
-			this.lc_position.AppearanceDisabled.Image = null;
-			this.lc_position.AppearanceHovered.Image = null;
-			this.lc_position.AppearancePressed.Image = null;
-			this.lc_position.Location = new System.Drawing.Point(1403, 95);
+			this.lc_position.Location = new System.Drawing.Point(1666, 95);
 			this.lc_position.Name = "lc_position";
 			this.lc_position.Size = new System.Drawing.Size(154, 19);
 			this.lc_position.TabIndex = 33;
 			this.lc_position.Text = "安息堂A室1排12号";
+			this.lc_position.Visible = false;
 			// 
 			// te_wjs
 			// 
@@ -522,11 +547,7 @@
 			// labelControl16
 			// 
 			this.labelControl16.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl16.Appearance.Image = null;
 			this.labelControl16.Appearance.Options.UseFont = true;
-			this.labelControl16.AppearanceDisabled.Image = null;
-			this.labelControl16.AppearanceHovered.Image = null;
-			this.labelControl16.AppearancePressed.Image = null;
 			this.labelControl16.Location = new System.Drawing.Point(1119, 183);
 			this.labelControl16.Name = "labelControl16";
 			this.labelControl16.Size = new System.Drawing.Size(95, 19);
@@ -549,11 +570,7 @@
 			// labelControl15
 			// 
 			this.labelControl15.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl15.Appearance.Image = null;
 			this.labelControl15.Appearance.Options.UseFont = true;
-			this.labelControl15.AppearanceDisabled.Image = null;
-			this.labelControl15.AppearanceHovered.Image = null;
-			this.labelControl15.AppearancePressed.Image = null;
 			this.labelControl15.Location = new System.Drawing.Point(1119, 139);
 			this.labelControl15.Name = "labelControl15";
 			this.labelControl15.Size = new System.Drawing.Size(95, 19);
@@ -574,11 +591,7 @@
 			// labelControl14
 			// 
 			this.labelControl14.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl14.Appearance.Image = null;
 			this.labelControl14.Appearance.Options.UseFont = true;
-			this.labelControl14.AppearanceDisabled.Image = null;
-			this.labelControl14.AppearanceHovered.Image = null;
-			this.labelControl14.AppearancePressed.Image = null;
 			this.labelControl14.Location = new System.Drawing.Point(765, 183);
 			this.labelControl14.Name = "labelControl14";
 			this.labelControl14.Size = new System.Drawing.Size(38, 19);
@@ -600,11 +613,7 @@
 			// labelControl13
 			// 
 			this.labelControl13.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl13.Appearance.Image = null;
 			this.labelControl13.Appearance.Options.UseFont = true;
-			this.labelControl13.AppearanceDisabled.Image = null;
-			this.labelControl13.AppearanceHovered.Image = null;
-			this.labelControl13.AppearancePressed.Image = null;
 			this.labelControl13.Location = new System.Drawing.Point(1119, 95);
 			this.labelControl13.Name = "labelControl13";
 			this.labelControl13.Size = new System.Drawing.Size(76, 19);
@@ -628,11 +637,7 @@
 			// labelControl12
 			// 
 			this.labelControl12.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl12.Appearance.Image = null;
 			this.labelControl12.Appearance.Options.UseFont = true;
-			this.labelControl12.AppearanceDisabled.Image = null;
-			this.labelControl12.AppearanceHovered.Image = null;
-			this.labelControl12.AppearancePressed.Image = null;
 			this.labelControl12.Location = new System.Drawing.Point(400, 181);
 			this.labelControl12.Name = "labelControl12";
 			this.labelControl12.Size = new System.Drawing.Size(76, 19);
@@ -642,11 +647,7 @@
 			// labelControl11
 			// 
 			this.labelControl11.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelControl11.Appearance.Image = null;
 			this.labelControl11.Appearance.Options.UseFont = true;
-			this.labelControl11.AppearanceDisabled.Image = null;
-			this.labelControl11.AppearanceHovered.Image = null;
-			this.labelControl11.AppearancePressed.Image = null;
 			this.labelControl11.Location = new System.Drawing.Point(52, 181);
 			this.labelControl11.Name = "labelControl11";
 			this.labelControl11.Size = new System.Drawing.Size(76, 19);
@@ -667,11 +668,7 @@
 			// labelControl10
 			// 
 			this.labelControl10.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl10.Appearance.Image = null;
 			this.labelControl10.Appearance.Options.UseFont = true;
-			this.labelControl10.AppearanceDisabled.Image = null;
-			this.labelControl10.AppearanceHovered.Image = null;
-			this.labelControl10.AppearancePressed.Image = null;
 			this.labelControl10.Location = new System.Drawing.Point(765, 138);
 			this.labelControl10.Name = "labelControl10";
 			this.labelControl10.Size = new System.Drawing.Size(57, 19);
@@ -681,11 +678,7 @@
 			// labelControl9
 			// 
 			this.labelControl9.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl9.Appearance.Image = null;
 			this.labelControl9.Appearance.Options.UseFont = true;
-			this.labelControl9.AppearanceDisabled.Image = null;
-			this.labelControl9.AppearanceHovered.Image = null;
-			this.labelControl9.AppearancePressed.Image = null;
 			this.labelControl9.Location = new System.Drawing.Point(400, 138);
 			this.labelControl9.Name = "labelControl9";
 			this.labelControl9.Size = new System.Drawing.Size(57, 19);
@@ -695,11 +688,7 @@
 			// labelControl8
 			// 
 			this.labelControl8.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelControl8.Appearance.Image = null;
 			this.labelControl8.Appearance.Options.UseFont = true;
-			this.labelControl8.AppearanceDisabled.Image = null;
-			this.labelControl8.AppearanceHovered.Image = null;
-			this.labelControl8.AppearancePressed.Image = null;
 			this.labelControl8.Location = new System.Drawing.Point(52, 138);
 			this.labelControl8.Name = "labelControl8";
 			this.labelControl8.Size = new System.Drawing.Size(76, 19);
@@ -734,11 +723,7 @@
 			// labelControl7
 			// 
 			this.labelControl7.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl7.Appearance.Image = null;
 			this.labelControl7.Appearance.Options.UseFont = true;
-			this.labelControl7.AppearanceDisabled.Image = null;
-			this.labelControl7.AppearanceHovered.Image = null;
-			this.labelControl7.AppearancePressed.Image = null;
 			this.labelControl7.Location = new System.Drawing.Point(765, 95);
 			this.labelControl7.Name = "labelControl7";
 			this.labelControl7.Size = new System.Drawing.Size(76, 19);
@@ -748,11 +733,7 @@
 			// labelControl6
 			// 
 			this.labelControl6.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl6.Appearance.Image = null;
 			this.labelControl6.Appearance.Options.UseFont = true;
-			this.labelControl6.AppearanceDisabled.Image = null;
-			this.labelControl6.AppearanceHovered.Image = null;
-			this.labelControl6.AppearancePressed.Image = null;
 			this.labelControl6.Location = new System.Drawing.Point(400, 95);
 			this.labelControl6.Name = "labelControl6";
 			this.labelControl6.Size = new System.Drawing.Size(95, 19);
@@ -773,11 +754,7 @@
 			// labelControl5
 			// 
 			this.labelControl5.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelControl5.Appearance.Image = null;
 			this.labelControl5.Appearance.Options.UseFont = true;
-			this.labelControl5.AppearanceDisabled.Image = null;
-			this.labelControl5.AppearanceHovered.Image = null;
-			this.labelControl5.AppearancePressed.Image = null;
 			this.labelControl5.Location = new System.Drawing.Point(52, 95);
 			this.labelControl5.Name = "labelControl5";
 			this.labelControl5.Size = new System.Drawing.Size(57, 19);
@@ -787,11 +764,7 @@
 			// labelControl4
 			// 
 			this.labelControl4.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl4.Appearance.Image = null;
 			this.labelControl4.Appearance.Options.UseFont = true;
-			this.labelControl4.AppearanceDisabled.Image = null;
-			this.labelControl4.AppearanceHovered.Image = null;
-			this.labelControl4.AppearancePressed.Image = null;
 			this.labelControl4.Location = new System.Drawing.Point(1119, 52);
 			this.labelControl4.Name = "labelControl4";
 			this.labelControl4.Size = new System.Drawing.Size(76, 19);
@@ -812,11 +785,7 @@
 			// labelControl3
 			// 
 			this.labelControl3.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl3.Appearance.Image = null;
 			this.labelControl3.Appearance.Options.UseFont = true;
-			this.labelControl3.AppearanceDisabled.Image = null;
-			this.labelControl3.AppearanceHovered.Image = null;
-			this.labelControl3.AppearancePressed.Image = null;
 			this.labelControl3.Location = new System.Drawing.Point(765, 52);
 			this.labelControl3.Name = "labelControl3";
 			this.labelControl3.Size = new System.Drawing.Size(38, 19);
@@ -843,11 +812,7 @@
 			// labelControl2
 			// 
 			this.labelControl2.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl2.Appearance.Image = null;
 			this.labelControl2.Appearance.Options.UseFont = true;
-			this.labelControl2.AppearanceDisabled.Image = null;
-			this.labelControl2.AppearanceHovered.Image = null;
-			this.labelControl2.AppearancePressed.Image = null;
 			this.labelControl2.Location = new System.Drawing.Point(400, 52);
 			this.labelControl2.Name = "labelControl2";
 			this.labelControl2.Size = new System.Drawing.Size(38, 19);
@@ -868,11 +833,7 @@
 			// labelControl1
 			// 
 			this.labelControl1.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelControl1.Appearance.Image = null;
 			this.labelControl1.Appearance.Options.UseFont = true;
-			this.labelControl1.AppearanceDisabled.Image = null;
-			this.labelControl1.AppearanceHovered.Image = null;
-			this.labelControl1.AppearancePressed.Image = null;
 			this.labelControl1.Location = new System.Drawing.Point(52, 52);
 			this.labelControl1.Name = "labelControl1";
 			this.labelControl1.Size = new System.Drawing.Size(76, 19);
@@ -920,7 +881,7 @@
             this.repositoryItemCheckEdit1,
             this.lookup_sa100,
             this.repositoryItemTextEdit2});
-			this.gridControl1.Size = new System.Drawing.Size(1584, 381);
+			this.gridControl1.Size = new System.Drawing.Size(1975, 381);
 			this.gridControl1.TabIndex = 30;
 			this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -933,11 +894,6 @@
 			this.xpCollection1.Sorting.AddRange(new DevExpress.Xpo.SortProperty[] {
             new DevExpress.Xpo.SortProperty("[SA002]", DevExpress.Xpo.DB.SortingDirection.Ascending),
             new DevExpress.Xpo.SortProperty("[SA001]", DevExpress.Xpo.DB.SortingDirection.Ascending)});
-			// 
-			// unitOfWork1
-			// 
-			this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
-			this.unitOfWork1.TrackPropertiesModifications = false;
 			// 
 			// gridView1
 			// 
@@ -1140,12 +1096,13 @@
 			this.Controls.Add(this.barDockControlBottom);
 			this.Controls.Add(this.barDockControlTop);
 			this.Name = "FireBusiness";
-			this.Size = new System.Drawing.Size(1584, 647);
+			this.Size = new System.Drawing.Size(1975, 647);
 			this.Load += new System.EventHandler(this.FireBusiness_Load);
 			((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
 			this.groupControl1.ResumeLayout(false);
 			this.groupControl1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.te_pos.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.te_gbt.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.te_position.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.te_wjs.Properties)).EndInit();
@@ -1260,5 +1217,7 @@
 		private DevExpress.XtraEditors.TextEdit te_position;
 		private DevExpress.XtraEditors.TextEdit te_gbt;
 		private DevExpress.XtraEditors.TextEdit txtedit_ac018;
+		private DevExpress.XtraEditors.TextEdit te_pos;
+		private DevExpress.XtraEditors.LabelControl labelControl17;
 	}
 }

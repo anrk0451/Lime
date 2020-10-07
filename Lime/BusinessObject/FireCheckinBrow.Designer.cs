@@ -48,8 +48,6 @@
 			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
 			this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-			this.xpCollection_ac01 = new DevExpress.Xpo.XPCollection(this.components);
-			this.unitOfWork1 = new DevExpress.Xpo.UnitOfWork(this.components);
 			this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
 			this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -75,8 +73,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.xpCollection_ac01)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.lookup_ac100)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.lookup_ac006)).BeginInit();
@@ -157,6 +153,7 @@
 			this.barButtonItem4.Id = 4;
 			this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
 			this.barButtonItem4.Name = "barButtonItem4";
+			this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
 			// 
 			// barButtonItem5
 			// 
@@ -242,7 +239,6 @@
 			// 
 			// gridControl1
 			// 
-			this.gridControl1.DataSource = this.xpCollection_ac01;
 			this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			gridLevelNode1.RelationName = "Level1";
 			this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
@@ -260,17 +256,6 @@
 			this.gridControl1.TabIndex = 23;
 			this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-			// 
-			// xpCollection_ac01
-			// 
-			this.xpCollection_ac01.LoadingEnabled = false;
-			this.xpCollection_ac01.ObjectType = typeof(Lime.Xpo.orcl.AC01);
-			this.xpCollection_ac01.Session = this.unitOfWork1;
-			// 
-			// unitOfWork1
-			// 
-			this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
-			this.unitOfWork1.TrackPropertiesModifications = false;
 			// 
 			// gridView1
 			// 
@@ -486,7 +471,6 @@
 			this.repositoryItemTextEdit2.AutoHeight = false;
 			this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
 			this.repositoryItemTextEdit2.NullValuePrompt = "请输入角色名";
-			this.repositoryItemTextEdit2.NullValuePromptShowForEmptyValue = true;
 			// 
 			// lookup_ac005
 			// 
@@ -517,8 +501,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.xpCollection_ac01)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.lookup_ac100)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.lookup_ac006)).EndInit();
@@ -569,8 +551,6 @@
 		private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
 		private DevExpress.XtraBars.BarEditItem barEditItem1;
 		private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
-		private DevExpress.Xpo.XPCollection xpCollection_ac01;
-		private DevExpress.Xpo.UnitOfWork unitOfWork1;
 		private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
 		private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lookup_ac006;
 	}

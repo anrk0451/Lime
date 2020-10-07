@@ -234,6 +234,7 @@ namespace Lime.BusinessObject
 
 			xpCollection1.Session = unitOfWork;
 			xpCollection1.Reload();
+			unitOfWork1 = xpCollection1.Session as UnitOfWork;
 
 			gridView1.EndUpdate();
 			this.Cursor = Cursors.Arrow;
@@ -311,6 +312,17 @@ namespace Lime.BusinessObject
 				LogUtils.Error(ee.Message);
 				XtraMessageBox.Show(ee.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+		}
+
+		private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+
+			for(int i = 0; i< gridView1.RowCount; i++)
+			{
+				if (!string.IsNullOrEmpty(gridView1.GetRowCellValue(i, "SI003").ToString()))
+					gridView1.SetRowCellValue(i, "SI088", Tool.GetPYString(gridView1.GetRowCellValue(i, "SI003").ToString()));
+			}
+			 
 		}
 	}
 }

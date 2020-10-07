@@ -436,6 +436,9 @@
                 <indexReferencesFields Id="d991a70a-a607-4650-92fa-2057b7778f84">
                   <fieldMoniker Id="066793ab-4c4c-4eb6-a566-e0d8af5284bd" />
                 </indexReferencesFields>
+                <indexReferencesFields Id="42fa793c-4b16-4fae-b690-6b5d0ed2301b">
+                  <fieldMoniker Id="09b67d4b-021e-4125-842f-ab00a51dc031" />
+                </indexReferencesFields>
               </fieldsInIndex>
             </index>
           </xpObjectHasIndexes>
@@ -617,7 +620,7 @@
             <field Id="efb466bd-78b1-4405-8f2e-94b2b774fa27" name="AC005" persistent="AC005" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="80" />
           </generalXpObjectHasFields>
           <generalXpObjectHasFields Id="b835d6bf-d031-4df5-9a25-1683f3d32452">
-            <field Id="7eb7f03b-7f83-42d7-86db-32a5dd8d62ab" name="AC006" persistent="AC006" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="10" />
+            <field Id="7eb7f03b-7f83-42d7-86db-32a5dd8d62ab" name="AC006" persistent="AC006" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="10" isNullable="true" />
           </generalXpObjectHasFields>
           <generalXpObjectHasFields Id="1b219105-1071-4dd8-a793-19444a672eef">
             <field Id="141144de-2538-4bed-9599-7627fb39ab3b" name="AC007" persistent="AC007" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="10" />

@@ -74,6 +74,7 @@
 			this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
 			this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
 			this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
 			this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -144,13 +145,13 @@
 			// 
 			this.gridControl1.DataSource = this.xpCollection1;
 			this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gridControl1.Location = new System.Drawing.Point(0, 32);
+			this.gridControl1.Location = new System.Drawing.Point(0, 36);
 			this.gridControl1.MainView = this.gridView1;
 			this.gridControl1.MenuManager = this.barManager1;
 			this.gridControl1.Name = "gridControl1";
 			this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
-			this.gridControl1.Size = new System.Drawing.Size(772, 456);
+			this.gridControl1.Size = new System.Drawing.Size(772, 452);
 			this.gridControl1.TabIndex = 15;
 			this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -160,11 +161,6 @@
 			this.xpCollection1.CriteriaString = "[STATUS] = \'1\'";
 			this.xpCollection1.ObjectType = typeof(Lime.Xpo.orcl.SI01);
 			this.xpCollection1.Session = this.unitOfWork1;
-			// 
-			// unitOfWork1
-			// 
-			this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
-			this.unitOfWork1.TrackPropertiesModifications = false;
 			// 
 			// gridView1
 			// 
@@ -180,7 +176,7 @@
             this.colSI099,
             this.colSTATUS});
 			this.gridView1.GridControl = this.gridControl1;
-			this.gridView1.IndicatorWidth = 30;
+			this.gridView1.IndicatorWidth = 35;
 			this.gridView1.Name = "gridView1";
 			this.gridView1.OptionsBehavior.AllowValidationErrors = false;
 			this.gridView1.OptionsCustomization.AllowSort = false;
@@ -301,8 +297,9 @@
             this.barButtonItem7,
             this.barButtonItem8,
             this.barButtonItem9,
-            this.barButtonItem10});
-			this.barManager1.MaxItemId = 10;
+            this.barButtonItem10,
+            this.barButtonItem11});
+			this.barManager1.MaxItemId = 11;
 			// 
 			// bar1
 			// 
@@ -319,7 +316,9 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem3, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem6, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem9, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem10, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem10, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem11)});
+			this.bar1.OptionsBar.AllowQuickCustomization = false;
 			this.bar1.Text = "工具";
 			// 
 			// barButtonItem1
@@ -390,13 +389,21 @@
 			this.barButtonItem10.Name = "barButtonItem10";
 			this.barButtonItem10.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem10_ItemClick);
 			// 
+			// barButtonItem11
+			// 
+			this.barButtonItem11.Caption = "dd";
+			this.barButtonItem11.Id = 10;
+			this.barButtonItem11.Name = "barButtonItem11";
+			this.barButtonItem11.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+			this.barButtonItem11.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem11_ItemClick);
+			// 
 			// barDockControlTop
 			// 
 			this.barDockControlTop.CausesValidation = false;
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
 			this.barDockControlTop.Manager = this.barManager1;
-			this.barDockControlTop.Size = new System.Drawing.Size(772, 32);
+			this.barDockControlTop.Size = new System.Drawing.Size(772, 36);
 			// 
 			// barDockControlBottom
 			// 
@@ -410,17 +417,17 @@
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControlLeft.Location = new System.Drawing.Point(0, 32);
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 36);
 			this.barDockControlLeft.Manager = this.barManager1;
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 456);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 452);
 			// 
 			// barDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(772, 32);
+			this.barDockControlRight.Location = new System.Drawing.Point(772, 36);
 			this.barDockControlRight.Manager = this.barManager1;
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 456);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 452);
 			// 
 			// barButtonItem4
 			// 
@@ -495,5 +502,6 @@
 		private DevExpress.XtraGrid.Columns.GridColumn colSI099;
 		private DevExpress.XtraGrid.Columns.GridColumn colSTATUS;
 		private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+		private DevExpress.XtraBars.BarButtonItem barButtonItem11;
 	}
 }

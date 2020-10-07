@@ -16,6 +16,7 @@ namespace Lime.Misc
 		public static Frm_main mform { get; set; }  //系统主窗口
 		public static UC01 cur_user { get; set; }   //当前操作员
 		public static string workstationId { get; set; }  //工作站ID
+		public static int PRINT_PORT { get; set; }        //打印端口 
 
 		/// <summary>
 		/// 测试专用

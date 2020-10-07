@@ -32,6 +32,12 @@ namespace Lime.BusinessObject
 		private DataTable dt_st01 = new DataTable("ST01");
 		private OracleDataAdapter st01_adapter = new OracleDataAdapter("select * from st01 where st002 in ('ASHHANDLE')", SqlHelper.conn);
 
+		private DataTable dt_ac01 = new DataTable("V_AC01_LIST");		
+		private OracleDataAdapter ac01_adapter = new OracleDataAdapter("select * from v_ac01_list where (trunc(sysdate) - trunc(ac200)) <= :days ",SqlHelper.conn);
+		private OracleParameter op_days = new OracleParameter("days", OracleDbType.Int32);
+
+
+		 
 		public FireCheckinBrow()
 		{
 			InitializeComponent();
@@ -51,8 +57,11 @@ namespace Lime.BusinessObject
 			lookup_ac006.DisplayMember = "ST003";
 			lookup_ac006.ValueMember = "ST001";
 
+			ac01_adapter.SelectCommand.Parameters.Add(op_days);	 
+			 
 			this.DoSearch(barEditItem1.EditValue.ToString());
 
+			gridControl1.DataSource = dt_ac01;
 		}
 		/// <summary>
 		/// 执行查询
@@ -60,21 +69,20 @@ namespace Lime.BusinessObject
 		/// <param name="action"></param>
 		private void DoSearch(string action)
 		{
-			CriteriaOperator criteria = null;
 			switch (action)
 			{
 				case "今日登记":
-					criteria = CriteriaOperator.Parse("AC200 >=?" , MiscAction.GetServerTime().Date);					 
+					op_days.Value = 0;
 					break;
 				case "近三日登记":
-					criteria = CriteriaOperator.Parse("AC200 >=? ", MiscAction.GetServerTime().Date.AddDays(-2));
+					op_days.Value = 2;
 					break;
 				case "一个月内登记":
-					criteria = CriteriaOperator.Parse("AC200 >=? ", MiscAction.GetServerTime().Date.AddDays(-29));
+					op_days.Value = 30;
 					break;
 			}
-			xpCollection_ac01.Criteria = criteria;
-			xpCollection_ac01.LoadingEnabled = true;
+			dt_ac01.Rows.Clear();
+			ac01_adapter.Fill(dt_ac01);
 		}
 		/// <summary>
 		/// 按时间范围检索
@@ -131,11 +139,11 @@ namespace Lime.BusinessObject
 			if(rowHandle >= 0)
 			{
 				Frm_FireCheckin frm_1 = new Frm_FireCheckin();
-				AC01 ac01 = xpCollection_ac01[gridView1.GetDataSourceRowIndex(rowHandle)] as AC01;
-				frm_1.swapdata["ac001"] = gridView1.GetRowCellValue(rowHandle, "AC001").ToString();
+				string s_ac001 = gridView1.GetRowCellValue(rowHandle, "AC001").ToString();
+				frm_1.swapdata["ac001"] = s_ac001;
 				if(frm_1.ShowDialog() == DialogResult.OK)
 				{
-					ac01.Reload();
+					this.RefreshData();
 				}
 				frm_1.Dispose();
 			}
@@ -152,13 +160,14 @@ namespace Lime.BusinessObject
 			if (rowHandle < 0) return;
 			 
 			string s_ac001 = gridView1.GetRowCellValue(rowHandle, "AC001").ToString();
-			if (MessageBox.Show("确认要删除登记信息吗?", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel) return;
+			if (XtraMessageBox.Show("确认要删除登记信息吗?", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel) return;
 
 			if (FireAction.RemoveFireCheckin(s_ac001, Envior.cur_user.UC001) > 0)
 			{
+				gridView1.DeleteRow(rowHandle);
 				XtraMessageBox.Show("删除成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				AC01 ac01 = xpCollection_ac01[gridView1.GetDataSourceRowIndex(rowHandle)] as AC01;
-				ac01.Reload();
+				//AC01 ac01 = xpCollection_ac01[gridView1.GetDataSourceRowIndex(rowHandle)] as AC01;
+				//ac01.Reload();
 			}
 		}
 		/// <summary>
@@ -168,11 +177,9 @@ namespace Lime.BusinessObject
 		{
 			this.Cursor = Cursors.WaitCursor;
 			gridView1.BeginUpdate();
-			UnitOfWork unitOfWork = new UnitOfWork();
 
-			xpCollection_ac01.Session = unitOfWork;
-			xpCollection_ac01.Reload();
-
+			DoSearch(barEditItem1.EditValue.ToString());
+			 
 			gridView1.EndUpdate();
 			this.Cursor = Cursors.Arrow;
 		}
@@ -206,9 +213,7 @@ namespace Lime.BusinessObject
 			Frm_FireCheckin frm_1 = new Frm_FireCheckin();
 			if(frm_1.ShowDialog() == DialogResult.OK)
 			{
-				AC01 ac01 = frm_1.swapdata["ac01"] as AC01;
-				AC01 ac01_2 = unitOfWork1.GetObjectByKey<AC01>(ac01.AC001);
-				xpCollection_ac01.Add(ac01_2);
+				this.RefreshData();
 			}
 			frm_1.Dispose();
 		}
@@ -233,6 +238,15 @@ namespace Lime.BusinessObject
 		private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
 			this.Modify(gridView1.FocusedRowHandle);
+		}
+		/// <summary>
+		/// 刷新
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			this.RefreshData();
 		}
 	}
 }

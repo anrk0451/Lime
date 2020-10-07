@@ -160,5 +160,15 @@ namespace Lime.Action
 		{
 			return SqlHelper.ExecuteFunc("pkg_report.fun_Mapper_Item", itemId).ToString();
 		}
+		/// <summary>
+		/// 火化证明打印日志
+		/// </summary>
+		/// <param name="ac001"></param>
+		/// <param name="fc100"></param>
+		/// <returns></returns>
+		public static int FireCertLog(string ac001,string fc100)
+		{
+			return SqlHelper.ExecuteProc("pkg_business.prc_FireCertLog", ac001, fc100);
+		}
 	}
 }

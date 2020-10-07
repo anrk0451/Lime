@@ -83,6 +83,7 @@ namespace Lime.BusinessObject
 
 			xpCollection1.Session = unitOfWork;
 			xpCollection1.Reload();
+			unitOfWork1 = xpCollection1.Session as UnitOfWork;
 
 			gridView1.EndUpdate();
 			this.Cursor = Cursors.Arrow;
