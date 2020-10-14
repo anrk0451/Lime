@@ -18,6 +18,8 @@ using Lime.Action;
 using Lime.Windows;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using DevExpress.XtraSplashScreen;
+
 namespace Lime
 {
 	public partial class Frm_main : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -25,7 +27,7 @@ namespace Lime
 		[DllImport("user32.dll", EntryPoint = "FindWindow")]
 		private extern static IntPtr FindWindow(string lpClassName, string lpWindowName);
 
-		Process printprocess = new Process();                            //打印服务进程
+		Process printprocess = null ;                                 //打印服务进程
 		public static SocketClient socket = new SocketClient();
 
 		public Dictionary<string, Object> swapdata { get; set; }      //交换数据对象
@@ -56,8 +58,8 @@ namespace Lime
 				f_login.Dispose();				 
 			}
 
-
 			//启动打印服务进程
+			printprocess = new Process();
 			printprocess.StartInfo.FileName = "pbnative.exe";
 			printprocess.Start();
 		}
@@ -72,7 +74,8 @@ namespace Lime
 			//断开数据库连接
 			SqlHelper.DisConnect();
 			//关闭关联的打印进程
-			if (!printprocess.HasExited) printprocess.Kill();
+			
+			if (printprocess != null && !printprocess.HasExited) printprocess.Kill();
 		}
 
 		/// <summary>
@@ -313,6 +316,45 @@ namespace Lime
 		{
 			Frm_ChgPwd frm_modify_pwd = new Frm_ChgPwd();
 			frm_modify_pwd.ShowDialog();
+		}
+
+		private void barButtonItem16_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("Report_Hhzm");
+		}
+		/// <summary>
+		/// 收款员统计
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem25_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("Report_Cashier");
+		}
+
+		private void barButtonItem17_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			openBusinessObject("Report_Having");
+		}
+		/// <summary>
+		/// 系统备份
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			saveFileDialog1.Filter = "bin files(*.bin)|*.bin|All files (*.*)|*.*";
+			saveFileDialog1.RestoreDirectory = true;
+			if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+			{
+				SplashScreenManager.ShowDefaultWaitForm("正在备份", "请稍候....");
+				string fname;
+				fname = saveFileDialog1.FileName;
+				BackupSet bset = new BackupSet();
+				bset.Backup(fname);
+				SplashScreenManager.CloseDefaultWaitForm();
+				XtraMessageBox.Show("备份成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
 		}
 	}
 }

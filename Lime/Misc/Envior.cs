@@ -23,10 +23,10 @@ namespace Lime.Misc
 		/// </summary>
 		static Envior()
 		{
-			cur_user = new UC01(XpoDefault.Session);
-			cur_user.UC001 = "0000000000";
-			cur_user.UC003 = "根用户";
-			cur_user.UC002 = "root";
+			//cur_user = new UC01(XpoDefault.Session);
+			//cur_user.UC001 = "0000000000";
+			//cur_user.UC003 = "根用户";
+			//cur_user.UC002 = "root";
 		}
 	}
 }

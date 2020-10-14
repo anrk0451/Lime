@@ -21,8 +21,8 @@ namespace Lime.Windows
 		public Frm_BitInfo(string regionId,int layerNum, string bitDesc)
 		{
 			InitializeComponent();
-			bitAdapter.SelectCommand.CommandText = "select bi003,bi009,pkg_report.fun_getBitFullName(rg001,bi005,bi003) position,rc003,rc140,rc150,a.status status from bi01 a,rc01 b " +
-													   "where a.bi001 = b.rc130(+)  and rg001 = :rg001 and bi005 = :bi005 and bi003= :bi003 and b.status = '1'";
+			bitAdapter.SelectCommand.CommandText = "select bi003,bi009,pkg_report.fun_getBitFullName(rg001,bi005,bi003) position,rc003,rc140,rc150,a.status status from bi01 a,v_rc01 b " +
+													   "where a.bi001 = b.rc130(+)  and rg001 = :rg001 and bi005 = :bi005 and bi003= :bi003  ";
 			OracleParameter op_rg001 = new OracleParameter("rg001", OracleDbType.Varchar2, 10);
 			op_rg001.Direction = ParameterDirection.Input;
 			op_rg001.Value = regionId;
@@ -65,6 +65,8 @@ namespace Lime.Windows
 				e.DisplayText = "空闲";
 			else if (e.Value.ToString() == "0")
 				e.DisplayText = "未用";
+			else if (e.Value.ToString() == "8")
+				e.DisplayText = "待缴费";
 		}
 	}
 }

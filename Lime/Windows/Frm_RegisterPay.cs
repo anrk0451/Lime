@@ -134,22 +134,22 @@ namespace Lime.Windows
 
 				if (XtraMessageBox.Show("缴费成功!现在打印【收据】吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
 				{
-					Frm_InputBill frm_bill = new Frm_InputBill();
-					if (frm_bill.ShowDialog() == DialogResult.OK)
-					{
-						s_billno = frm_bill.swapdata["billno"].ToString();
-					}
-					frm_bill.Dispose();
-					if (!string.IsNullOrEmpty(s_billno))
-					{
-						PrintAction.Print_Skpz1(s_fa001);
-						MiscAction.SetFinanceBill(s_fa001, s_billno);
-					}
+					//Frm_InputBill frm_bill = new Frm_InputBill();
+					//if (frm_bill.ShowDialog() == DialogResult.OK)
+					//{
+					//	s_billno = frm_bill.swapdata["billno"].ToString();
+					//}
+					//frm_bill.Dispose();
+					//if (!string.IsNullOrEmpty(s_billno))
+					//{
+					PrintAction.Print_Skpz1(s_fa001);
+					//	MiscAction.SetFinanceBill(s_fa001, s_billno);
+					//}
 				}
 
 				///todo 4 打印缴费记录
-				XtraMessageBox.Show("现在准备打印缴费记录!","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
-				PrintAction.Print_PayRecord(s_fa001);
+				if(XtraMessageBox.Show("现在打印缴费记录吗?","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+					PrintAction.Print_PayRecord(s_fa001);
 
 				DialogResult = DialogResult.OK;
 				this.Close();

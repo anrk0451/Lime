@@ -13,6 +13,8 @@ using Lime.Action;
 using Oracle.ManagedDataAccess.Client;
 using Lime.Windows;
 using DevExpress.XtraPrinting;
+using DevExpress.XtraReports.UI;
+using Lime.Report;
 
 namespace Lime.BusinessObject
 {
@@ -119,6 +121,23 @@ namespace Lime.BusinessObject
 				options.TextExportMode = TextExportMode.Text;//设置导出模式为文本
 				gridControl1.ExportToXlsx(fileDialog.FileName, options);
 				XtraMessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+		}
+
+		private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			Item_stat_Report report = new Item_stat_Report();
+			report.DataSource = dt_cs;
+
+			report.Parameters[0].Value = s_begin;
+			report.Parameters[1].Value = s_end;
+			report.Parameters[2].Value = s_class_string;
+
+			report.RequestParameters = false;    //禁止显示参数确认窗口
+
+			using (ReportPrintTool printTool = new ReportPrintTool(report))
+			{
+				printTool.PrintDialog();
 			}
 		}
 	}

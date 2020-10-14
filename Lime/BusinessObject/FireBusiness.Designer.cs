@@ -234,6 +234,7 @@
 			this.barButtonItem19.Caption = "骨灰寄存";
 			this.barButtonItem19.Id = 20;
 			this.barButtonItem19.Name = "barButtonItem19";
+			this.barButtonItem19.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
 			this.barButtonItem19.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem19_ItemClick);
 			// 
 			// barButtonItem20
@@ -242,6 +243,7 @@
 			this.barButtonItem20.Id = 21;
 			this.barButtonItem20.ImageOptions.SvgImage = global::Lime.Properties.Resources.charttype_areastepstacked;
 			this.barButtonItem20.Name = "barButtonItem20";
+			this.barButtonItem20.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem20_ItemClick);
 			// 
 			// barButtonItem13
 			// 

@@ -119,6 +119,7 @@
 			this.barButtonItem5.Id = 6;
 			this.barButtonItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem5.ImageOptions.SvgImage")));
 			this.barButtonItem5.Name = "barButtonItem5";
+			this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
 			// 
 			// barButtonItem4
 			// 

@@ -90,20 +90,20 @@
 			this.groupControl1.Controls.Add(this.labelControl1);
 			this.groupControl1.Location = new System.Drawing.Point(20, 20);
 			this.groupControl1.Name = "groupControl1";
-			this.groupControl1.Size = new System.Drawing.Size(629, 324);
+			this.groupControl1.Size = new System.Drawing.Size(629, 301);
 			this.groupControl1.TabIndex = 0;
 			this.groupControl1.Text = "基本信息";
 			// 
 			// mem_cb006
 			// 
-			this.mem_cb006.Location = new System.Drawing.Point(91, 223);
+			this.mem_cb006.Location = new System.Drawing.Point(91, 191);
 			this.mem_cb006.Name = "mem_cb006";
 			this.mem_cb006.Size = new System.Drawing.Size(442, 83);
 			this.mem_cb006.TabIndex = 7;
 			// 
 			// labelControl4
 			// 
-			this.labelControl4.Location = new System.Drawing.Point(91, 189);
+			this.labelControl4.Location = new System.Drawing.Point(91, 157);
 			this.labelControl4.Name = "labelControl4";
 			this.labelControl4.Size = new System.Drawing.Size(76, 19);
 			this.labelControl4.TabIndex = 6;
@@ -112,7 +112,7 @@
 			// glue_cb005
 			// 
 			this.glue_cb005.EditValue = "";
-			this.glue_cb005.Location = new System.Drawing.Point(195, 136);
+			this.glue_cb005.Location = new System.Drawing.Point(195, 116);
 			this.glue_cb005.Name = "glue_cb005";
 			this.glue_cb005.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -156,7 +156,7 @@
 			// 
 			// labelControl3
 			// 
-			this.labelControl3.Location = new System.Drawing.Point(91, 139);
+			this.labelControl3.Location = new System.Drawing.Point(91, 119);
 			this.labelControl3.Name = "labelControl3";
 			this.labelControl3.Size = new System.Drawing.Size(76, 19);
 			this.labelControl3.TabIndex = 4;
@@ -164,7 +164,7 @@
 			// 
 			// rg_cb002
 			// 
-			this.rg_cb002.Location = new System.Drawing.Point(194, 82);
+			this.rg_cb002.Location = new System.Drawing.Point(194, 74);
 			this.rg_cb002.Name = "rg_cb002";
 			this.rg_cb002.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
 			this.rg_cb002.Properties.Appearance.Options.UseBackColor = true;
@@ -178,7 +178,7 @@
 			// 
 			// labelControl2
 			// 
-			this.labelControl2.Location = new System.Drawing.Point(91, 89);
+			this.labelControl2.Location = new System.Drawing.Point(91, 81);
 			this.labelControl2.Name = "labelControl2";
 			this.labelControl2.Size = new System.Drawing.Size(38, 19);
 			this.labelControl2.TabIndex = 2;
@@ -212,19 +212,20 @@
 			this.gridControl2.EmbeddedNavigator.Buttons.Prev.Visible = false;
 			this.gridControl2.EmbeddedNavigator.Buttons.PrevPage.Visible = false;
 			this.gridControl2.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-			this.gridControl2.Location = new System.Drawing.Point(20, 350);
+			this.gridControl2.Location = new System.Drawing.Point(20, 327);
 			this.gridControl2.MainView = this.gridView2;
 			this.gridControl2.Name = "gridControl2";
 			this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repository_cb021,
             this.repositoryItemSpinEdit1});
-			this.gridControl2.Size = new System.Drawing.Size(629, 258);
+			this.gridControl2.Size = new System.Drawing.Size(629, 535);
 			this.gridControl2.TabIndex = 29;
 			this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
 			// 
 			// xpCollection_cb02
 			// 
+			this.xpCollection_cb02.DeleteObjectOnRemove = true;
 			this.xpCollection_cb02.LoadingEnabled = false;
 			this.xpCollection_cb02.ObjectType = typeof(Lime.Xpo.orcl.CB02);
 			this.xpCollection_cb02.Sorting.AddRange(new DevExpress.Xpo.SortProperty[] {
@@ -246,7 +247,7 @@
             this.gridColumn4,
             this.gridColumn5});
 			this.gridView2.GridControl = this.gridControl2;
-			this.gridView2.IndicatorWidth = 35;
+			this.gridView2.IndicatorWidth = 40;
 			this.gridView2.Name = "gridView2";
 			this.gridView2.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
 			this.gridView2.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
@@ -417,7 +418,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(828, 620);
+			this.ClientSize = new System.Drawing.Size(828, 868);
 			this.Controls.Add(this.simpleButton1);
 			this.Controls.Add(this.sb_cancel);
 			this.Controls.Add(this.sb_ok);

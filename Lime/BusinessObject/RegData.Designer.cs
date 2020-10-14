@@ -41,6 +41,15 @@
 			this.lc_debt = new DevExpress.XtraEditors.LabelControl();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+			this.panel_info = new DevExpress.XtraEditors.PanelControl();
+			this.lc_name = new DevExpress.XtraEditors.LabelControl();
+			this.lc_name_header = new DevExpress.XtraEditors.LabelControl();
+			this.lc_price = new DevExpress.XtraEditors.LabelControl();
+			this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+			this.lc_status = new DevExpress.XtraEditors.LabelControl();
+			this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+			this.lc_position = new DevExpress.XtraEditors.LabelControl();
+			this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
 			this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
 			this.lc_used = new DevExpress.XtraEditors.LabelControl();
 			this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -72,11 +81,15 @@
 			this.列RG011 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
 			this.列RG020 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
 			this.列RG021 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-			this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
 			this.svgImageCollection1 = new DevExpress.Utils.SvgImageCollection(this.components);
+			this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+			this.session1 = new DevExpress.Xpo.Session(this.components);
+			this.xpCollection_bi01 = new DevExpress.Xpo.XPCollection(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
 			this.panelControl1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.panel_info)).BeginInit();
+			this.panel_info.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
 			this.splitContainerControl2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -85,9 +98,11 @@
 			((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.svgImageCollection1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
 			this.splitContainerControl1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.svgImageCollection1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.session1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.xpCollection_bi01)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// 列STATUS
@@ -143,7 +158,7 @@
 			// 
 			// lc_debt
 			// 
-			this.lc_debt.Location = new System.Drawing.Point(701, 42);
+			this.lc_debt.Location = new System.Drawing.Point(701, 27);
 			this.lc_debt.Name = "lc_debt";
 			this.lc_debt.Size = new System.Drawing.Size(27, 18);
 			this.lc_debt.TabIndex = 15;
@@ -154,7 +169,7 @@
 			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(1110, 506);
+			this.pictureBox1.Size = new System.Drawing.Size(1456, 533);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 10;
 			this.pictureBox1.TabStop = false;
@@ -162,6 +177,7 @@
 			// 
 			// panelControl1
 			// 
+			this.panelControl1.Controls.Add(this.panel_info);
 			this.panelControl1.Controls.Add(this.lc_debt);
 			this.panelControl1.Controls.Add(this.labelControl8);
 			this.panelControl1.Controls.Add(this.lc_used);
@@ -173,12 +189,92 @@
 			this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelControl1.Location = new System.Drawing.Point(0, 0);
 			this.panelControl1.Name = "panelControl1";
-			this.panelControl1.Size = new System.Drawing.Size(1110, 95);
+			this.panelControl1.Size = new System.Drawing.Size(1456, 68);
 			this.panelControl1.TabIndex = 1;
+			// 
+			// panel_info
+			// 
+			this.panel_info.Controls.Add(this.lc_name);
+			this.panel_info.Controls.Add(this.lc_name_header);
+			this.panel_info.Controls.Add(this.lc_price);
+			this.panel_info.Controls.Add(this.labelControl7);
+			this.panel_info.Controls.Add(this.lc_status);
+			this.panel_info.Controls.Add(this.labelControl4);
+			this.panel_info.Controls.Add(this.lc_position);
+			this.panel_info.Controls.Add(this.labelControl2);
+			this.panel_info.Dock = System.Windows.Forms.DockStyle.Right;
+			this.panel_info.Location = new System.Drawing.Point(989, 2);
+			this.panel_info.Name = "panel_info";
+			this.panel_info.Size = new System.Drawing.Size(465, 64);
+			this.panel_info.TabIndex = 16;
+			// 
+			// lc_name
+			// 
+			this.lc_name.Location = new System.Drawing.Point(353, 37);
+			this.lc_name.Name = "lc_name";
+			this.lc_name.Size = new System.Drawing.Size(86, 19);
+			this.lc_name.TabIndex = 7;
+			this.lc_name.Text = "逝者姓名:";
+			// 
+			// lc_name_header
+			// 
+			this.lc_name_header.Location = new System.Drawing.Point(261, 37);
+			this.lc_name_header.Name = "lc_name_header";
+			this.lc_name_header.Size = new System.Drawing.Size(86, 19);
+			this.lc_name_header.TabIndex = 6;
+			this.lc_name_header.Text = "逝者姓名:";
+			// 
+			// lc_price
+			// 
+			this.lc_price.Location = new System.Drawing.Point(59, 37);
+			this.lc_price.Name = "lc_price";
+			this.lc_price.Size = new System.Drawing.Size(48, 19);
+			this.lc_price.TabIndex = 5;
+			this.lc_price.Text = "单价:";
+			// 
+			// labelControl7
+			// 
+			this.labelControl7.Location = new System.Drawing.Point(6, 37);
+			this.labelControl7.Name = "labelControl7";
+			this.labelControl7.Size = new System.Drawing.Size(48, 19);
+			this.labelControl7.TabIndex = 4;
+			this.labelControl7.Text = "单价:";
+			// 
+			// lc_status
+			// 
+			this.lc_status.Location = new System.Drawing.Point(189, 37);
+			this.lc_status.Name = "lc_status";
+			this.lc_status.Size = new System.Drawing.Size(48, 19);
+			this.lc_status.TabIndex = 3;
+			this.lc_status.Text = "位置:";
+			// 
+			// labelControl4
+			// 
+			this.labelControl4.Location = new System.Drawing.Point(136, 37);
+			this.labelControl4.Name = "labelControl4";
+			this.labelControl4.Size = new System.Drawing.Size(48, 19);
+			this.labelControl4.TabIndex = 2;
+			this.labelControl4.Text = "状态:";
+			// 
+			// lc_position
+			// 
+			this.lc_position.Location = new System.Drawing.Point(59, 12);
+			this.lc_position.Name = "lc_position";
+			this.lc_position.Size = new System.Drawing.Size(48, 19);
+			this.lc_position.TabIndex = 1;
+			this.lc_position.Text = "位置:";
+			// 
+			// labelControl2
+			// 
+			this.labelControl2.Location = new System.Drawing.Point(6, 12);
+			this.labelControl2.Name = "labelControl2";
+			this.labelControl2.Size = new System.Drawing.Size(48, 19);
+			this.labelControl2.TabIndex = 0;
+			this.labelControl2.Text = "位置:";
 			// 
 			// labelControl8
 			// 
-			this.labelControl8.Location = new System.Drawing.Point(604, 41);
+			this.labelControl8.Location = new System.Drawing.Point(604, 26);
 			this.labelControl8.Name = "labelControl8";
 			this.labelControl8.Size = new System.Drawing.Size(95, 19);
 			this.labelControl8.TabIndex = 14;
@@ -186,7 +282,7 @@
 			// 
 			// lc_used
 			// 
-			this.lc_used.Location = new System.Drawing.Point(494, 42);
+			this.lc_used.Location = new System.Drawing.Point(494, 27);
 			this.lc_used.Name = "lc_used";
 			this.lc_used.Size = new System.Drawing.Size(27, 18);
 			this.lc_used.TabIndex = 13;
@@ -194,7 +290,7 @@
 			// 
 			// labelControl6
 			// 
-			this.labelControl6.Location = new System.Drawing.Point(418, 41);
+			this.labelControl6.Location = new System.Drawing.Point(418, 26);
 			this.labelControl6.Name = "labelControl6";
 			this.labelControl6.Size = new System.Drawing.Size(76, 19);
 			this.labelControl6.TabIndex = 12;
@@ -202,7 +298,7 @@
 			// 
 			// lc_free
 			// 
-			this.lc_free.Location = new System.Drawing.Point(304, 42);
+			this.lc_free.Location = new System.Drawing.Point(304, 27);
 			this.lc_free.Name = "lc_free";
 			this.lc_free.Size = new System.Drawing.Size(27, 18);
 			this.lc_free.TabIndex = 11;
@@ -210,7 +306,7 @@
 			// 
 			// labelControl3
 			// 
-			this.labelControl3.Location = new System.Drawing.Point(241, 41);
+			this.labelControl3.Location = new System.Drawing.Point(241, 26);
 			this.labelControl3.Name = "labelControl3";
 			this.labelControl3.Size = new System.Drawing.Size(57, 19);
 			this.labelControl3.TabIndex = 10;
@@ -218,7 +314,7 @@
 			// 
 			// lc_all
 			// 
-			this.lc_all.Location = new System.Drawing.Point(144, 42);
+			this.lc_all.Location = new System.Drawing.Point(144, 27);
 			this.lc_all.Name = "lc_all";
 			this.lc_all.Size = new System.Drawing.Size(27, 18);
 			this.lc_all.TabIndex = 9;
@@ -226,7 +322,7 @@
 			// 
 			// labelControl1
 			// 
-			this.labelControl1.Location = new System.Drawing.Point(49, 41);
+			this.labelControl1.Location = new System.Drawing.Point(49, 26);
 			this.labelControl1.Name = "labelControl1";
 			this.labelControl1.Size = new System.Drawing.Size(95, 19);
 			this.labelControl1.TabIndex = 8;
@@ -245,8 +341,8 @@
 			this.splitContainerControl2.Panel2.Controls.Add(this.gridControl2);
 			this.splitContainerControl2.Panel2.Controls.Add(this.pictureBox1);
 			this.splitContainerControl2.Panel2.Text = "Panel2";
-			this.splitContainerControl2.Size = new System.Drawing.Size(1110, 608);
-			this.splitContainerControl2.SplitterPosition = 95;
+			this.splitContainerControl2.Size = new System.Drawing.Size(1456, 608);
+			this.splitContainerControl2.SplitterPosition = 68;
 			this.splitContainerControl2.TabIndex = 0;
 			// 
 			// gridControl1
@@ -259,10 +355,11 @@
 			this.gridControl1.MainView = this.gridView1;
 			this.gridControl1.MenuManager = this.barManager1;
 			this.gridControl1.Name = "gridControl1";
-			this.gridControl1.Size = new System.Drawing.Size(1110, 506);
+			this.gridControl1.Size = new System.Drawing.Size(1456, 533);
 			this.gridControl1.TabIndex = 9;
 			this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+			this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
 			// 
 			// gridView1
 			// 
@@ -289,6 +386,9 @@
 			this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
 			this.gridView1.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView1_RowCellStyle);
 			this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseDown);
+			this.gridView1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseMove);
+			this.gridView1.MouseEnter += new System.EventHandler(this.gridView1_MouseEnter);
+			this.gridView1.MouseLeave += new System.EventHandler(this.gridView1_MouseLeave);
 			// 
 			// barManager1
 			// 
@@ -339,7 +439,7 @@
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
 			this.barDockControlTop.Manager = this.barManager1;
-			this.barDockControlTop.Size = new System.Drawing.Size(1334, 36);
+			this.barDockControlTop.Size = new System.Drawing.Size(1680, 36);
 			// 
 			// barDockControlBottom
 			// 
@@ -347,7 +447,7 @@
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.barDockControlBottom.Location = new System.Drawing.Point(0, 644);
 			this.barDockControlBottom.Manager = this.barManager1;
-			this.barDockControlBottom.Size = new System.Drawing.Size(1334, 0);
+			this.barDockControlBottom.Size = new System.Drawing.Size(1680, 0);
 			// 
 			// barDockControlLeft
 			// 
@@ -361,7 +461,7 @@
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(1334, 36);
+			this.barDockControlRight.Location = new System.Drawing.Point(1680, 36);
 			this.barDockControlRight.Manager = this.barManager1;
 			this.barDockControlRight.Size = new System.Drawing.Size(0, 608);
 			// 
@@ -375,7 +475,7 @@
 			this.gridControl2.MainView = this.gridView2;
 			this.gridControl2.MenuManager = this.barManager1;
 			this.gridControl2.Name = "gridControl2";
-			this.gridControl2.Size = new System.Drawing.Size(1110, 506);
+			this.gridControl2.Size = new System.Drawing.Size(1456, 533);
 			this.gridControl2.TabIndex = 8;
 			this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -491,6 +591,13 @@
 			this.列RG021.FieldName = "RG021";
 			this.列RG021.Name = "列RG021";
 			// 
+			// svgImageCollection1
+			// 
+			this.svgImageCollection1.Add("bo_product", "image://svgimages/business objects/bo_product.svg");
+			this.svgImageCollection1.Add("business_bank", "image://svgimages/icon builder/business_bank.svg");
+			this.svgImageCollection1.Add("travel_camping", "image://svgimages/icon builder/travel_camping.svg");
+			this.svgImageCollection1.Add("bandedrows", "image://svgimages/dashboards/bandedrows.svg");
+			// 
 			// splitContainerControl1
 			// 
 			this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -500,16 +607,17 @@
 			this.splitContainerControl1.Panel1.Text = "Panel1";
 			this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
 			this.splitContainerControl1.Panel2.Text = "Panel2";
-			this.splitContainerControl1.Size = new System.Drawing.Size(1334, 608);
+			this.splitContainerControl1.Size = new System.Drawing.Size(1680, 608);
 			this.splitContainerControl1.SplitterPosition = 217;
 			this.splitContainerControl1.TabIndex = 10;
 			// 
-			// svgImageCollection1
+			// xpCollection_bi01
 			// 
-			this.svgImageCollection1.Add("bo_product", "image://svgimages/business objects/bo_product.svg");
-			this.svgImageCollection1.Add("business_bank", "image://svgimages/icon builder/business_bank.svg");
-			this.svgImageCollection1.Add("travel_camping", "image://svgimages/icon builder/travel_camping.svg");
-			this.svgImageCollection1.Add("bandedrows", "image://svgimages/dashboards/bandedrows.svg");
+			this.xpCollection_bi01.ObjectType = typeof(Lime.Xpo.orcl.BI01);
+			this.xpCollection_bi01.Session = this.session1;
+			this.xpCollection_bi01.Sorting.AddRange(new DevExpress.Xpo.SortProperty[] {
+            new DevExpress.Xpo.SortProperty("[BI005]", DevExpress.Xpo.DB.SortingDirection.Descending),
+            new DevExpress.Xpo.SortProperty("[BI008]", DevExpress.Xpo.DB.SortingDirection.Ascending)});
 			// 
 			// RegData
 			// 
@@ -521,11 +629,14 @@
 			this.Controls.Add(this.barDockControlBottom);
 			this.Controls.Add(this.barDockControlTop);
 			this.Name = "RegData";
-			this.Size = new System.Drawing.Size(1334, 644);
+			this.Size = new System.Drawing.Size(1680, 644);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
 			this.panelControl1.ResumeLayout(false);
 			this.panelControl1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.panel_info)).EndInit();
+			this.panel_info.ResumeLayout(false);
+			this.panel_info.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
 			this.splitContainerControl2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -534,9 +645,11 @@
 			((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.svgImageCollection1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
 			this.splitContainerControl1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.svgImageCollection1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.session1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.xpCollection_bi01)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -586,5 +699,16 @@
 		private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
 		private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
 		private DevExpress.Utils.SvgImageCollection svgImageCollection1;
+		private DevExpress.XtraEditors.PanelControl panel_info;
+		private DevExpress.XtraEditors.LabelControl lc_name;
+		private DevExpress.XtraEditors.LabelControl lc_name_header;
+		private DevExpress.XtraEditors.LabelControl lc_price;
+		private DevExpress.XtraEditors.LabelControl labelControl7;
+		private DevExpress.XtraEditors.LabelControl lc_status;
+		private DevExpress.XtraEditors.LabelControl labelControl4;
+		private DevExpress.XtraEditors.LabelControl lc_position;
+		private DevExpress.XtraEditors.LabelControl labelControl2;
+		private DevExpress.Xpo.Session session1;
+		private DevExpress.Xpo.XPCollection xpCollection_bi01;
 	}
 }

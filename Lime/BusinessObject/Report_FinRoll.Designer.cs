@@ -52,11 +52,12 @@
 			this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
-			this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
 			this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
+			this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+			this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
 			this.gridControl2 = new DevExpress.XtraGrid.GridControl();
 			this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
 			this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,14 +66,13 @@
 			this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-			this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
 			((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
 			this.splitContainerControl1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
 			this.SuspendLayout();
@@ -138,6 +138,7 @@
 			this.barButtonItem4.Id = 3;
 			this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
 			this.barButtonItem4.Name = "barButtonItem4";
+			this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
 			// 
 			// barDockControlTop
 			// 
@@ -306,11 +307,6 @@
 			this.gridColumn25.FieldName = "AC001";
 			this.gridColumn25.Name = "gridColumn25";
 			// 
-			// repositoryItemHyperLinkEdit1
-			// 
-			this.repositoryItemHyperLinkEdit1.AutoHeight = false;
-			this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
-			// 
 			// gridColumn3
 			// 
 			this.gridColumn3.Caption = "逝者姓名";
@@ -341,6 +337,16 @@
 			this.gridColumn32.VisibleIndex = 2;
 			this.gridColumn32.Width = 129;
 			// 
+			// gridColumn1
+			// 
+			this.gridColumn1.Caption = "作废原因";
+			this.gridColumn1.FieldName = "REASON";
+			this.gridColumn1.MinWidth = 25;
+			this.gridColumn1.Name = "gridColumn1";
+			this.gridColumn1.Visible = true;
+			this.gridColumn1.VisibleIndex = 3;
+			this.gridColumn1.Width = 201;
+			// 
 			// repositoryItemCheckEdit1
 			// 
 			this.repositoryItemCheckEdit1.AutoHeight = false;
@@ -349,6 +355,11 @@
 			this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
 			this.repositoryItemCheckEdit1.ValueChecked = "1";
 			this.repositoryItemCheckEdit1.ValueUnchecked = "0";
+			// 
+			// repositoryItemHyperLinkEdit1
+			// 
+			this.repositoryItemHyperLinkEdit1.AutoHeight = false;
+			this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
 			// 
 			// gridControl2
 			// 
@@ -439,16 +450,6 @@
 			this.gridColumn15.VisibleIndex = 3;
 			this.gridColumn15.Width = 125;
 			// 
-			// gridColumn1
-			// 
-			this.gridColumn1.Caption = "作废原因";
-			this.gridColumn1.FieldName = "REASON";
-			this.gridColumn1.MinWidth = 25;
-			this.gridColumn1.Name = "gridColumn1";
-			this.gridColumn1.Visible = true;
-			this.gridColumn1.VisibleIndex = 3;
-			this.gridColumn1.Width = 201;
-			// 
 			// Report_FinRoll
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -466,8 +467,8 @@
 			this.splitContainerControl1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
 			this.ResumeLayout(false);

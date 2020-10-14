@@ -115,11 +115,11 @@ namespace Lime.BusinessObject
 				be_cuname.ErrorText = "交款人或单位必须输入!";
 				return;
 			}
-			if (string.IsNullOrEmpty(te_billno.Text))
-			{
-				XtraMessageBox.Show("尚未输入单据号!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-				return;
-			}
+			//if (string.IsNullOrEmpty(te_billno.Text))
+			//{
+			//	XtraMessageBox.Show("尚未输入单据号!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			//	return;
+			//}
 
 
 			//1.检查是否有单价为0的项目 

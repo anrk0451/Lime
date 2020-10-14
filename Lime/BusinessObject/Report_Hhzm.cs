@@ -9,35 +9,31 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Lime.BaseObject;
-using Oracle.ManagedDataAccess.Client;
 using Lime.Action;
+using Oracle.ManagedDataAccess.Client;
 using Lime.Windows;
 using DevExpress.XtraPrinting;
 
 namespace Lime.BusinessObject
 {
-	public partial class Report_FinRoll : BaseBusiness
+	public partial class Report_Hhzm : BaseBusiness
 	{
-		private DataTable dt_finance = new DataTable("FINANCE");
-
-		private OracleDataAdapter finAdapter =
-			new OracleDataAdapter("select * from v_financeRollback where (to_char(zfrq,'yyyy-mm-dd') between :begin and :end) ", SqlHelper.conn);
- 
-		private DataTable dt_detail = new DataTable("DETAIL");
-		private OracleDataAdapter deAdapter =
-			new OracleDataAdapter("select * from v_finremovedetail where sa010 = :sa010", SqlHelper.conn);
- 
+		private DataTable dt_report = new DataTable("");
+  
+		private OracleDataAdapter repAdapter =
+			new OracleDataAdapter("select * from v_report_hhzm where (fc200 between :begin and :end) ", SqlHelper.conn);
+		 
 		private OracleParameter op_begin = null;
 		private OracleParameter op_end = null;
-		private OracleParameter op_sa010 = null;
-  
-		public Report_FinRoll()
+
+
+		public Report_Hhzm()
 		{
 			InitializeComponent();
 			gridView1.CustomDrawRowIndicator += MiscAction.DrawGridLineNo;
 		}
 
-		private void Report_FinRoll_Load(object sender, EventArgs e)
+		private void Report_Hhzm_Load(object sender, EventArgs e)
 		{
 			op_begin = new OracleParameter("begin", OracleDbType.Varchar2, 20);
 			op_begin.Direction = ParameterDirection.Input;
@@ -45,16 +41,15 @@ namespace Lime.BusinessObject
 			op_end = new OracleParameter("end", OracleDbType.Varchar2, 20);
 			op_end.Direction = ParameterDirection.Input;
 
-			op_sa010 = new OracleParameter("sa010", OracleDbType.Varchar2, 10);
-			op_sa010.Direction = ParameterDirection.Input;
-			 
-			finAdapter.SelectCommand.Parameters.AddRange(new OracleParameter[] { op_begin, op_end });
-			deAdapter.SelectCommand.Parameters.AddRange(new OracleParameter[] { op_sa010 });
- 
-			gridControl1.DataSource = dt_finance;
-			gridControl2.DataSource = dt_detail;
+			repAdapter.SelectCommand.Parameters.AddRange(new OracleParameter[] { op_begin, op_end });			 
+			gridControl1.DataSource = dt_report;
+	 
 		}
-
+		/// <summary>
+		/// 查询条件
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
 			Frm_Duration frm_1 = new Frm_Duration();
@@ -82,8 +77,7 @@ namespace Lime.BusinessObject
 				{
 					s_end = Convert.ToDateTime(frm_1.swapdata["end"]).ToString("yyyy-MM-dd");
 				}
-
-
+ 
 				op_begin.Value = s_begin;
 				op_end.Value = s_end;
 
@@ -91,46 +85,13 @@ namespace Lime.BusinessObject
 
 				//////1.按收费笔数检索
 				gridView1.BeginUpdate();
-				dt_finance.Rows.Clear();
+				dt_report.Rows.Clear();
 
-				finAdapter.Fill(dt_finance);
-
-				gridCol_Fa004.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-				gridCol_Fa004.SummaryItem.DisplayFormat = "合计 = {0:N2}";
-
-				gridColumn5.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count;
-				gridColumn5.SummaryItem.DisplayFormat = "共计 = {0:N0}笔";
-
+				repAdapter.Fill(dt_report);			 
 				gridView1.EndUpdate();
-				 
 				this.Cursor = Cursors.Arrow;
 			}
 			frm_1.Dispose();
-		}
-
-		private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-		{
-			if (e.FocusedRowHandle >= 0)
-			{
-				this.RetrieveDetail(e.FocusedRowHandle);
-			}
-		}
-
-		/// <summary>
-		/// 检索明细
-		/// </summary>
-		/// <param name="rowHandle"></param>
-		private void RetrieveDetail(int rowHandle)
-		{
-			if (rowHandle >= 0)
-			{
-				string s_fa001 = gridView1.GetRowCellValue(rowHandle, "FA001").ToString();
-				op_sa010.Value = s_fa001;
-				gridView2.BeginUpdate();
-				dt_detail.Rows.Clear();
-				deAdapter.Fill(dt_detail);
-				gridView2.EndUpdate();
-			}
 		}
 		/// <summary>
 		/// 查找
@@ -144,33 +105,26 @@ namespace Lime.BusinessObject
 			else
 				gridView1.HideFindPanel();
 		}
-
+		/// <summary>
+		/// 刷新
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
 			this.RefreshData();
 		}
 
-		/// <summary>
-		/// 刷新数据
-		/// </summary>
 		private void RefreshData()
 		{
 			this.Cursor = Cursors.WaitCursor;
-
-			//////1.按收费笔数检索
+ 
 			gridView1.BeginUpdate();
-			dt_finance.Rows.Clear();
+			dt_report.Rows.Clear();
 
-			finAdapter.Fill(dt_finance);
-
-			gridCol_Fa004.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-			gridCol_Fa004.SummaryItem.DisplayFormat = "合计 = {0:N2}";
-
-			gridColumn5.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count;
-			gridColumn5.SummaryItem.DisplayFormat = "共计 = {0:N0}笔";
-
+			repAdapter.Fill(dt_report);			 
 			gridView1.EndUpdate();
-			 
+
 			this.Cursor = Cursors.Arrow;
 		}
 		/// <summary>

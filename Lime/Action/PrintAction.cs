@@ -105,6 +105,111 @@ namespace Lime.Action
 			oc_command.Dispose();
 		}
 		/// <summary>
+		/// 补打火化证明(带身份证)
+		/// </summary>
+		/// <param name="ac001"></param>
+		public static void Print_HHZM_BD1(string ac001)
+		{
+			StringBuilder sb_1 = new StringBuilder(200);
+			OracleCommand oc_command = new OracleCommand("select * from V_PRINT_HHZM where ac001 = :ac001", SqlHelper.conn);
+			OracleParameter op_ac001 = new OracleParameter("ac001", OracleDbType.Varchar2, 10);
+			op_ac001.Direction = ParameterDirection.Input;
+			op_ac001.Value = ac001;
+			oc_command.Parameters.Add(op_ac001);
+
+			OracleDataReader reader = oc_command.ExecuteReader();
+			if (reader.HasRows && reader.Read())
+			{
+				sb_1.Append(reader["AC003"].ToString() + PADSTR);  //逝者姓名
+				sb_1.Append(reader["AC002"].ToString() + PADSTR);  //逝者性别
+
+				//所属区县
+				if (reader["AC007"] == null || reader["AC007"] is DBNull)
+					sb_1.Append("" + PADSTR);                                
+				else
+					sb_1.Append(MiscAction.Mapper_DD(reader["AC007"].ToString()) + PADSTR);
+
+				sb_1.Append(reader["AC014"].ToString() + PADSTR);     //身份证号
+				sb_1.Append(reader["FIRETIME"].ToString() + PADSTR);  //火化日期
+
+				//死亡原因
+				if (reader["AC005"] == null || reader["AC005"] is DBNull)
+					sb_1.Append("" + PADSTR);
+				else
+					sb_1.Append(reader["AC005"].ToString()  + PADSTR);
+
+				//经办日期
+				sb_1.Append(string.Format("{0:yyyy年MM月dd日}", MiscAction.GetServerTime()) + PADSTR);
+				sb_1.Append("" + PADSTR);
+
+				Send_PrintData printData = new Send_PrintData();
+				printData.command = "hhzm_bd1";
+				printData.data = sb_1.ToString();
+				Frm_main.socket.sendMsg(Tool.ConvertObjectToJson(printData));
+			}
+			else
+			{
+				XtraMessageBox.Show("未找到数据!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			reader.Dispose();
+			oc_command.Dispose();
+		}
+
+
+		/// <summary>
+		/// 补打火化证明(带身份证)
+		/// </summary>
+		/// <param name="ac001"></param>
+		public static void Print_HHZM_BD2(string ac001,DateTime birth)
+		{
+			StringBuilder sb_1 = new StringBuilder(200);
+			OracleCommand oc_command = new OracleCommand("select * from V_PRINT_HHZM where ac001 = :ac001", SqlHelper.conn);
+			OracleParameter op_ac001 = new OracleParameter("ac001", OracleDbType.Varchar2, 10);
+			op_ac001.Direction = ParameterDirection.Input;
+			op_ac001.Value = ac001;
+			oc_command.Parameters.Add(op_ac001);
+
+			OracleDataReader reader = oc_command.ExecuteReader();
+			if (reader.HasRows && reader.Read())
+			{
+				sb_1.Append(reader["AC003"].ToString() + PADSTR);  //逝者姓名
+				sb_1.Append(reader["AC002"].ToString() + PADSTR);  //逝者性别
+
+				//所属区县
+				if (reader["AC007"] == null || reader["AC007"] is DBNull)
+					sb_1.Append("" + PADSTR);
+				else
+					sb_1.Append(MiscAction.Mapper_DD(reader["AC007"].ToString()) + PADSTR);
+
+				sb_1.Append(reader["AC014"].ToString() + PADSTR);     //身份证号
+				sb_1.Append(reader["FIRETIME"].ToString() + PADSTR);  //火化日期
+
+				//死亡原因
+				if (reader["AC005"] == null || reader["AC005"] is DBNull)
+					sb_1.Append("" + PADSTR);
+				else
+					sb_1.Append(reader["AC005"].ToString() + PADSTR);
+
+				//经办日期
+				sb_1.Append(string.Format("{0:yyyy年MM月dd日}", MiscAction.GetServerTime()) + PADSTR);
+				sb_1.Append(string.Format("{0:yyyy年MM月dd日}", birth) + PADSTR);
+
+				Send_PrintData printData = new Send_PrintData();
+				printData.command = "hhzm_bd2";
+				printData.data = sb_1.ToString();
+				Frm_main.socket.sendMsg(Tool.ConvertObjectToJson(printData));
+			}
+			else
+			{
+				XtraMessageBox.Show("未找到数据!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			reader.Dispose();
+			oc_command.Dispose();
+		}
+
+
+
+		/// <summary>
 		/// 打印收款凭证（火化收费、临时性收费）
 		/// </summary>
 		/// <param name="fa001"></param>
@@ -414,19 +519,19 @@ namespace Lime.Action
 			OracleDataReader reader = oc_command.ExecuteReader();
 			if (reader.HasRows && reader.Read())
 			{
-				sb_1.Append(reader["RC003"].ToString() + PADSTR);     //逝者姓名
-				sb_1.Append(reader["RC109"].ToString() + PADSTR);     //寄存证号
+				sb_1.Append(reader["RC003"].ToString().Trim() + PADSTR);     //逝者姓名
+				sb_1.Append(reader["RC109"].ToString().Trim() + PADSTR);     //寄存证号
 				sb_1.Append(reader["POSITION"].ToString() + PADSTR);  //寄存位置
 
 				if (reader["RC050"] == null || reader["RC050"] is DBNull)
 					sb_1.Append("" + PADSTR);                          //家属姓名
 				else
-					sb_1.Append(reader["RC050"].ToString() + PADSTR);
+					sb_1.Append(reader["RC050"].ToString().Trim() + PADSTR);
 
 				if (reader["RC051"] == null || reader["RC051"] is DBNull)
 					sb_1.Append("" + PADSTR);                          //联系电话
 				else
-					sb_1.Append(reader["RC051"].ToString() + PADSTR);
+					sb_1.Append(reader["RC051"].ToString().Trim() + PADSTR);
 
 				if (reader["OC002"] == null || reader["OC002"] is DBNull)
 					sb_1.Append("" + PADSTR);                          //迁出日期
@@ -436,12 +541,12 @@ namespace Lime.Action
 				if (reader["RC055"] == null || reader["RC055"] is DBNull)
 					sb_1.Append("" + PADSTR);                          //联系地址
 				else
-					sb_1.Append(reader["RC055"].ToString() + PADSTR);
+					sb_1.Append(reader["RC055"].ToString().Trim() + PADSTR);
 
 				if (reader["OC005"] == null || reader["OC005"] is DBNull)
 					sb_1.Append("" + PADSTR);                          //迁出原因
 				else
-					sb_1.Append(reader["OC005"].ToString() + PADSTR);
+					sb_1.Append(reader["OC005"].ToString().Trim() + PADSTR);
 
 				Send_PrintData printData = new Send_PrintData();
 				printData.command = "OutCard";

@@ -201,12 +201,15 @@ namespace Lime.BusinessObject
 			{
 				string s_fa002 = gridView1.GetRowCellValue(rowHandle, "FA002").ToString();
 				string s_fa001 = gridView1.GetRowCellValue(rowHandle, "FA001").ToString();
-
-				XtraMessageBox.Show("现在准备开始打印!","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				
 				if (s_fa002 == "0" || s_fa002 == "1")
 					PrintAction.Print_Skpz0(s_fa001);
 				else
+				{
+					XtraMessageBox.Show("现在准备开始打印!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					PrintAction.Print_Skpz1(s_fa001);
+				}
+					
 			}
 		}
 		/// <summary>
@@ -250,6 +253,45 @@ namespace Lime.BusinessObject
 				
 
 
+			}
+		}
+		/// <summary>
+		/// 刷新
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			this.Cursor = Cursors.WaitCursor;
+			this.RefreshData();
+			this.OnlyMe_Filter();
+			this.Cursor = Cursors.Arrow;
+		}
+
+		private void RefreshData()
+		{
+			this.Cursor = Cursors.WaitCursor;
+
+			gridView1.BeginUpdate();
+			dt_finance.Rows.Clear();
+			finAdapter.Fill(dt_finance);
+			gridView1.EndUpdate();
+			 
+			this.Cursor = Cursors.Arrow;
+		}
+
+		private void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			int rowHandle = gridView1.FocusedRowHandle;
+			if(rowHandle >= 0)
+			{
+				if(gridView1.GetRowCellValue(rowHandle,"FA002").ToString() != "0")
+				{
+					XtraMessageBox.Show("只有火化业务才可以补打!","提示",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+					return;
+				}
+				string s_ac001 = gridView1.GetRowCellValue(rowHandle, "AC001").ToString();
+				PrintAction.Print_HHZM(s_ac001);
 			}
 		}
 	}

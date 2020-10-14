@@ -182,11 +182,26 @@ namespace Lime.BusinessObject
 			if (rowHandle < 0) return;
 
 			string s_ac001 = gridView1.GetRowCellValue(rowHandle, "AC001").ToString();
-			if (XtraMessageBox.Show("现在打印【火化证明】吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+			if(gridView1.GetRowCellValue(rowHandle,"AC014") != DBNull.Value)
 			{
-				PrintAction.Print_HHZM(s_ac001);
-				FireAction.FireCertLog(s_ac001, Envior.cur_user.UC001);
+				if (XtraMessageBox.Show("现在打印【火化证明】吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+				{
+					PrintAction.Print_HHZM_BD1(s_ac001);
+					FireAction.FireCertLog(s_ac001, Envior.cur_user.UC001);
+				}
 			}
+			else
+			{
+				Frm_HHZM_reprint frm_1 = new Frm_HHZM_reprint();
+				if(frm_1.ShowDialog() == DialogResult.OK)
+				{
+					DateTime dt_birth = Convert.ToDateTime(frm_1.swapdata["birth"]);
+					PrintAction.Print_HHZM_BD2(s_ac001,dt_birth);
+					FireAction.FireCertLog(s_ac001, Envior.cur_user.UC001);
+				}
+				frm_1.Dispose();
+			}
+			
 		}
 		/// <summary>
 		/// 修改记录

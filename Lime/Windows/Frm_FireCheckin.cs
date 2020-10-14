@@ -145,7 +145,9 @@ namespace Lime.Windows
 		private void txtedit_ac014_Validating(object sender, CancelEventArgs e)
 		{
 			string s_idcard = txtedit_ac014.Text.Trim();
+			
 			if (string.IsNullOrWhiteSpace(s_idcard)) return;
+			if (s_idcard == "无") return;
 
 			if (s_idcard.Length != 15 && s_idcard.Length != 18)
 			{
@@ -232,13 +234,13 @@ namespace Lime.Windows
 			}
 
 			//身份证号
-			//if (string.IsNullOrWhiteSpace(txtedit_ac014.Text.Trim()))
-			//{
-			//	txtedit_ac014.ErrorImageOptions.Alignment = ErrorIconAlignment.MiddleRight;
-			//	txtedit_ac014.ErrorText = "身份证号必须输入!";
-			//	txtedit_ac014.Focus();
-			//	return false;
-			//}
+			if (string.IsNullOrWhiteSpace(txtedit_ac014.Text.Trim()))
+			{
+				txtedit_ac014.ErrorImageOptions.Alignment = ErrorIconAlignment.MiddleRight;
+				txtedit_ac014.ErrorText = "身份证号必须输入!";
+				txtedit_ac014.Focus();
+				return false;
+			}
 
 			//死亡原因
 			if (lookUp_ac005.EditValue == null)

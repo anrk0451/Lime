@@ -94,6 +94,13 @@ namespace Lime.Action
 		{
 			return SqlHelper.ExecuteProc("pkg_business.prc_FinanceRemove",fa001,fa003, handler);
 		}
+
+		public static int CashierStat(string begin,string end)
+		{
+			return SqlHelper.ExecuteProc("pkg_report.prc_CashierStat", begin,end);
+		}
+
+
 		/// <summary>
 		/// 设置财务单据号
 		/// </summary>
@@ -174,7 +181,7 @@ namespace Lime.Action
 		{
 			return Convert.ToInt32(SqlHelper.ExecuteFunc("pkg_report.fun_GetClassStat_BS"));
 		}
-
+		 
 		public static int Modify_Pwd(string newPwd)
 		{
 			return SqlHelper.ExecuteProc("pkg_business.prc_Modify_Pwd", Envior.cur_user.UC001, newPwd);

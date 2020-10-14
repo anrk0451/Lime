@@ -60,8 +60,11 @@ namespace Lime.Windows
 					lc_3.Text = "退费金额";
 					isrefund = true;
 
-					txtEdit_nums.EditValue = Math.Round((diff * 1.0f) / 30, 0);
-					txtEdit_fee.EditValue = Convert.ToDecimal(Math.Round((diff * 1.0f) / 30, 0)) * price;
+					//txtEdit_nums.EditValue = Math.Round((diff * 1.0f) / 30, 0);
+					//txtEdit_fee.EditValue = Convert.ToDecimal(Math.Round((diff * 1.0f) / 30, 0)) * price;
+					txtEdit_nums.EditValue = 0;
+					txtEdit_fee.EditValue = 0;
+					 
 				}
 				else
 				{
@@ -177,22 +180,22 @@ namespace Lime.Windows
 				if(Math.Abs(nums) > 0)
 				{
 					string s_billno = string.Empty;
-					XtraMessageBox.Show("现在准备打印【收据】!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					XtraMessageBox.Show("本次迁出发生补费,现在准备打印【收据】!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 					///todo 6.打印补退费票据
-					Frm_InputBill frm_bill = new Frm_InputBill();
-					if (frm_bill.ShowDialog() == DialogResult.OK)
-					{
-						s_billno = frm_bill.swapdata["billno"].ToString();
-					}
-					frm_bill.Dispose();
-					if (!string.IsNullOrEmpty(s_billno))
-					{
-						PrintAction.Print_Skpz1(fa001);
-						MiscAction.SetFinanceBill(fa001, s_billno);
-					}
-					 
+					//Frm_InputBill frm_bill = new Frm_InputBill();
+					//if (frm_bill.ShowDialog() == DialogResult.OK)
+					//{
+					//	s_billno = frm_bill.swapdata["billno"].ToString();
+					//}
+					//frm_bill.Dispose();
+					//if (!string.IsNullOrEmpty(s_billno))
+					//{
+					PrintAction.Print_Skpz1(fa001);
+					//	MiscAction.SetFinanceBill(fa001, s_billno);
+					//}
+
 				}
 				this.DialogResult = DialogResult.OK;
 				this.Close();

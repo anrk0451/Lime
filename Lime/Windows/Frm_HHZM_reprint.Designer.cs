@@ -1,6 +1,6 @@
 ﻿namespace Lime.Windows
 {
-	partial class Frm_ApplyCombo
+	partial class Frm_HHZM_reprint
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,11 +28,33 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+			this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
 			this.sb_cancel = new DevExpress.XtraEditors.SimpleButton();
 			this.sb_ok = new DevExpress.XtraEditors.SimpleButton();
-			this.ck = new DevExpress.XtraEditors.CheckedListBoxControl();
-			((System.ComponentModel.ISupportInitialize)(this.ck)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
 			this.SuspendLayout();
+			// 
+			// labelControl1
+			// 
+			this.labelControl1.Location = new System.Drawing.Point(37, 42);
+			this.labelControl1.Name = "labelControl1";
+			this.labelControl1.Size = new System.Drawing.Size(76, 19);
+			this.labelControl1.TabIndex = 0;
+			this.labelControl1.Text = "出生日期";
+			// 
+			// dateEdit1
+			// 
+			this.dateEdit1.EditValue = null;
+			this.dateEdit1.Location = new System.Drawing.Point(136, 41);
+			this.dateEdit1.Name = "dateEdit1";
+			this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+			this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+			this.dateEdit1.Size = new System.Drawing.Size(136, 24);
+			this.dateEdit1.TabIndex = 1;
 			// 
 			// sb_cancel
 			// 
@@ -42,7 +64,7 @@
 			this.sb_cancel.Appearance.Options.UseForeColor = true;
 			this.sb_cancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
 			this.sb_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.sb_cancel.Location = new System.Drawing.Point(392, 54);
+			this.sb_cancel.Location = new System.Drawing.Point(319, 59);
 			this.sb_cancel.LookAndFeel.UseDefaultLookAndFeel = false;
 			this.sb_cancel.Name = "sb_cancel";
 			this.sb_cancel.Size = new System.Drawing.Size(118, 30);
@@ -57,7 +79,7 @@
 			this.sb_ok.Appearance.Options.UseBackColor = true;
 			this.sb_ok.Appearance.Options.UseForeColor = true;
 			this.sb_ok.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-			this.sb_ok.Location = new System.Drawing.Point(392, 14);
+			this.sb_ok.Location = new System.Drawing.Point(319, 23);
 			this.sb_ok.LookAndFeel.UseDefaultLookAndFeel = false;
 			this.sb_ok.Name = "sb_ok";
 			this.sb_ok.Size = new System.Drawing.Size(118, 30);
@@ -65,32 +87,30 @@
 			this.sb_ok.Text = "确定";
 			this.sb_ok.Click += new System.EventHandler(this.sb_ok_Click);
 			// 
-			// ck
-			// 
-			this.ck.Location = new System.Drawing.Point(6, 4);
-			this.ck.Name = "ck";
-			this.ck.Size = new System.Drawing.Size(371, 368);
-			this.ck.TabIndex = 69;
-			// 
-			// Frm_ApplyCombo
+			// Frm_HHZM_reprint
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(524, 378);
-			this.Controls.Add(this.ck);
+			this.ClientSize = new System.Drawing.Size(470, 108);
 			this.Controls.Add(this.sb_cancel);
 			this.Controls.Add(this.sb_ok);
-			this.Name = "Frm_ApplyCombo";
-			this.Text = "选择套餐";
-			this.Load += new System.EventHandler(this.Frm_ApplyCombo_Load);
-			((System.ComponentModel.ISupportInitialize)(this.ck)).EndInit();
+			this.Controls.Add(this.dateEdit1);
+			this.Controls.Add(this.labelControl1);
+			this.Name = "Frm_HHZM_reprint";
+			this.Text = "补打火化证明";
+			this.Load += new System.EventHandler(this.Frm_HHZM_reprint_Load);
+			((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
 		#endregion
+
+		private DevExpress.XtraEditors.LabelControl labelControl1;
+		private DevExpress.XtraEditors.DateEdit dateEdit1;
 		private DevExpress.XtraEditors.SimpleButton sb_cancel;
 		private DevExpress.XtraEditors.SimpleButton sb_ok;
-		private DevExpress.XtraEditors.CheckedListBoxControl ck;
 	}
 }

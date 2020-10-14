@@ -595,6 +595,7 @@ namespace Lime.Windows
 				fa01.FA200 = MiscAction.GetServerTime();
 				fa01.FA099 = s_billno;
 				fa01.WS001 = Envior.workstationId;
+				fa01.AC001 = rc01.RC001;
 				fa01.STATUS = "1";
 			}
 			////6. 处理号位表
@@ -622,17 +623,17 @@ namespace Lime.Windows
 				////打印收据
 				if (s_source == "0" || s_source == "1")
 				{
-					Frm_InputBill frm_bill = new Frm_InputBill();
-					if (frm_bill.ShowDialog() == DialogResult.OK)
-					{
-						s_billno = frm_bill.swapdata["billno"].ToString();
-					}
-					frm_bill.Dispose();
-					if (!string.IsNullOrEmpty(s_billno))
-					{
-						PrintAction.Print_Skpz1(s_fa001);
-						MiscAction.SetFinanceBill(s_fa001, s_billno);
-					}
+					//Frm_InputBill frm_bill = new Frm_InputBill();
+					//if (frm_bill.ShowDialog() == DialogResult.OK)
+					//{
+					//	s_billno = frm_bill.swapdata["billno"].ToString();
+					//}
+					//frm_bill.Dispose();
+					//if (!string.IsNullOrEmpty(s_billno))
+					//{
+					PrintAction.Print_Skpz1(s_fa001);
+					//MiscAction.SetFinanceBill(s_fa001, s_billno);
+					//}
 				}
 
 				////todo 2.打印寄存证
@@ -641,7 +642,11 @@ namespace Lime.Windows
 					XtraMessageBox.Show("现在准备打印【寄存证】!","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
 					PrintAction.Print_RegCardBase(rc01.RC001);
 				}
-				 
+				if (XtraMessageBox.Show("现在打印【骨灰安放卡】吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				{
+					PrintAction.Print_RegSettle(rc01.RC001);
+				}
+
 				this.DialogResult = DialogResult.OK;
 				this.Close();
 			}

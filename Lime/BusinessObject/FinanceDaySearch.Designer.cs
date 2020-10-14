@@ -71,6 +71,7 @@
 			this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+			this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
 			((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemToggleSwitch1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -101,8 +102,9 @@
             this.barButtonItem6,
             this.toggle_onlyme,
             this.barStaticItem1,
-            this.barButtonItem7});
-			this.barManager1.MaxItemId = 9;
+            this.barButtonItem7,
+            this.barButtonItem8});
+			this.barManager1.MaxItemId = 10;
 			this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemToggleSwitch1});
 			// 
@@ -115,7 +117,8 @@
 			this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem3, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem8, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem4, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem5, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem6, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
@@ -154,6 +157,7 @@
 			this.barButtonItem4.Id = 3;
 			this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
 			this.barButtonItem4.Name = "barButtonItem4";
+			this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
 			// 
 			// barButtonItem5
 			// 
@@ -304,7 +308,7 @@
 			this.gridColumn17.MinWidth = 19;
 			this.gridColumn17.Name = "gridColumn17";
 			this.gridColumn17.Visible = true;
-			this.gridColumn17.VisibleIndex = 3;
+			this.gridColumn17.VisibleIndex = 2;
 			this.gridColumn17.Width = 227;
 			// 
 			// gridColumn18
@@ -321,7 +325,7 @@
 			this.gridColumn19.MinWidth = 19;
 			this.gridColumn19.Name = "gridColumn19";
 			this.gridColumn19.Visible = true;
-			this.gridColumn19.VisibleIndex = 4;
+			this.gridColumn19.VisibleIndex = 3;
 			this.gridColumn19.Width = 115;
 			// 
 			// gridCol_Fa004
@@ -333,7 +337,7 @@
 			this.gridCol_Fa004.MinWidth = 19;
 			this.gridCol_Fa004.Name = "gridCol_Fa004";
 			this.gridCol_Fa004.Visible = true;
-			this.gridCol_Fa004.VisibleIndex = 5;
+			this.gridCol_Fa004.VisibleIndex = 4;
 			this.gridCol_Fa004.Width = 182;
 			// 
 			// gridColumn22
@@ -351,7 +355,7 @@
 			this.gridColumn23.MinWidth = 19;
 			this.gridColumn23.Name = "gridColumn23";
 			this.gridColumn23.Visible = true;
-			this.gridColumn23.VisibleIndex = 6;
+			this.gridColumn23.VisibleIndex = 5;
 			this.gridColumn23.Width = 95;
 			// 
 			// gridColumn24
@@ -363,7 +367,7 @@
 			this.gridColumn24.MinWidth = 19;
 			this.gridColumn24.Name = "gridColumn24";
 			this.gridColumn24.Visible = true;
-			this.gridColumn24.VisibleIndex = 7;
+			this.gridColumn24.VisibleIndex = 6;
 			this.gridColumn24.Width = 197;
 			// 
 			// gridColumn25
@@ -380,7 +384,7 @@
 			this.gridColumn3.MinWidth = 25;
 			this.gridColumn3.Name = "gridColumn3";
 			this.gridColumn3.Visible = true;
-			this.gridColumn3.VisibleIndex = 2;
+			this.gridColumn3.VisibleIndex = 1;
 			this.gridColumn3.Width = 127;
 			// 
 			// gridColumn31
@@ -389,8 +393,6 @@
 			this.gridColumn31.FieldName = "WS003";
 			this.gridColumn31.MinWidth = 25;
 			this.gridColumn31.Name = "gridColumn31";
-			this.gridColumn31.Visible = true;
-			this.gridColumn31.VisibleIndex = 1;
 			this.gridColumn31.Width = 175;
 			// 
 			// gridColumn1
@@ -400,7 +402,7 @@
 			this.gridColumn1.MinWidth = 25;
 			this.gridColumn1.Name = "gridColumn1";
 			this.gridColumn1.Visible = true;
-			this.gridColumn1.VisibleIndex = 8;
+			this.gridColumn1.VisibleIndex = 7;
 			this.gridColumn1.Width = 224;
 			// 
 			// repositoryItemCheckEdit1
@@ -513,6 +515,14 @@
 			this.gridColumn15.VisibleIndex = 3;
 			this.gridColumn15.Width = 125;
 			// 
+			// barButtonItem8
+			// 
+			this.barButtonItem8.Caption = "补打火化证明";
+			this.barButtonItem8.Id = 9;
+			this.barButtonItem8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem8.ImageOptions.SvgImage")));
+			this.barButtonItem8.Name = "barButtonItem8";
+			this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick);
+			// 
 			// FinanceDaySearch
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -582,5 +592,6 @@
 		private DevExpress.XtraEditors.Repository.RepositoryItemToggleSwitch repositoryItemToggleSwitch1;
 		private DevExpress.XtraBars.BarStaticItem barStaticItem1;
 		private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+		private DevExpress.XtraBars.BarButtonItem barButtonItem8;
 	}
 }

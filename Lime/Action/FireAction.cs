@@ -170,5 +170,10 @@ namespace Lime.Action
 		{
 			return SqlHelper.ExecuteProc("pkg_business.prc_FireCertLog", ac001, fc100);
 		}
+
+		public static int ApplyUserCombo(string ac001,string cb001,string handler)
+		{
+			return SqlHelper.ExecuteProc("pkg_business.prc_ApplyUserCombo", ac001, cb001,handler);
+		}
 	}
 }

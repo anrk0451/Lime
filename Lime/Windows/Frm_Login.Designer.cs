@@ -68,7 +68,7 @@
 			this.checkEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
 			this.checkEdit1.Properties.Appearance.Options.UseForeColor = true;
 			this.checkEdit1.Properties.Caption = "记住密码";
-			this.checkEdit1.Size = new System.Drawing.Size(90, 23);
+			this.checkEdit1.Size = new System.Drawing.Size(105, 23);
 			this.checkEdit1.TabIndex = 15;
 			this.checkEdit1.Visible = false;
 			// 

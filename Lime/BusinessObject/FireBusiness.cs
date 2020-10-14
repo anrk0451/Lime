@@ -407,7 +407,8 @@ namespace Lime.BusinessObject
 		{
 			if (e.Action == CollectionChangeAction.Add)
 			{
-				int row = gridView1.FocusedRowHandle;
+				//int row = gridView1.FocusedRowHandle;
+				int row = e.ControllerRow;
 				if (gridView1.GetRowCellValue(row, "SA008").ToString() == "1")
 				{
 					XtraMessageBox.Show("已结算数据不能修改!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -456,6 +457,24 @@ namespace Lime.BusinessObject
 				this.RefreshData();
 			}
 			frm_1.Dispose();
+		}
+
+		private void barButtonItem20_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			if (FireAction.FireIsSettled(s_ac001))
+			{
+				XtraMessageBox.Show("已经办理火化且结算完成,不能继续办理业务!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
+			Frm_ApplyCombo frm_combo = new Frm_ApplyCombo();
+			frm_combo.swapdata["ac001"] = s_ac001;
+
+			if (frm_combo.ShowDialog() == DialogResult.OK)
+			{
+				this.RefreshData();
+			}
+			frm_combo.Dispose();
 		}
 	}
 }

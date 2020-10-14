@@ -68,6 +68,7 @@
 			this.barHeaderItem2 = new DevExpress.XtraBars.BarHeaderItem();
 			this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
 			this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
+			this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
 			this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -83,6 +84,7 @@
 			this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
 			this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
 			this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 			((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.session1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -134,10 +136,11 @@
             this.barHeaderItem3,
             this.barHeaderItem2,
             this.barStaticItem1,
-            this.barButtonItem28});
+            this.barButtonItem28,
+            this.skinRibbonGalleryBarItem1});
 			this.ribbon.Location = new System.Drawing.Point(0, 0);
 			this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-			this.ribbon.MaxItemId = 37;
+			this.ribbon.MaxItemId = 38;
 			this.ribbon.Name = "ribbon";
 			this.ribbon.OptionsMenuMinWidth = 412;
 			this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -145,6 +148,7 @@
             this.ribbonPage2,
             this.ribbonPage3});
 			this.ribbon.QuickToolbarItemLinks.Add(this.barButtonItem28);
+			this.ribbon.QuickToolbarItemLinks.Add(this.skinRibbonGalleryBarItem1);
 			this.ribbon.Size = new System.Drawing.Size(1400, 183);
 			this.ribbon.StatusBar = this.ribbonStatusBar;
 			// 
@@ -227,6 +231,7 @@
 			this.barButtonItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.ImageOptions.Image")));
 			this.barButtonItem10.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.ImageOptions.LargeImage")));
 			this.barButtonItem10.Name = "barButtonItem10";
+			this.barButtonItem10.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem10_ItemClick);
 			// 
 			// barButtonItem11
 			// 
@@ -271,10 +276,11 @@
 			// 
 			// barButtonItem16
 			// 
-			this.barButtonItem16.Caption = "火化安排";
+			this.barButtonItem16.Caption = "补打证明查询";
 			this.barButtonItem16.Id = 16;
 			this.barButtonItem16.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem16.ImageOptions.SvgImage")));
 			this.barButtonItem16.Name = "barButtonItem16";
+			this.barButtonItem16.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem16_ItemClick);
 			// 
 			// barButtonItem17
 			// 
@@ -282,6 +288,7 @@
 			this.barButtonItem17.Id = 17;
 			this.barButtonItem17.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem17.ImageOptions.SvgImage")));
 			this.barButtonItem17.Name = "barButtonItem17";
+			this.barButtonItem17.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem17_ItemClick);
 			// 
 			// barButtonItem18
 			// 
@@ -360,6 +367,7 @@
 			this.barButtonItem25.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem25.ImageOptions.Image")));
 			this.barButtonItem25.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem25.ImageOptions.LargeImage")));
 			this.barButtonItem25.Name = "barButtonItem25";
+			this.barButtonItem25.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem25_ItemClick);
 			// 
 			// barButtonItem26
 			// 
@@ -412,6 +420,13 @@
 			superToolTip1.Items.Add(toolTipItem1);
 			this.barButtonItem28.SuperTip = superToolTip1;
 			this.barButtonItem28.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem28_ItemClick);
+			// 
+			// skinRibbonGalleryBarItem1
+			// 
+			this.skinRibbonGalleryBarItem1.Caption = "换肤";
+			this.skinRibbonGalleryBarItem1.Id = 37;
+			this.skinRibbonGalleryBarItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("skinRibbonGalleryBarItem1.ImageOptions.SvgImage")));
+			this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
 			// 
 			// ribbonPage1
 			// 
@@ -629,5 +644,7 @@
 		private DevExpress.XtraBars.BarHeaderItem barHeaderItem2;
 		private DevExpress.XtraBars.BarStaticItem barStaticItem1;
 		private DevExpress.XtraBars.BarButtonItem barButtonItem28;
+		private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
+		private System.Windows.Forms.SaveFileDialog saveFileDialog1;
 	}
 }

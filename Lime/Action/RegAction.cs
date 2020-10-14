@@ -61,9 +61,9 @@ namespace Lime.Action
 		/// <param name="regionId"></param>
 		/// <param name="bitDesc"></param>
 		/// <returns></returns>
-		public static string GetBitFullName(string regionId, int layerNum,string bitDesc)
+		public static string GetBitFullName(string regionId,int layerNum, string bitDesc)
 		{
-			return SqlHelper.ExecuteFunc("pkg_report.fun_getBitFullName", regionId,layerNum, bitDesc).ToString();
+			return SqlHelper.ExecuteFunc("pkg_report.fun_getBitFullName", regionId, layerNum, bitDesc).ToString();
 		}
 		/// <summary>
 		/// 返回寄存号位定价
@@ -71,9 +71,9 @@ namespace Lime.Action
 		/// <param name="regionId"></param>
 		/// <param name="bitDesc"></param>
 		/// <returns></returns>
-		public static decimal GetBitPrice(string regionId, int layerNum,string bitDesc)
+		public static decimal GetBitPrice(string regionId,int layerNum, string bitDesc)
 		{
-			return Convert.ToDecimal(SqlHelper.ExecuteFunc("pkg_report.fun_getBitPrice2", regionId,layerNum,bitDesc));
+			return Convert.ToDecimal(SqlHelper.ExecuteFunc("pkg_report.fun_getBitPrice2", regionId, layerNum,bitDesc));
 		}
 		/// <summary>
 		/// 根据寄存号位ID 返回寄存堂编号

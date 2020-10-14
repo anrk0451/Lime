@@ -97,11 +97,7 @@
 			// labelControl14
 			// 
 			this.labelControl14.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl14.Appearance.Image = null;
 			this.labelControl14.Appearance.Options.UseFont = true;
-			this.labelControl14.AppearanceDisabled.Image = null;
-			this.labelControl14.AppearanceHovered.Image = null;
-			this.labelControl14.AppearancePressed.Image = null;
 			this.labelControl14.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
 			this.labelControl14.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Horizontal;
 			this.labelControl14.LineVisible = true;
@@ -131,11 +127,7 @@
 			// labelControl13
 			// 
 			this.labelControl13.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl13.Appearance.Image = null;
 			this.labelControl13.Appearance.Options.UseFont = true;
-			this.labelControl13.AppearanceDisabled.Image = null;
-			this.labelControl13.AppearanceHovered.Image = null;
-			this.labelControl13.AppearancePressed.Image = null;
 			this.labelControl13.Location = new System.Drawing.Point(512, 173);
 			this.labelControl13.Name = "labelControl13";
 			this.labelControl13.Size = new System.Drawing.Size(76, 19);
@@ -154,11 +146,7 @@
 			// labelControl12
 			// 
 			this.labelControl12.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl12.Appearance.Image = null;
 			this.labelControl12.Appearance.Options.UseFont = true;
-			this.labelControl12.AppearanceDisabled.Image = null;
-			this.labelControl12.AppearanceHovered.Image = null;
-			this.labelControl12.AppearancePressed.Image = null;
 			this.labelControl12.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
 			this.labelControl12.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Horizontal;
 			this.labelControl12.LineVisible = true;
@@ -180,11 +168,7 @@
 			// labelControl11
 			// 
 			this.labelControl11.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl11.Appearance.Image = null;
 			this.labelControl11.Appearance.Options.UseFont = true;
-			this.labelControl11.AppearanceDisabled.Image = null;
-			this.labelControl11.AppearanceHovered.Image = null;
-			this.labelControl11.AppearancePressed.Image = null;
 			this.labelControl11.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
 			this.labelControl11.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Horizontal;
 			this.labelControl11.LineVisible = true;
@@ -215,11 +199,7 @@
 			// labelControl10
 			// 
 			this.labelControl10.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl10.Appearance.Image = null;
 			this.labelControl10.Appearance.Options.UseFont = true;
-			this.labelControl10.AppearanceDisabled.Image = null;
-			this.labelControl10.AppearanceHovered.Image = null;
-			this.labelControl10.AppearancePressed.Image = null;
 			this.labelControl10.Location = new System.Drawing.Point(263, 259);
 			this.labelControl10.Name = "labelControl10";
 			this.labelControl10.Size = new System.Drawing.Size(105, 19);
@@ -238,11 +218,7 @@
 			// labelControl9
 			// 
 			this.labelControl9.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl9.Appearance.Image = null;
 			this.labelControl9.Appearance.Options.UseFont = true;
-			this.labelControl9.AppearanceDisabled.Image = null;
-			this.labelControl9.AppearanceHovered.Image = null;
-			this.labelControl9.AppearancePressed.Image = null;
 			this.labelControl9.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
 			this.labelControl9.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Horizontal;
 			this.labelControl9.LineVisible = true;
@@ -282,11 +258,7 @@
 			// labelControl7
 			// 
 			this.labelControl7.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl7.Appearance.Image = null;
 			this.labelControl7.Appearance.Options.UseFont = true;
-			this.labelControl7.AppearanceDisabled.Image = null;
-			this.labelControl7.AppearanceHovered.Image = null;
-			this.labelControl7.AppearancePressed.Image = null;
 			this.labelControl7.Location = new System.Drawing.Point(296, 173);
 			this.labelControl7.Name = "labelControl7";
 			this.labelControl7.Size = new System.Drawing.Size(86, 19);
@@ -344,11 +316,7 @@
 			// labelControl3
 			// 
 			this.labelControl3.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl3.Appearance.Image = null;
 			this.labelControl3.Appearance.Options.UseFont = true;
-			this.labelControl3.AppearanceDisabled.Image = null;
-			this.labelControl3.AppearanceHovered.Image = null;
-			this.labelControl3.AppearancePressed.Image = null;
 			this.labelControl3.Location = new System.Drawing.Point(553, 48);
 			this.labelControl3.Name = "labelControl3";
 			this.labelControl3.Size = new System.Drawing.Size(48, 19);
@@ -374,11 +342,7 @@
 			// labelControl2
 			// 
 			this.labelControl2.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl2.Appearance.Image = null;
 			this.labelControl2.Appearance.Options.UseFont = true;
-			this.labelControl2.AppearanceDisabled.Image = null;
-			this.labelControl2.AppearanceHovered.Image = null;
-			this.labelControl2.AppearancePressed.Image = null;
 			this.labelControl2.Location = new System.Drawing.Point(300, 48);
 			this.labelControl2.Name = "labelControl2";
 			this.labelControl2.Size = new System.Drawing.Size(48, 19);
@@ -397,11 +361,7 @@
 			// labelControl8
 			// 
 			this.labelControl8.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl8.Appearance.Image = null;
 			this.labelControl8.Appearance.Options.UseFont = true;
-			this.labelControl8.AppearanceDisabled.Image = null;
-			this.labelControl8.AppearanceHovered.Image = null;
-			this.labelControl8.AppearancePressed.Image = null;
 			this.labelControl8.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
 			this.labelControl8.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Horizontal;
 			this.labelControl8.LineVisible = true;
@@ -414,11 +374,7 @@
 			// labelControl6
 			// 
 			this.labelControl6.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl6.Appearance.Image = null;
 			this.labelControl6.Appearance.Options.UseFont = true;
-			this.labelControl6.AppearanceDisabled.Image = null;
-			this.labelControl6.AppearanceHovered.Image = null;
-			this.labelControl6.AppearancePressed.Image = null;
 			this.labelControl6.Location = new System.Drawing.Point(56, 173);
 			this.labelControl6.Name = "labelControl6";
 			this.labelControl6.Size = new System.Drawing.Size(76, 19);
@@ -428,11 +384,7 @@
 			// labelControl5
 			// 
 			this.labelControl5.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl5.Appearance.Image = null;
 			this.labelControl5.Appearance.Options.UseFont = true;
-			this.labelControl5.AppearanceDisabled.Image = null;
-			this.labelControl5.AppearanceHovered.Image = null;
-			this.labelControl5.AppearancePressed.Image = null;
 			this.labelControl5.Location = new System.Drawing.Point(56, 131);
 			this.labelControl5.Name = "labelControl5";
 			this.labelControl5.Size = new System.Drawing.Size(76, 19);
@@ -442,25 +394,17 @@
 			// labelControl4
 			// 
 			this.labelControl4.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl4.Appearance.Image = null;
 			this.labelControl4.Appearance.Options.UseFont = true;
-			this.labelControl4.AppearanceDisabled.Image = null;
-			this.labelControl4.AppearanceHovered.Image = null;
-			this.labelControl4.AppearancePressed.Image = null;
 			this.labelControl4.Location = new System.Drawing.Point(56, 90);
 			this.labelControl4.Name = "labelControl4";
-			this.labelControl4.Size = new System.Drawing.Size(76, 19);
+			this.labelControl4.Size = new System.Drawing.Size(86, 19);
 			this.labelControl4.TabIndex = 111;
-			this.labelControl4.Text = "身份证号";
+			this.labelControl4.Text = "身份证号*";
 			// 
 			// labelControl1
 			// 
 			this.labelControl1.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl1.Appearance.Image = null;
 			this.labelControl1.Appearance.Options.UseFont = true;
-			this.labelControl1.AppearanceDisabled.Image = null;
-			this.labelControl1.AppearanceHovered.Image = null;
-			this.labelControl1.AppearancePressed.Image = null;
 			this.labelControl1.Location = new System.Drawing.Point(56, 48);
 			this.labelControl1.Name = "labelControl1";
 			this.labelControl1.Size = new System.Drawing.Size(86, 19);
@@ -499,11 +443,6 @@
 			this.sb_cancel.TabIndex = 140;
 			this.sb_cancel.Text = "关闭";
 			// 
-			// unitOfWork1
-			// 
-			this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
-			this.unitOfWork1.TrackPropertiesModifications = false;
-			// 
 			// sb_clear
 			// 
 			this.sb_clear.Appearance.BackColor = System.Drawing.Color.DodgerBlue;
@@ -522,11 +461,7 @@
 			// labelControl15
 			// 
 			this.labelControl15.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.labelControl15.Appearance.Image = null;
 			this.labelControl15.Appearance.Options.UseFont = true;
-			this.labelControl15.AppearanceDisabled.Image = null;
-			this.labelControl15.AppearanceHovered.Image = null;
-			this.labelControl15.AppearancePressed.Image = null;
 			this.labelControl15.Location = new System.Drawing.Point(392, 90);
 			this.labelControl15.Name = "labelControl15";
 			this.labelControl15.Size = new System.Drawing.Size(86, 19);

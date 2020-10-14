@@ -516,7 +516,7 @@ namespace Lime.BusinessObject
 			if(xp_temp.Count > 0)
 			{
 				s_bitStatus = xp_temp[0].STATUS;
-				if (s_bitStatus == "9" || s_bitStatus == "8")
+				if (s_bitStatus == "9" /*|| s_bitStatus == "8"*/)
 				{
 					e.Appearance.BackColor = Color.Green;
 					e.Appearance.ForeColor = Color.White;
@@ -530,6 +530,11 @@ namespace Lime.BusinessObject
 				{
 					e.Appearance.BackColor = Color.Yellow;
 					e.Appearance.ForeColor = Color.Black;
+				}
+				else if (s_bitStatus == "8")  //待缴费
+				{
+					e.Appearance.BackColor = Color.Blue;
+					e.Appearance.ForeColor = Color.White;
 				}
 			}
 			xp_temp.Dispose();

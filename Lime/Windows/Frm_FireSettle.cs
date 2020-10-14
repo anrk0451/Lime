@@ -50,13 +50,13 @@ namespace Lime.Windows
 			string s_fa099 = string.Empty;
 			decimal dec_sum = decimal.Zero;
 
-			if (string.IsNullOrEmpty(te_fa099.Text))
-			{
-				te_fa099.ErrorImageOptions.Alignment = ErrorIconAlignment.MiddleRight;
-				te_fa099.ErrorText = "请输入收费单据号!";
-				te_fa099.Focus();
-				return;
-			}
+			//if (string.IsNullOrEmpty(te_fa099.Text))
+			//{
+			//	te_fa099.ErrorImageOptions.Alignment = ErrorIconAlignment.MiddleRight;
+			//	te_fa099.ErrorText = "请输入收费单据号!";
+			//	te_fa099.Focus();
+			//	return;
+			//}
 
 			try
 			{

@@ -16,6 +16,9 @@ using DevExpress.XtraTreeList.Nodes;
 using Lime.Misc;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using Lime.Windows;
+using Lime.Xpo.orcl;
+using DevExpress.Data.Filtering;
+using DevExpress.Xpo;
 
 namespace Lime.BusinessObject
 {
@@ -26,10 +29,10 @@ namespace Lime.BusinessObject
 		private DataTable dt_rg01 = new DataTable("RG01");
 		private OracleDataAdapter rg01Adapter = new OracleDataAdapter("select * from v_rg01 order by rg002,rg001", SqlHelper.conn);
 
-		private DataTable dt_bi01 = new DataTable("BI01");
-		private OracleDataAdapter bi01Adapter =
-			new OracleDataAdapter(@"select * from bi01 where rg001 = :rg001 order by bi005 desc,bi008", SqlHelper.conn);
-		private OracleParameter op_rg001 = new OracleParameter("rg001", OracleDbType.Varchar2, 10);
+		//private DataTable dt_bi01 = new DataTable("BI01");
+		//private OracleDataAdapter bi01Adapter =
+		//	new OracleDataAdapter(@"select * from bi01 where rg001 = :rg001 order by bi005 desc,bi008", SqlHelper.conn);
+		//private OracleParameter op_rg001 = new OracleParameter("rg001", OracleDbType.Varchar2, 10);
 
 
 		private DataTable dt_bitInfo = new DataTable("BitInfo");
@@ -47,8 +50,8 @@ namespace Lime.BusinessObject
 			treeList1.DataSource = dt_rg01;
 			treeList1.ExpandToLevel(2);
 
-			op_rg001.Direction = ParameterDirection.Input;
-			bi01Adapter.SelectCommand.Parameters.Add(op_rg001);
+			//op_rg001.Direction = ParameterDirection.Input;
+			//bi01Adapter.SelectCommand.Parameters.Add(op_rg001);
 
 			gridControl2.DataSource = dt_bitInfo;
 			SplashScreenManager.CloseDefaultWaitForm();
@@ -117,17 +120,21 @@ namespace Lime.BusinessObject
 				gridTable.Columns.Add(col);
 			}
 
-			dt_bi01.Clear();
-			op_rg001.Value = regionNode.GetValue("RG001").ToString();
-			bi01Adapter.Fill(dt_bi01);
+			CriteriaOperator criteria = CriteriaOperator.Parse("RG001 ='" + regionNode.GetValue("RG001").ToString() + "'");
+			XPCollection<BI01> bits_arry = new XPCollection<BI01>(session1, xpCollection_bi01, criteria);
 
+			//SortingCollection sorting = new SortingCollection();
+			//sorting.Add(new SortProperty("BI005", DevExpress.Xpo.DB.SortingDirection.Descending));
+			//sorting.Add(new SortProperty("BI008", DevExpress.Xpo.DB.SortingDirection.Ascending));
+			//bits_arry.Sorting = sorting;
+			 
 			int bitIndex = 0;
 			for (int i = 1; i <= rows; i++)
 			{
 				row = gridTable.NewRow();
 				for (int j = 1; j <= cols; j++)
 				{
-					row.SetField(j - 1, dt_bi01.Rows[bitIndex]["BI003"]);
+					row.SetField(j - 1, bits_arry[bitIndex].BI003);
 					bitIndex++;
 				}
 				gridTable.Rows.Add(row);
@@ -135,6 +142,25 @@ namespace Lime.BusinessObject
 
 			gridControl1.DataSource = gridTable;
 			gridView1.PopulateColumns();
+			 
+			//dt_bi01.Clear();
+			//op_rg001.Value = regionNode.GetValue("RG001").ToString();
+			//bi01Adapter.Fill(dt_bi01);
+
+			//int bitIndex = 0;
+			//for (int i = 1; i <= rows; i++)
+			//{
+			//	row = gridTable.NewRow();
+			//	for (int j = 1; j <= cols; j++)
+			//	{
+			//		row.SetField(j - 1, dt_bi01.Rows[bitIndex]["BI003"]);
+			//		bitIndex++;
+			//	}
+			//	gridTable.Rows.Add(row);
+			//}
+
+			//gridControl1.DataSource = gridTable;
+			//gridView1.PopulateColumns();
 
 			//设置列宽 
 			for (int i = 1; i <= cols; i++)
@@ -277,6 +303,11 @@ namespace Lime.BusinessObject
 				e.Appearance.BackColor = Color.Red;
 				e.Appearance.ForeColor = Color.White;
 			}
+			else if(s_bitStatus == "8")  //待缴费
+			{
+				e.Appearance.BackColor = Color.Blue;
+				e.Appearance.ForeColor = Color.White;
+			}
 		}
 
 		private void treeList1_AfterExpand(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
@@ -301,6 +332,68 @@ namespace Lime.BusinessObject
 					node.SelectImageIndex = 3;
 				}
 			}
+		}
+
+		private void gridView1_MouseEnter(object sender, EventArgs e)
+		{
+			GridHitInfo hInfo = gridView1.CalcHitInfo(MousePosition);
+			if (hInfo.InRow && hInfo.Column != null)
+				panel_info.Visible = true;
+			else
+				panel_info.Visible = false;
+		}
+
+		private void gridView1_MouseMove(object sender, MouseEventArgs e)
+		{
+			GridHitInfo hInfo = gridView1.CalcHitInfo(new Point(e.X, e.Y));
+			int i_layerNum;
+			if (hInfo.InRow && hInfo.Column != null && hInfo.InRowCell)
+			{
+				panel_info.Visible = true;
+				i_layerNum = gridView1.RowCount - hInfo.RowHandle;
+				string s_bi003 = gridView1.GetRowCellValue(hInfo.RowHandle, hInfo.Column).ToString();
+				string s_bi001 = RegAction.GetBitId(curRegionId, i_layerNum, s_bi003 );
+				BI01 bi01 = session1.GetObjectByKey<BI01>(s_bi001);
+				if (bi01 != null)
+				{
+					lc_position.Text = RegAction.GetBitFullName(curRegionId,i_layerNum,s_bi003);
+					lc_price.Text = string.Format("{0:C2}", bi01.BI009);
+
+					if (bi01.STATUS == "1") lc_status.Text = "占用";
+					if (bi01.STATUS == "9") lc_status.Text = "空闲";
+					if (bi01.STATUS == "8") lc_status.Text = "待缴费";
+					 
+					if (bi01.STATUS != "1")
+					{
+						lc_name_header.Visible = false;
+						lc_name.Visible = false;						 
+					}
+					else
+					{
+						lc_name_header.Visible = true;
+						lc_name.Visible = true;
+
+						RC01 rc01 = session1.GetObjectByKey<RC01>(bi01.BI010);
+						if (rc01 != null)
+						{
+							lc_name.Text = rc01.RC003;						 
+						}
+
+					}
+				}
+			}
+			else
+				panel_info.Visible = false;
+		}
+
+		private void gridView1_MouseLeave(object sender, EventArgs e)
+		{
+			panel_info.Visible = false;
+		}
+
+		private void gridControl1_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

@@ -117,57 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="mvvmContext1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <assembly alias="DevExpress.Data.v20.1" name="DevExpress.Data.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="barButtonItem1.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjIwLjEsIFZlcnNpb249MjAuMS43
-        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
-        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAACoCAAAC77u/
-        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgeD0iMHB4IiB5PSIwcHgi
-        IHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv
-        MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBlbmFibGUt
-        YmFja2dyb3VuZD0ibmV3IDAgMCAzMiAzMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgaWQ9IlJlZnJlc2hf
-        QWxsX1Bpdm90X1RhYmxlIj4NCiAgPHBhdGggZD0iTTMwLDJ2MTJoLTAuMmgtNEgxOGw1LTVjLTEuOC0x
-        LjgtNC4zLTMtNy0zYy00LjgsMC04LjksMy40LTkuOCw4aC00QzMuMSw3LjIsOC45LDIsMTYsMiAgYzMu
-        OSwwLDcuNCwxLjYsOS45LDQuMUwzMCwyeiBNMTYsMjZjLTIuOCwwLTUuMi0xLjEtNy0zbDUtNUg2LjJo
-        LTRIMnYxMmw0LjEtNC4xYzIuNSwyLjUsNiw0LjEsOS45LDQuMWM3LjEsMCwxMi45LTUuMiwxMy44LTEy
-        aC00ICBDMjQuOSwyMi42LDIwLjgsMjYsMTYsMjZ6IiBmaWxsPSIjMDM5QzIzIiBjbGFzcz0iR3JlZW4i
-        IC8+DQo8L3N2Zz4L
-</value>
-  </data>
-  <data name="barButtonItem2.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjIwLjEsIFZlcnNpb249MjAuMS43
-        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
-        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAAIcDAAAC77u/
-        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgeD0iMHB4IiB5PSIwcHgi
-        IHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv
-        MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBlbmFibGUt
-        YmFja2dyb3VuZD0ibmV3IDAgMCAzMiAzMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgaWQ9IkxheWVyXzEi
-        Pg0KICA8ZyBpZD0iSW1hZ2VMb2FkIj4NCiAgICA8cGF0aCBkPSJNMjcuMywxOEg3LjZMMiwyOGgxOS44
-        YzAuNSwwLDEuMS0wLjIsMS4zLTAuNmw0LjktOC45QzI4LjEsMTguMiwyNy44LDE4LDI3LjMsMTh6IiBm
-        aWxsPSIjRkZCMTE1IiBjbGFzcz0iWWVsbG93IiAvPg0KICAgIDxnIG9wYWNpdHk9IjAuNzUiIGNsYXNz
-        PSJzdDEiPg0KICAgICAgPHBhdGggZD0iTTIxLDEyaC0yLjJjLTAuNCwwLjUtMC43LDEtMC44LDEuNWMt
-        MC4yLDAuOS0xLDEuNi0yLDEuNmMwLDAsMCwwLDAsMGMtMSwwLTEuOC0wLjctMS45LTEuNyAgICBDMTQs
-        MTIuOSwxNCwxMi40LDE0LDEyaC00VjljMC0wLjYtMC40LTEtMS0xSDFDMC40LDgsMCw4LjUsMCw5djE4
-        YzAsMC4yLDAsMC4zLDAuMSwwLjRjMCwwLDAuMS0wLjEsMC4xLTAuMmw1LjUtMTAgICAgQzYsMTYuNSw2
-        LjcsMTYsNy41LDE2SDIydi0zQzIyLDEyLjUsMjEuNSwxMiwyMSwxMnoiIGZpbGw9IiNGRkIxMTUiIG9w
-        YWNpdHk9IjAuNzUiIGNsYXNzPSJZZWxsb3ciIC8+DQogICAgPC9nPg0KICAgIDxwYXRoIGQ9Ik0zMCw2
-        bC02LTZ2NGMtNC40LDAtOCwzLjYtOCw4YzAsMC40LDAsMC44LDAuMSwxLjFDMTYuNiwxMC4yLDIwLDgs
-        MjQsOHY0TDMwLDZ6IiBmaWxsPSIjMTE3N0Q3IiBjbGFzcz0iQmx1ZSIgLz4NCiAgPC9nPg0KPC9zdmc+
-        Cw==
-</value>
-  </data>
-  <metadata name="svgImageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1098, 17</value>
-  </metadata>
-  <metadata name="session1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>166, 27</value>
-  </metadata>
-  <metadata name="xpCollection_bi01.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>298, 16</value>
   </metadata>
 </root>

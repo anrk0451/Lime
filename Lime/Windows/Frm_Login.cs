@@ -84,7 +84,7 @@ namespace Lime.Windows
 			{
 				Envior.cur_user = uc01; 
 				Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-				config.AppSettings.Settings["lastusername"].Value = s_userCode;
+				config.AppSettings.Settings["lastusername"].Value = s_userCode;			
 				config.Save(ConfigurationSaveMode.Modified);
 
 				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
